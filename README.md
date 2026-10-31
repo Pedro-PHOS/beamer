@@ -8,6 +8,53 @@ Base recebida: arquivo `beamer-main.zip`, commit indicado pelo ZIP
 Este fork mantém Windows e Linux e remove o aplicativo nativo macOS. Não é uma
 versão oficial do autor original. Licença e avisos de autoria foram preservados.
 
+## Diferenças em relação ao original
+
+Comparação com o Beamer 1.5.18 de Kalkman Code (commit `6bd653d`):
+
+| Área | Original (upstream) | Este fork |
+| --- | --- | --- |
+| Plataformas | macOS, Windows e Linux | Windows e Linux |
+| App macOS | app nativo, DMG assinado e notarizado | removido |
+| Áudio do sistema | não existe | envio entre máquinas pareadas |
+| Túnel para macOS 27 | disponível | removido |
+| Ferramentas de auditoria de UI | Mac, Windows e Linux | Windows e Linux |
+| Tamanho do código | — | 170 arquivos e ~3,9 MB a menos |
+
+**Removido**
+
+- Pasta `mac_app/` inteira: menu bar, gestos do trackpad, overlay de efeitos, build do
+  DMG, permissões de Acessibilidade e Monitoramento de Entrada.
+- `Beamer.icns`, capturas de tela do Mac e `theme.py`.
+- Integrações Foundation/AppKit/PyObjC: idioma, região, consulta de releases,
+  decodificação BSD de `sockaddr`, mapeamento de atalhos Windows → macOS.
+- Ramo do túnel para macOS 27 e as mensagens de erro correspondentes.
+- Efeito de notch e controles de trackpad na interface Qt.
+
+**Adicionado**
+
+- Áudio do sistema entre máquinas: `core/audio_stream.py` e `core/audio_mute.py`,
+  canal TCP 24822, PCM estéreo 48 kHz/16 bits em blocos de 20 ms (~1,54 Mbit/s),
+  chave derivada por HKDF e quadro ChaCha20-Poly1305.
+- Controles na página **Overview**: **Allow audio from paired computers**,
+  **Audio destination**, **Send this computer's audio** e, no Windows,
+  **Mute local output while sending**.
+- `docs/AUDIO.md` (protocolo e limitações), `docs/FORK.md` (registro das alterações),
+  `docs/VALIDACAO.md` (resultados de teste) e `tools/check_fork.py`.
+
+**Inalterado**
+
+Protocolo e numeração de mensagens, criptografia, pareamento por código de seis
+dígitos, área de transferência, catálogo de efeitos, nome do programa e
+identificador Flatpak. Um Beamer oficial consegue parear com este fork, mas sem
+os recursos de áudio e sem o app Mac do outro lado.
+
+**Números desta adaptação:** 249 arquivos alterados, 5.640 linhas adicionadas e
+62.716 removidas.
+
+O áudio exige **esta versão nas duas máquinas**; o Beamer oficial não fala o canal
+24822. Detalhes em [docs/AUDIO.md](docs/AUDIO.md).
+
 ## Funcionalidades mantidas
 
 - Teclado e mouse entre computadores pela rede local.
