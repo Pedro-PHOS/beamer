@@ -91,19 +91,7 @@ def _portable_download(version, payload):
 
 
 def fetch(url=LATEST_URL):
-    """The response body as bytes. The Mac goes through Foundation, which trusts the system's
-    certificates; a bundled Python has no certificate store of its own there."""
-    if sys.platform == "darwin":
-        import Foundation
-
-        request = Foundation.NSMutableURLRequest.requestWithURL_cachePolicy_timeoutInterval_(
-            Foundation.NSURL.URLWithString_(url), Foundation.NSURLRequestReloadIgnoringLocalCacheData, TIMEOUT_SECONDS)
-        request.setValue_forHTTPHeaderField_("application/vnd.github+json", "Accept")
-        data, response, error = Foundation.NSURLConnection.sendSynchronousRequest_returningResponse_error_(
-            request, None, None)
-        if data is None or error is not None or response is None or response.statusCode() != 200:
-            raise OSError(f"update check failed: {error or (response.statusCode() if response else 'no response')}")
-        return bytes(data)[:MAX_BYTES]
+    """Fetch release metadata using the system TLS certificate store."""
     import urllib.request
 
     request = urllib.request.Request(url, headers={"Accept": "application/vnd.github+json"})

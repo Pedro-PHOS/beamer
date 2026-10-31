@@ -62,14 +62,14 @@ platform.node = lambda: own_name
 socket.gethostname = lambda: own_name
 pairing.machine_name = lambda: own_name
 fixture = {
-    "host": "192.168.1.20", "port": 24820, "auth_token": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8", "paired_with": "MacBook Pro",
+    "host": "192.168.1.20", "port": 24820, "auth_token": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8", "paired_with": "Linux Laptop",
     "mac_host": "192.168.1.10", "mac_return_edge": "left", "glow_colour": "signal",
     "ignored_inputs": ["button:back", "button:forward", "key:175", "key:174"],
     "appearance": appearance,
 }
 if four:
-    names = ("Desk PC", "Studio Mac", "Laptop", "Linux box")
-    platforms = ("windows", "macos", "windows", "linux")
+    names = ("Desk PC", "Studio Linux", "Laptop", "Linux box")
+    platforms = ("windows", "linux", "windows", "linux")
     hosts = ("192.0.2.10", "192.0.2.11", "192.0.2.12", "192.0.2.13")
     ids = [bytes([index + 31]) * 16 for index in range(4)]
     tokens = [pairing._b64(bytes([index + 41]) * 32) for index in range(4)]  # pairing's shape, or the app shows "Pair again"
@@ -101,7 +101,7 @@ elif LINUX:
     fixture["paired_with"] = ""
     token_32 = pairing._b64(bytes([42]) * 32)
     fixture["peers"] = [pairing.peer_entry(
-        bytes([1]) * 16, "MacBook Pro", "macos", fixture["port"], token_32,
+        bytes([1]) * 16, "Linux Laptop", "linux", fixture["port"], token_32,
         fixture["mac_host"], 1791321600,
     )]
 if four:
@@ -220,7 +220,7 @@ if four:
     banned = [real_hostname, real_hostname.split(".", 1)[0], real_username,
               "10.0.0.", "fedora",
               *filter(None, os.environ.get("BEAMER_SHOT_DENY", "").split(","))]
-    rendered_texts.extend(("Desk PC", "Studio Mac", "Laptop", "Linux box"))
+    rendered_texts.extend(("Desk PC", "Studio Linux", "Laptop", "Linux box"))
     found = [text for text in rendered_texts if text and
              any(term and term.casefold() in text.casefold() for term in banned)]
     if found:

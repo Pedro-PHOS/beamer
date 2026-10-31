@@ -15,63 +15,40 @@ on a driven desk, that desk's responder and its armed zones. Assertions are by e
 holds a hand's input, and where the pointer landed on it.
 
 Platform edges only are faked: the injector, the cursor and the clipboard (responder_harness)."""
-
 import copy
 import threading
 import time
-
 from core import owner as owner_module
 from core import protocol, receiver, return_edge
 from core.return_edge import Rect
 from core.tests.responder_harness import FakeDesktop, Initiator, Machine, entry, ident, token, wait_for
-
-try:
-    from mac_app import crossing as mac_crossing
-except ImportError:  # pragma: no cover - mac_app/crossing.py is pure and ships in the tree
-    mac_crossing = None
-
-CAPS = ["clipboard", "clipboard_image", "gestures", "media_keys", "text", "settings", "design_sync",
-        "layout", "displays", "ping_rtt"]
-# The way a push goes through each side, and how hard: well past the 120 px resistance.
-PUSH = {"left": (-40, 0), "right": (40, 0), "top": (0, -40), "bottom": (0, 40)}
+CAPS = ['clipboard', 'clipboard_image', 'gestures', 'media_keys', 'text', 'settings', 'design_sync', 'layout', 'displays', 'ping_rtt']
+PUSH = {'left': (-40, 0), 'right': (40, 0), 'top': (0, -40), 'bottom': (0, 40)}
 PUSHES = 8
-CORNER_PUSH = {"top_left": (-30, -30), "top_right": (30, -30), "bottom_left": (-30, 30),
-               "bottom_right": (30, 30)}
-# The fraction along an edge at the middle of each third.
-THIRD_AT = {"start": 1 / 6, "middle": 0.5, "end": 5 / 6}
+CORNER_PUSH = {'top_left': (-30, -30), 'top_right': (30, -30), 'bottom_left': (-30, 30), 'bottom_right': (30, 30)}
+THIRD_AT = {'start': 1 / 6, 'middle': 0.5, 'end': 5 / 6}
 
-
-def per_screen_layout(a_id, b_id, *, b1_x=None, a_sizes=((100, 100), (100, 100)),
-                      b_sizes=((100, 100), (100, 100))):
+def per_screen_layout(a_id, b_id, *, b1_x=None, a_sizes=((100, 100), (100, 100)), b_sizes=((100, 100), (100, 100))):
     """A0–B0–A1 / B1-below; display offsets move screens beyond the nominal machine tile."""
     a0, a1 = a_sizes
     b0, b1 = b_sizes
     b_x = a0[0]
     a1_x = a0[0]
     b1_x = b_x if b1_x is None else b1_x
-    a_tile = {"x": 0, "y": 0, "w": a0[0] + a1[0], "h": max(a0[1], a1[1]), "displays": {
-            "0": {"x": 0, "y": 0, "w": a0[0], "h": a0[1]},
-            "1": {"x": a1_x, "y": 0, "w": a1[0], "h": a1[1]},
-        }, "display_offsets": {"1": {"x": b0[0], "y": 0}}}
-    b_tile = {"x": b_x, "y": 0, "w": max(b0[0], b1[0]), "h": b0[1] + b1[1], "displays": {
-            "0": {"x": 0, "y": 0, "w": b0[0], "h": b0[1]},
-            "1": {"x": 0, "y": b0[1], "w": b1[0], "h": b1[1]},
-        }}
+    a_tile = {'x': 0, 'y': 0, 'w': a0[0] + a1[0], 'h': max(a0[1], a1[1]), 'displays': {'0': {'x': 0, 'y': 0, 'w': a0[0], 'h': a0[1]}, '1': {'x': a1_x, 'y': 0, 'w': a1[0], 'h': a1[1]}}, 'display_offsets': {'1': {'x': b0[0], 'y': 0}}}
+    b_tile = {'x': b_x, 'y': 0, 'w': max(b0[0], b1[0]), 'h': b0[1] + b1[1], 'displays': {'0': {'x': 0, 'y': 0, 'w': b0[0], 'h': b0[1]}, '1': {'x': 0, 'y': b0[1], 'w': b1[0], 'h': b1[1]}}}
     b_offset = b1_x - b_x
     if b_offset:
-        b_tile["display_offsets"] = {"1": {"x": b_offset, "y": 0}}
+        b_tile['display_offsets'] = {'1': {'x': b_offset, 'y': 0}}
     return {a_id: a_tile, b_id: b_tile}
-
 
 def key(one, other):
     """The token one pair shares, whichever end asks."""
     low, high = sorted((one, other))
     return token(low[0] * 3 + high[0])
 
-
 def text(peer):
     return protocol.id_text(peer)
-
 
 class Screen(FakeDesktop):
     """A desk's displays, keyed as the app keys them (`display_map`)."""
@@ -79,8 +56,7 @@ class Screen(FakeDesktop):
     def __init__(self, displays):
         self.displays = dict(displays)
         first = next(iter(self.displays.values()))
-        super().__init__(monitors=list(self.displays.values()),
-                         cursor=(first.x + first.width // 2, first.y + first.height // 2))
+        super().__init__(monitors=list(self.displays.values()), cursor=(first.x + first.width // 2, first.y + first.height // 2))
 
     def display_map(self):
         return dict(self.displays)
@@ -88,23 +64,22 @@ class Screen(FakeDesktop):
     def point(self, display, side, along=0.5):
         """The pixel on `side` of `display`, `along` of the way down or across it."""
         rect = self.displays[display]
-        if side in ("left", "right"):
+        if side in ('left', 'right'):
             y = rect.y + min(rect.height - 1, int(along * rect.height))
-            return (rect.x if side == "left" else rect.right, y)
+            return (rect.x if side == 'left' else rect.right, y)
         x = rect.x + min(rect.width - 1, int(along * rect.width))
-        return (x, rect.y if side == "top" else rect.bottom)
+        return (x, rect.y if side == 'top' else rect.bottom)
 
     def corner(self, display, corner):
         rect = self.displays[display]
-        vertical, horizontal = corner.split("_")
-        return (rect.x if horizontal == "left" else rect.right, rect.y if vertical == "top" else rect.bottom)
+        vertical, horizontal = corner.split('_')
+        return (rect.x if horizontal == 'left' else rect.right, rect.y if vertical == 'top' else rect.bottom)
 
     def on_display(self, point):
         for name, rect in self.displays.items():
             if rect.x <= point[0] <= rect.right and rect.y <= point[1] <= rect.bottom:
                 return name
         return None
-
 
 class Hand:
     """A desk's own keyboard and mouse: every decision core/owner.Owner's, carried out over one
@@ -122,12 +97,10 @@ class Hand:
         self._input_sent = {}
         self._input_acked = {}
         self._closed = threading.Event()
-        self._keep_alive_thread = threading.Thread(target=self._keep_alive, name="hand-pings", daemon=True)
+        self._keep_alive_thread = threading.Thread(target=self._keep_alive, name='hand-pings', daemon=True)
         self._keep_alive_thread.start()
 
     def _keep_alive(self):
-        # core/link.py pings every PING_SECONDS while nothing else is sent; without it the responder
-        # ends a quiet link after LINK_READ_TIMEOUT_SECONDS.
         from core.link import PING_SECONDS
         while not self._closed.wait(PING_SECONDS):
             with self.lock:
@@ -139,12 +112,11 @@ class Hand:
 
     def connect(self, other):
         link = Initiator(other.machine, self.desk.own, key(self.desk.own, other.own))
-        welcome = link.handshake(hello=link.hello(id=self.desk.own, name=self.desk.name,
-                                                  platform=self.desk.platform_name, caps=list(self.desk.caps)))
+        welcome = link.handshake(hello=link.hello(id=self.desk.own, name=self.desk.name, platform=self.desk.platform_name, caps=list(self.desk.caps)))
         with self.lock:
             self.links[text(other.own)] = link
-            self.capabilities[text(other.own)] = set(welcome["caps"])
-            self.carry_out(self.owner.link_up(text(other.own), welcome["accepts"]))
+            self.capabilities[text(other.own)] = set(welcome['caps'])
+            self.carry_out(self.owner.link_up(text(other.own), welcome['accepts']))
         return link
 
     def drop(self, other):
@@ -169,10 +141,10 @@ class Hand:
                 link = self.links.get(action.peer)
                 if link is None:
                     continue
-                if message["type"] == protocol.MSG_FOCUS:
-                    self.sent.append((action.peer, dict(message["data"])))
+                if message['type'] == protocol.MSG_FOCUS:
+                    self.sent.append((action.peer, dict(message['data'])))
                 try:
-                    if message["type"] in protocol.INPUT_TYPES:
+                    if message['type'] in protocol.INPUT_TYPES:
                         self._input_sent[link] = link.input(message)
                     else:
                         link.send(message)
@@ -184,10 +156,9 @@ class Hand:
                     link.send(protocol.clipboard_msg(text="hand's"))
             elif isinstance(action, owner_module.Moved):
                 self.moved.append(action)
-                if action.to is None and action.edge in return_edge.EDGES and action.offset is not None:
+                if action.to is None and action.edge in return_edge.EDGES and (action.offset is not None):
                     screen = self.desk.screen
-                    point = return_edge.arrival_position(screen.monitors(), action.edge, action.offset,
-                                                         action.display, action.side, screen.display_map())
+                    point = return_edge.arrival_position(screen.monitors(), action.edge, action.offset, action.display, action.side, screen.display_map())
                     screen.set_cursor_position(*point)
             elif isinstance(action, owner_module.Drop):
                 link = self.links.get(action.peer)
@@ -211,9 +182,9 @@ class Hand:
             for peer, link in list(self.links.items()):
                 while not link.inbox.empty():
                     message = link.inbox.get_nowait()
-                    kind, data = message.get("type"), message.get("data") or {}
+                    kind, data = (message.get('type'), message.get('data') or {})
                     if kind == protocol.MSG_ACK:
-                        self._input_acked[link] = max(self._input_acked.get(link, 0), data["seq"])
+                        self._input_acked[link] = max(self._input_acked.get(link, 0), data['seq'])
                     elif kind == protocol.MSG_SWITCH:
                         self.carry_out(self.owner.switch(peer, data))
                     elif kind == protocol.MSG_ACCEPT:
@@ -221,7 +192,7 @@ class Hand:
                     elif kind == protocol.MSG_REFUSE:
                         self.carry_out(self.owner.refuse(peer, data))
                     elif kind == protocol.MSG_ACCEPTS:
-                        self.carry_out(self.owner.accepts(peer, data.get("accepts")))
+                        self.carry_out(self.owner.accepts(peer, data.get('accepts')))
             self.carry_out(self.owner.tick())
 
     def until(self, predicate, timeout=2.0):
@@ -235,11 +206,8 @@ class Hand:
         return bool(predicate())
 
     def input_settled(self):
-        # A zone's SWITCH precedes its input ACK on the same link. This fences the zone decision,
-        # not receiver callbacks, and includes input generated while pumping a hand-over.
         with self.lock:
-            return self.owner._wait is None and all(
-                self._input_acked.get(link, 0) >= seq for link, seq in self._input_sent.items())
+            return self.owner._wait is None and all((self._input_acked.get(link, 0) >= seq for link, seq in self._input_sent.items()))
 
     def go(self, peer, edge=None, offset=None, display=None, side=None):
         with self.lock:
@@ -253,7 +221,6 @@ class Hand:
     def on(self):
         return self.owner.on
 
-
 class Desk:
     """One machine. `platform` is "mac" or "pc"; `displays` maps the app's display keys to their
     rectangles in its own pixels (points on a Mac)."""
@@ -264,22 +231,19 @@ class Desk:
         self.id = text(own)
         self.name = name
         self.platform = platform
-        self.platform_name = "macos" if platform == "mac" else "windows"
+        self.platform_name = 'macos' if platform == 'mac' else 'windows'
         self.screen = Screen(displays)
         self.tile_size = tile
         self.profiles = profiles
-        self.caps = CAPS + ["profiles"] if profiles else list(CAPS)
+        self.caps = CAPS + ['profiles'] if profiles else list(CAPS)
         self.lock = threading.RLock()
         self.machine = Machine([], [], caps=self.caps, desktop=self.screen, own=own, name=name)
-        self.machine.settings.data.update({"layout": {}, "layout_set_at": 0, "layout_by": "",
-                                           "same_on_both": False})
+        self.machine.settings.data.update({'layout': {}, 'layout_set_at': 0, 'layout_by': '', 'same_on_both': False})
         self.machine.book = receiver.PeerBook(self.machine.settings.load, self.machine.settings.save, self.lock)
         self.machine.responder._book = self.machine.book
         self.hand = Hand(self)
         self.shell = None
         self.started = False
-
-    # The settings, as the app holds them.
 
     @property
     def settings(self):
@@ -290,55 +254,29 @@ class Desk:
             self.machine.settings.save(settings)
 
     def peer(self, other):
-        return next((item for item in self.settings["peers"] if item["id"] == other.id), None)
-
-    # What this desk's own hand does at home.
+        return next((item for item in self.settings['peers'] if item['id'] == other.id), None)
 
     def own_models(self):
         """The ways out of this desk's own screen as its app arms them: [(peer id text, push)]."""
         settings = copy.deepcopy(self.settings)
         ready = {peer for peer in self.hand.owner.reach_for(None)}
-        if self.platform == "mac":
-            peers = [item for item in settings["peers"] if item.get("id") in ready]
-            engine = mac_crossing.CrossingEngine.from_zones(
-                {"resistance_px": 120, "block_while_dragging": True}, settings["zones"], peers)
-            return ("mac", engine)
         allowed = {protocol.read_id(peer) for peer in ready}
-        return ("pc", receiver.zone_models(settings["zones"], settings["peers"], allowed, 120, None))
+        return ('pc', receiver.zone_models(settings['zones'], settings['peers'], allowed, 120, None))
 
     def push_home(self, point, delta):
         """This desk's own pointer at `point`, pushed by `delta` until something gives. The peer
         id it crossed to, or None."""
         kind, models = self.own_models()
         self.screen.cursor = point
-        if kind == "mac":
-            displays = [(rect.x, rect.y, rect.x + rect.width, rect.y + rect.height)
-                        for rect in self.screen.displays.values()]
-            union = return_edge.union(self.screen.monitors())
-            bounds = (union.x, union.y, union.x + union.width, union.y + union.height)
-            now = time.monotonic()
-            x, y = point
-            # The Mac's event tap sees the pointer pinned at the wall and the delta beyond it.
-            for index in range(PUSHES * 2):
-                step = models.feed(x, y, delta[0], delta[1], bounds, now + index * 0.004, displays=displays,
-                                   ready=lambda peer: True)
-                if step is not None and step.crossed:
-                    self.hand.go(step.peer, step.edge, step.offset, display=step.display, side=step.side)
-                    return step.peer
-            return None
-        monitors, display_map = self.screen.monitors(), self.screen.display_map()
+        monitors, display_map = (self.screen.monitors(), self.screen.display_map())
         for _ in range(PUSHES * 2):
             for peer, model in models:
                 outcome = model.feed(monitors, point, delta[0], delta[1], display_map=display_map)
                 if outcome.action == return_edge.CROSS:
-                    offset = (receiver.corner_offset(model.corner, model.edge)
-                              if isinstance(model, return_edge.CornerPush) else outcome.offset)
-                    # win_app/sender.py's own crossing, display and side included.
-                    self.hand.go(protocol.id_text(peer), outcome.edge, offset, display=outcome.display,
-                                 side=outcome.side)
+                    offset = receiver.corner_offset(model.corner, model.edge) if isinstance(model, return_edge.CornerPush) else outcome.offset
+                    self.hand.go(protocol.id_text(peer), outcome.edge, offset, display=outcome.display, side=outcome.side)
                     return protocol.id_text(peer)
         return None
-
 
 class Net:
     """The desks, all paired with each other. `test` owns their cleanup."""
@@ -364,14 +302,10 @@ class Net:
             others = [other for other in self.desks.values() if other is not desk]
             with desk.lock:
                 settings = copy.deepcopy(desk.settings)
-                settings["peers"] = [entry(other.own, other.name, token=key(desk.own, other.own),
-                                           platform=other.platform_name, linked=False,
-                                           paired_with=[item.id for item in self.desks.values()
-                                                        if item is not other])
-                                     for other in others]
-                for item in settings["peers"]:
-                    item["side"] = ""
-                settings["zones"] = []
+                settings['peers'] = [entry(other.own, other.name, token=key(desk.own, other.own), platform=other.platform_name, linked=False, paired_with=[item.id for item in self.desks.values() if item is not other]) for other in others]
+                for item in settings['peers']:
+                    item['side'] = ''
+                settings['zones'] = []
                 desk.shell.paired(settings)
                 desk.save(settings)
 
@@ -398,9 +332,9 @@ class Net:
         while time.monotonic() < deadline:
             for desk in self.desks.values():
                 desk.hand.pump()
-            busy = any(desk.shell.busy() for desk in self.desks.values())
-            sent = sum(desk.shell.sent_count for desk in self.desks.values())
-            handled = sum(desk.shell.handled_count for desk in self.desks.values())
+            busy = any((desk.shell.busy() for desk in self.desks.values()))
+            sent = sum((desk.shell.sent_count for desk in self.desks.values()))
+            handled = sum((desk.shell.handled_count for desk in self.desks.values()))
             if not busy and sent == handled:
                 quiet_since = quiet_since or time.monotonic()
                 if time.monotonic() - quiet_since > 0.05:
@@ -410,12 +344,10 @@ class Net:
             time.sleep(0.003)
         return False
 
-    # Where input is.
-
     def at(self, holder):
         """The desk whose screen `holder`'s pointer is on."""
         on = holder.hand.on
-        return holder if on is None else next(desk for desk in self.desks.values() if desk.id == on)
+        return holder if on is None else next((desk for desk in self.desks.values() if desk.id == on))
 
     def push(self, holder, side, along=0.5, display=None):
         """`holder`'s pointer, on whichever desk it is, pushed through `side` of `display` (that
@@ -439,23 +371,21 @@ class Net:
             for _ in range(PUSHES):
                 holder.hand.move(*delta)
                 here.screen.cursor = point
-        self.test.assertTrue(holder.hand.until(holder.hand.input_settled),
-                             "input ACK frontier or ownership did not complete after push")
-        self.test.assertTrue(self.settle(), "the desks did not settle after push")
+        self.test.assertTrue(holder.hand.until(holder.hand.input_settled), 'input ACK frontier or ownership did not complete after push')
+        self.test.assertTrue(self.settle(), 'the desks did not settle after push')
         return self.at(holder)
 
     def shortcut(self, holder, other=None):
         """`holder`'s shortcut, menu or Send button: to `other`, or home with None."""
         holder.hand.go(None if other is None or other is holder else other.id)
-        self.test.assertTrue(holder.hand.until(holder.hand.input_settled),
-                             "input ACK frontier or ownership did not complete after shortcut")
-        self.test.assertTrue(self.settle(), "the desks did not settle after shortcut")
+        self.test.assertTrue(holder.hand.until(holder.hand.input_settled), 'input ACK frontier or ownership did not complete after shortcut')
+        self.test.assertTrue(self.settle(), 'the desks did not settle after shortcut')
         return self.at(holder)
 
     def driven_by(self, desk):
         """The desk whose input `desk`'s responder takes now, or None."""
         owner = desk.machine.responder.owner
-        return None if owner is None else next(other for other in self.desks.values() if other.own == owner)
+        return None if owner is None else next((other for other in self.desks.values() if other.own == owner))
 
     def views_agree(self):
         """[(problem)] where two desks disagree about the picture or the sides: every pair's sides
@@ -466,30 +396,28 @@ class Net:
             for two in desks:
                 if one is two:
                     continue
-                mine, theirs = one.peer(two), two.peer(one)
+                mine, theirs = (one.peer(two), two.peer(one))
                 if mine is None or theirs is None:
                     continue
-                if mine.get("side") in return_edge.EDGES and theirs.get("side") in return_edge.EDGES:
-                    if return_edge.OPPOSITE[mine["side"]] != theirs["side"]:
-                        problems.append(f"{one.name} holds {two.name} {mine['side']}, {two.name} holds {one.name} "
-                                        f"{theirs['side']}")
+                if mine.get('side') in return_edge.EDGES and theirs.get('side') in return_edge.EDGES:
+                    if return_edge.OPPOSITE[mine['side']] != theirs['side']:
+                        problems.append(f"{one.name} holds {two.name} {mine['side']}, {two.name} holds {one.name} {theirs['side']}")
         first = desks[0]
         for other in desks[1:]:
-            a = {key: (tile["x"], tile["y"], tile["w"], tile["h"]) for key, tile in first.settings["layout"].items()}
-            b = {key: (tile["x"], tile["y"], tile["w"], tile["h"]) for key, tile in other.settings["layout"].items()}
+            a = {key: (tile['x'], tile['y'], tile['w'], tile['h']) for key, tile in first.settings['layout'].items()}
+            b = {key: (tile['x'], tile['y'], tile['w'], tile['h']) for key, tile in other.settings['layout'].items()}
             if {key: value for key, value in a.items() if key in b} != {key: value for key, value in b.items() if key in a}:
-                problems.append(f"{first.name} and {other.name} hold different pictures: {a} / {b}")
+                problems.append(f'{first.name} and {other.name} hold different pictures: {a} / {b}')
         for desk in desks:
             for holder in desks:
-                tile = holder.settings["layout"].get(desk.id)
-                if isinstance(tile, dict) and "displays" not in tile:
+                tile = holder.settings['layout'].get(desk.id)
+                if isinstance(tile, dict) and 'displays' not in tile:
                     problems.append(f"{holder.name}'s picture has {desk.name}'s tile without its displays")
         return problems
 
     def bad_zones(self):
         """Zones whose target side has no target display: the switch they would send is malformed."""
-        return [(desk.name, zone) for desk in self.desks.values() for zone in desk.settings["zones"]
-                if zone.get("target_side") and not zone.get("target_display")]
+        return [(desk.name, zone) for desk in self.desks.values() for zone in desk.settings['zones'] if zone.get('target_side') and (not zone.get('target_display'))]
 
     def landed(self, desk):
         """Where `desk`'s cursor was last placed by an arrival: (display, side it is on or None)."""
@@ -500,6 +428,5 @@ class Net:
         rect = desk.screen.displays.get(name)
         if rect is None:
             return (None, None)
-        side = ("left" if point[0] <= rect.x + 2 else "right" if point[0] >= rect.right - 2
-                else "top" if point[1] <= rect.y + 2 else "bottom" if point[1] >= rect.bottom - 2 else None)
+        side = 'left' if point[0] <= rect.x + 2 else 'right' if point[0] >= rect.right - 2 else 'top' if point[1] <= rect.y + 2 else 'bottom' if point[1] >= rect.bottom - 2 else None
         return (name, side)

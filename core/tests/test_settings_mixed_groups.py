@@ -97,7 +97,7 @@ class MixedWithOnePointFiveOne(unittest.TestCase):
     """A Mac and a PC on 1.5.2 and a PC still on 1.5.1, every pair linked, Same on everywhere."""
 
     def setUp(self):
-        self.group = Group(self, ("mac", "win", "win"), old=(2,))
+        self.group = Group(self, ("win", "win", "win"), old=(2,))
         self.mac, self.pc, self.old = self.group.apps
         self.mac._set_same(True)
         self.mac.routed.clear()
@@ -150,7 +150,7 @@ class OldMachineTurnsItOn(unittest.TestCase):
     """Same off everywhere; a person turns it on on the 1.5.1 machine, which sends no groups."""
 
     def setUp(self):
-        self.group = Group(self, ("mac", "win", "win"), old=(2,))
+        self.group = Group(self, ("win", "win", "win"), old=(2,))
         self.mac, self.pc, self.old = self.group.apps
         self.group.link_all()
         self.assertFalse(any(app.cfg().same_on_both for app in (self.mac, self.pc)))
@@ -174,7 +174,7 @@ class TwoAtOnce(unittest.TestCase):
     in flight before either lands."""
 
     def setUp(self):
-        self.group = Group(self, ("mac", "win"))
+        self.group = Group(self, ("win", "win"))
         self.group.apps[0]._set_same(True)
         self.group.apps[0].routed.clear()
         self.group.link_all()
@@ -210,7 +210,7 @@ class FourDesks(unittest.TestCase):
         # A fourth desk for this case only: IDS is shared, and other suites assert on its length.
         IDS.append(FOURTH)
         self.addCleanup(IDS.remove, FOURTH)
-        self.group = Group(self, ("mac", "win", "win", "win"))
+        self.group = Group(self, ("win", "win", "win", "win"))
         self.group.apps[0]._set_same(True)
         self.group.apps[0].routed.clear()
         self.group.link_all()
@@ -248,7 +248,7 @@ class FourDesks(unittest.TestCase):
 
 class PairedAgain(unittest.TestCase):
     def setUp(self):
-        self.group = Group(self, ("mac", "win", "win"))
+        self.group = Group(self, ("win", "win", "win"))
         self.group.apps[0]._set_same(True)
         self.group.apps[0].routed.clear()
         self.group.link_all()

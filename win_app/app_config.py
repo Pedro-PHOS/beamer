@@ -124,6 +124,10 @@ class Config:
     # receiver, and the outward link.
     allow_mac_to_drive: bool = True
     # Ask GitHub once a day whether a newer release is out; see updates.py.
+    audio_send: bool = False
+    audio_receive: bool = False
+    audio_mute_local: bool = False
+    audio_target: str = ""
     check_updates: bool = True
     # Every address the window shows is hidden.
     hide_addresses: bool = False
@@ -301,6 +305,13 @@ def validate_config(config: Config) -> None:
             raise ConfigError(f"{name} must be a whole number of pixels from 0 to 500")
     if not isinstance(config.allow_mac_to_drive, bool):
         raise ConfigError("allow_mac_to_drive must be true or false")
+    if any(not isinstance(value, bool) for value in
+           (config.audio_send, config.audio_receive, config.audio_mute_local)):
+        raise ConfigError("audio switches must be booleans")
+    if config.audio_send and config.audio_receive:
+        raise ConfigError("audio cannot send and receive simultaneously")
+    if not isinstance(config.audio_target, str) or (config.audio_target and not is_machine_id(config.audio_target)):
+        raise ConfigError("audio_target must be a paired machine id or empty")
     if not isinstance(config.check_updates, bool):
         raise ConfigError("check_updates must be true or false")
     if not isinstance(config.hide_addresses, bool):
@@ -401,6 +412,10 @@ def config_from_dict(raw: dict) -> Config:
             frame_rate=raw.get("frame_rate", "display"),
             paired_with=raw.get("paired_with", "") or "",
             allow_mac_to_drive=raw.get("allow_mac_to_drive", True),
+            audio_send=raw.get("audio_send", False),
+            audio_receive=raw.get("audio_receive", False),
+            audio_mute_local=raw.get("audio_mute_local", False),
+            audio_target=raw.get("audio_target", ""),
             check_updates=raw.get("check_updates", True),
             hide_addresses=raw.get("hide_addresses", False),
             language=raw.get("language", "auto"),
@@ -488,6 +503,10 @@ def config_to_dict(config: Config) -> dict:
         "frame_rate": config.frame_rate,
         "paired_with": config.paired_with,
         "allow_mac_to_drive": config.allow_mac_to_drive,
+        "audio_send": config.audio_send,
+        "audio_receive": config.audio_receive,
+        "audio_mute_local": config.audio_mute_local,
+        "audio_target": config.audio_target,
         "check_updates": config.check_updates,
         "hide_addresses": config.hide_addresses,
         "language": config.language,

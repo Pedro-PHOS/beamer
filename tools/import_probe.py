@@ -2,7 +2,6 @@
 not load: each module of the app's own folder and of core/, by name, from the bundle and never
 from this source tree.
 
-    python3 tools/import_probe.py mac mac_app/dist/Beamer.app [--arch x86_64]
     python  tools/import_probe.py win win_app/dist/Beamer.exe
 
 The Mac bundle carries its own python, which runs this file again inside the bundle (`--arch`
@@ -22,7 +21,6 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 # The entry scripts run as __main__ in a build and are not importable by name there.
 APPS = {
-    "mac": ("mac_app", {"kvm_bridge_app", "setup"}, ["theme", "tokens"]),
     "win": ("win_app", {"kvm_bridge_win"}, []),
 }
 
@@ -31,11 +29,6 @@ def module_names(platform: str) -> list:
     folder, entry, extra = APPS[platform]
     own = sorted(path.stem for path in (REPO / folder).glob("*.py") if path.stem not in entry)
     core = sorted(f"core.{path.stem}" for path in (REPO / "core").glob("*.py") if path.stem != "__init__")
-    if platform == "mac":
-        # Qt capture and Windows portable state have no callers in the Mac app.
-        core = [name for name in core if name not in {
-            "core.capture_types", "core.portable_runtime", "core.portable_store",
-        }]
     return ["core"] + core + own + extra
 
 
@@ -56,12 +49,6 @@ def inside(bundle: str, names: list) -> int:
     return 0
 
 
-def probe_mac(app: Path, names: list, arch: str) -> int:
-    python = app / "Contents" / "MacOS" / "python"
-    command = ([f"/usr/bin/arch", f"-{arch}"] if arch else []) + [str(python), str(Path(__file__).resolve()), "--inside", str(app), *names]
-    environment = {"HOME": os.environ["HOME"], "PATH": "/usr/bin:/bin", "PYTHONHOME": str(app / "Contents" / "Resources")}
-    with tempfile.TemporaryDirectory() as cwd:
-        return subprocess.run(command, env=environment, cwd=cwd).returncode
 
 
 def probe_win(exe: Path, names: list) -> int:
@@ -82,12 +69,11 @@ def main() -> int:
         return inside(sys.argv[2], sys.argv[3:])
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("platform", choices=sorted(APPS))
-    parser.add_argument("build", type=Path, help="Beamer.app on the Mac, Beamer.exe on Windows")
-    parser.add_argument("--arch", default="", help="Mac only: run the bundle's python as this architecture")
+    parser.add_argument("build", type=Path, help="Beamer.exe on Windows")
     arguments = parser.parse_args()
     names = module_names(arguments.platform)
     build = arguments.build.resolve()
-    code = probe_mac(build, names, arguments.arch) if arguments.platform == "mac" else probe_win(build, names)
+    code = probe_win(build, names)
     print(f"{'passed' if code == 0 else 'FAILED'}: {len(names)} modules probed in {build}")
     return code
 

@@ -11,7 +11,7 @@ import unittest
 _TESTS_DIR = os.path.dirname(os.path.abspath(__file__))
 _CORE = os.path.dirname(_TESTS_DIR)
 _REPO_ROOT = os.path.dirname(_CORE)
-_APPS = ("mac_app", "win_app")
+_APPS = ("win_app",)
 
 
 def _files(folder, keep):

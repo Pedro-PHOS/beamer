@@ -1240,7 +1240,7 @@ def put_back(settings: dict, peer: str, *, platform=None, capable=()) -> None:
 
 
 def _platform(settings):
-    return "mac" if sys.platform == "darwin" else "pc"
+    return "pc"
 
 
 def _stretch(zone: dict, sides: dict, peers=()) -> set:

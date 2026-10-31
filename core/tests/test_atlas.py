@@ -376,13 +376,10 @@ class AtlasTests(unittest.TestCase):
             ((207.0, 142.5, 120.0, 75.0), [(337.0, 183.0, 56.0, 31.5), (337.0, 145.5, 56.0, 31.5)]),
             ((179.0, 179.0, 120.0, 75.0), [(309.0, 185.0, 112.0, 63.0), (183.0, 106.0, 112.0, 63.0)]),
         ]
-        from mac_app import pages
-        self.assertIs(pages.diagram_layout, ways.diagram_layout)
         for machines in arrangements:
             with self.subTest(machines=machines):
                 index = arrangements.index(machines)
                 self.assertEqual(ways.diagram_layout(600, 360, machines), recorded[index])
-                self.assertEqual(pages.diagram_layout(600, 360, machines), recorded[index])
 
     def test_saved_peer_tiles_are_authoritative_when_deriving_layout(self):
         settings = self.settings(A, B)

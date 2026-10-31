@@ -13,7 +13,13 @@ from typing import Callable, Dict, List, Optional, Set, Tuple
 
 from core.keytable import EVDEV_US
 from input_blocker import foreground_blocker
-from firewall_win import is_elevated
+def is_elevated():
+    # Linux imports the pure keyboard planner from this module.
+    # Load Windows administration code only when running on Windows.
+    if sys.platform != "win32":
+        return False
+    from firewall_win import is_elevated as windows_is_elevated
+    return windows_is_elevated()
 
 
 LOGGER = logging.getLogger(__name__)

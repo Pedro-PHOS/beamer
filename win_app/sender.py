@@ -579,9 +579,8 @@ class LinkSender:
         elif not down:
             self._ignore_gate.keeps(ignored.key(vk) if vk is not None else f"key:{name}", False)
         target = self._peers.get(owner.on) or {}
-        to_mac = not sys.platform.startswith("linux") and target.get("platform") == "macos"
         to_linux = not sys.platform.startswith("linux") and target.get("platform") == "linux"
-        if vk in (0x5B, 0x5C) and (to_mac or to_linux):
+        if vk in (0x5B, 0x5C) and to_linux:
             if down:
                 self._keys_down[held] = self._key_data(name, us)
                 self._pending_windows_key = held
@@ -592,37 +591,13 @@ class LinkSender:
                 return self._input({"type": protocol.MSG_KEYUP, "data": dict(data)})
         active_windows_key = self._pending_windows_key
         remote_keys = frozenset()
-        if down and (to_mac or to_linux):
+        if down and to_linux:
             with self._lock:
                 remote_keys = owner.pressed_keys
-        if active_windows_key is None and to_mac:
-            active_windows_key = next((key for key in (0x5B, 0x5C) if key in self._keys_down
-                                       and self._keys_down[key]["key"] in remote_keys), None)
         other_modifiers = {0x10, 0xA0, 0xA1, 0x11, 0xA2, 0xA3, 0x12, 0xA4, 0xA5, 0x5B, 0x5C}
         other_modifiers.discard(active_windows_key)
         remote_modifiers = any(self._keys_down[key]["key"] in remote_keys
                                for key in other_modifiers.intersection(self._keys_down))
-        if down and to_mac and active_windows_key is not None and vk is not None:
-            intent = None if remote_modifiers else special_keys.windows_shortcut_intent(name)
-            if intent is not None:
-                windows_key = active_windows_key
-                was_pending = self._pending_windows_key == windows_key
-                if was_pending:
-                    self._pending_windows_key = None
-                else:
-                    self._input({"type": protocol.MSG_KEYUP, "data": dict(self._keys_down[windows_key])})
-                self._keys_down.pop(windows_key, None)
-                self._intent_windows_up.add(windows_key)
-                self._intent_keys_up.add(vk)
-                if intent:
-                    message = {"type": protocol.MSG_KEYDOWN, "data": {"key": intent}}
-                    self._input(message)
-                    return self._input(dict(message, type=protocol.MSG_KEYUP))
-                return True
-            pending_data = self._keys_down.get(self._pending_windows_key)
-            self._pending_windows_key = None
-            if pending_data is not None:
-                self._input({"type": protocol.MSG_KEYDOWN, "data": dict(pending_data)})
         if down and to_linux and self._pending_windows_key is not None and vk is not None:
             intent = None if remote_modifiers else {"s": "spotlight", "h": "", "n": ""}.get(name.lower())
             if intent is not None:

@@ -6,7 +6,7 @@ import time
 import unittest
 
 from core import settings_sync
-from core.tests.settings_behaviour import IDS, fixture, mac_adapter
+from core.tests.settings_behaviour import IDS, fixture
 
 CHOICES = dict(trigger_style="hold", glow_colour="ocean", effect_length="long", resistance_px=300,
                shortcut_goes_to="next")
@@ -46,23 +46,12 @@ class Desks:
         before = app.values()
         held = settings_sync.held_stamps(cfg.same_stamps, cfg.same_set_at, cfg.same_by)
         on = cfg.same_on_both
-        if self.platforms[index] == "mac":
-            config, to_raw = mac_adapter()
-            raw = settings_sync.apply_mac(to_raw(cfg), values)
-            after = settings_sync.mac_values(raw)
-            stamps, stamp = settings_sync.stamp_changes(held, before, after, IDS[index], floor=cfg.same_set_at,
-                                                        now=time.time())
-            raw["same_stamps"] = settings_sync.stored_stamps(stamps)
-            if on:
-                raw.update(same_set_at=stamp, same_by=IDS[index])
-            app.controller.apply_settings(config.parse_config(raw))
-        else:
-            settings_sync.apply_pc(cfg, values)
-            stamps, stamp = settings_sync.stamp_changes(held, before, settings_sync.pc_values(cfg), IDS[index],
-                                                        floor=cfg.same_set_at, now=time.time())
-            cfg.same_stamps = settings_sync.stored_stamps(stamps)
-            if on:
-                cfg.same_set_at, cfg.same_by = stamp, IDS[index]
+        settings_sync.apply_pc(cfg, values)
+        stamps, stamp = settings_sync.stamp_changes(held, before, settings_sync.pc_values(cfg), IDS[index],
+                                                    floor=cfg.same_set_at, now=time.time())
+        cfg.same_stamps = settings_sync.stored_stamps(stamps)
+        if on:
+            cfg.same_set_at, cfg.same_by = stamp, IDS[index]
         # While Same is off a change is stamped for later but travels nowhere.
         if on:
             self.run([(index, app.state(), set(range(len(self.apps))) - {index})])
@@ -74,7 +63,7 @@ class Desks:
 
 class ThreeDesks(unittest.TestCase):
     def setUp(self):
-        self.desks = Desks(self, ("mac", "win", "win"))
+        self.desks = Desks(self, ("win", "win", "win"))
         mac, pc, _fresh = self.desks.apps
         mac._set_same(True)
         mac.sent.clear()

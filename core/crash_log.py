@@ -1,11 +1,4 @@
-"""What a crash leaves behind, for both apps: an exception that ends a worker thread goes to the log,
-and on macOS a fatal signal writes every thread's Python stack beside it.
-
-Without this a thread's uncaught exception went to stderr, which a bundled app has nowhere to show,
-and a native crash left only the system's report, which names the C frames but not the Python
-line that called into them (06-10-2026: a crash under rapid switching on an Intel Mac, with nothing
-in Beamer.log to say where).
-"""
+"""Log uncaught worker-thread exceptions; fatal-signal logging is opt-in."""
 
 from __future__ import annotations
 
@@ -20,7 +13,7 @@ _fault_file = None
 
 def install(directory, logger=None, fatal_signals=None) -> None:
     """`directory` is where the app's log lives; `crash.log` is written there on a fatal signal.
-    `fatal_signals` defaults to macOS only: on Windows faulthandler also reports access violations
+    `fatal_signals` defaults to False: on Windows faulthandler also reports access violations
     that the code raising them goes on to handle, and would fill the file with crashes that were not."""
     global _fault_file
     logger = logger or logging.getLogger("Beamer")
@@ -34,7 +27,7 @@ def install(directory, logger=None, fatal_signals=None) -> None:
 
     threading.excepthook = log_thread_exception
     if fatal_signals is None:
-        fatal_signals = sys.platform == "darwin"
+        fatal_signals = False
     if not fatal_signals:
         return
     try:

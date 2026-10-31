@@ -212,10 +212,6 @@ def load(code: str) -> _gettext.NullTranslations:
     return _gettext.GNUTranslations(io.BytesIO(_mo_bytes(entries)))
 
 
-def _mac_languages() -> list[str]:
-    from Foundation import NSLocale
-
-    return [str(code) for code in NSLocale.preferredLanguages() or ()]
 
 
 def _windows_languages() -> list[str]:
@@ -244,8 +240,6 @@ def _linux_languages() -> list[str]:
 def system_languages() -> list[str]:
     """The person's preferred languages, most preferred first, as the operating system lists them."""
     try:
-        if sys.platform == "darwin":
-            return _mac_languages()
         if sys.platform == "win32":
             return _windows_languages()
         return _linux_languages()

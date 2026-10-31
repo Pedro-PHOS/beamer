@@ -60,7 +60,7 @@ class RetainedModifierTests(unittest.TestCase):
         with patch.object(sys, "platform", "win32"):
             link = accents.AccentTests.link_sender()
             peer = link._owner.on
-            link._peers[peer] = {"platform": "macos"}
+            link._peers[peer] = {"platform": "linux"}
             self.assertTrue(link.on_key("cmd", True, 0x5b))
             self.assertTrue(link.set_redirecting(False))
             link.on_key("cmd", False, 0x5b)
@@ -81,7 +81,7 @@ class RetainedModifierTests(unittest.TestCase):
         with patch.object(sys, "platform", "win32"):
             link = accents.AccentTests.link_sender()
             peer = link._owner.on
-            link._peers[peer] = {"platform": "macos"}
+            link._peers[peer] = {"platform": "linux"}
             link.on_key("cmd", True, 0x5b)
             link.set_redirecting(False)
             accents.AccentTests.messages(link)
@@ -100,7 +100,7 @@ class RetainedModifierTests(unittest.TestCase):
         with patch.object(sys, "platform", "win32"):
             link = accents.AccentTests.link_sender()
             peer = link._owner.on
-            link._peers[peer] = {"platform": "macos"}
+            link._peers[peer] = {"platform": "linux"}
             link._owner.on = None
             link._ignore_gate.configure([], mouse_only=True)
             self.assertFalse(link.on_key("cmd", True, 0x5b))
@@ -118,7 +118,7 @@ class RetainedModifierTests(unittest.TestCase):
         with patch.object(sys, "platform", "win32"):
             link = accents.AccentTests.link_sender()
             peer = link._owner.on
-            link._peers[peer] = {"platform": "macos"}
+            link._peers[peer] = {"platform": "linux"}
             link._owner.on = None
             self.assertFalse(link.on_key("ctrl", True, 0xa2))
             link._owner.on = peer
@@ -134,7 +134,7 @@ class RetainedModifierTests(unittest.TestCase):
         for retained in (0x5b, 0x5c):
             with self.subTest(retained=retained), patch.object(sys, "platform", "win32"):
                 link = accents.AccentTests.link_sender()
-                link._peers[link._owner.on] = {"platform": "macos"}
+                link._peers[link._owner.on] = {"platform": "linux"}
                 link._ignore_gate.configure([], mouse_only=True)
                 self.assertFalse(link.on_key("cmd", True, retained))
                 link._ignore_gate.configure([], mouse_only=False)
@@ -153,7 +153,7 @@ class RetainedModifierTests(unittest.TestCase):
     def test_retained_ctrl_does_not_cancel_a_remote_windows_shortcut(self):
         with patch.object(sys, "platform", "win32"):
             link = accents.AccentTests.link_sender()
-            link._peers[link._owner.on] = {"platform": "macos"}
+            link._peers[link._owner.on] = {"platform": "linux"}
             link._ignore_gate.configure([], mouse_only=True)
             self.assertFalse(link.on_key("ctrl", True, 0xa2))
             link._ignore_gate.configure([], mouse_only=False)

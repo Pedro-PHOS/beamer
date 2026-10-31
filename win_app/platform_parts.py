@@ -5,8 +5,7 @@ geometry, autostart, firewall and unlock, which also carry the touchpad injector
 Linux on X11 gets the X11 back ends for capture, injection, the clipboard, desktop geometry and
 autostart; Linux on Wayland gets the portal back ends (InputCapture, RemoteDesktop and its
 clipboard, over libei) and the same XDG autostart; both get linux_stand_ins for the firewall and
-unlock, and no Windows module beyond the pure pieces capture_x11 and inject_x11 borrow. Every other platform keeps the Windows
-modules, including the Mac, where the win_app tests import them on purpose. The callers keep
+unlock, and no Windows module beyond the pure pieces capture_x11 and inject_x11 borrow. Windows uses its native backends. Other operating systems are rejected. The callers keep
 their old names (`capture_win` and so on) bound to these, so a test that patches
 `kvm_bridge_win.firewall_win` still patches the part in use."""
 
@@ -30,6 +29,8 @@ def session(environ) -> str:
 
 
 def load(platform: str, environ=os.environ) -> SimpleNamespace:
+    if platform != "win32" and not platform.startswith("linux"):
+        raise RuntimeError("This fork supports Windows and Linux only")
     # Plain imports, not importlib: PyInstaller finds modules by reading import statements.
     if platform.startswith("linux"):
         import linux_stand_ins

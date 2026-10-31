@@ -46,18 +46,11 @@ def _windows_locale() -> str:
     return name.value
 
 
-def _mac_country() -> str:
-    from Foundation import NSLocale, NSLocaleCountryCode
-
-    locale = NSLocale.currentLocale()
-    return str(locale.objectForKey_(NSLocaleCountryCode) or "")
 
 
 def is_us_region() -> bool:
     """Return whether the current user's operating-system region is the United States."""
     try:
-        if sys.platform == "darwin":
-            return _mac_country().upper() == "US"
         if sys.platform == "win32":
             return _country_in_locale(_windows_locale()) == "US"
         if sys.platform.startswith("linux"):

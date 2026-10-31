@@ -7,12 +7,6 @@ from core import locale, settings_sync
 
 
 class LocaleTests(unittest.TestCase):
-    @unittest.skipUnless(sys.platform == "darwin", "NSLocale is available on macOS")
-    def test_mac_region_matches_nslocale_country_code(self):
-        from Foundation import NSLocale, NSLocaleCountryCode
-
-        country = str(NSLocale.currentLocale().objectForKey_(NSLocaleCountryCode) or "").upper()
-        self.assertEqual(locale.is_us_region(), country == "US")
 
     def test_linux_region_uses_the_first_defined_locale(self):
         with mock.patch.object(locale.sys, "platform", "linux"), \
@@ -31,10 +25,7 @@ class LocaleTests(unittest.TestCase):
         with mock.patch.dict(locale.os.environ, values, clear=True):
             self.assertEqual(locale._linux_locale(), "en_US.UTF-8")
 
-    def test_mac_and_windows_use_the_operating_system_region(self):
-        with mock.patch.object(locale.sys, "platform", "darwin"), \
-                mock.patch.object(locale, "_mac_country", return_value="US"):
-            self.assertTrue(locale.is_us_region())
+    def test_windows_uses_the_operating_system_region(self):
         with mock.patch.object(locale.sys, "platform", "win32"), \
                 mock.patch.object(locale, "_windows_locale", return_value="en-GB"):
             self.assertFalse(locale.is_us_region())

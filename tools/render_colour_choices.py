@@ -1,6 +1,6 @@
 """Render native Design colour controls and every preview without showing a window.
 
-Run Mac and Qt separately: their modules intentionally share names.
+Render the shared Windows/Linux Qt interface.
 """
 
 import argparse
@@ -33,176 +33,11 @@ def sample(renderer, style, colour):
 
 
 def colour_rows(platform):
-    sys.path.insert(0, str(ROOT / ("mac_app" if platform == "mac" else "win_app")))
-    if platform == "mac":
-        import pages
-        import crossing
-        return [(name, list(values)) for name, values in pages.colour_groups(crossing.GLOW_COLOURS)]
+    sys.path.insert(0, str(ROOT / "win_app"))
     import pages_win
     return [(name, list(values)) for name, values in pages_win.colour_groups()]
 
 
-class MacRenderer:
-    def __init__(self, scale=1):
-        sys.path.insert(0, str(ROOT / "mac_app"))
-        import AppKit
-        import previews
-        import theme
-        from core import effects
-        AppKit.NSApplication.sharedApplication()
-        theme.init_fonts()
-        self.A, self.previews, self.theme = AppKit, previews, theme
-        self.scale = scale
-        self.styles = ("glow", "beam") + effects.EFFECT_IDS + tuple('switch:' + value for value in effects.SWITCH_STYLES)
-
-    def set_dark(self, dark):
-        self.theme.set_dark(dark)
-
-    def capture(self, view):
-        A = self.A
-        width, height = view.bounds().size
-        rep = A.NSBitmapImageRep.alloc().initWithBitmapDataPlanes_pixelsWide_pixelsHigh_bitsPerSample_samplesPerPixel_hasAlpha_isPlanar_colorSpaceName_bytesPerRow_bitsPerPixel_(
-            None, math.ceil(width * self.scale), math.ceil(height * self.scale), 8, 4, True, False,
-            A.NSDeviceRGBColorSpace, 0, 0)
-        rep.setSize_((width, height))
-        view.cacheDisplayInRect_toBitmapImageRep_(view.bounds(), rep)
-        return rep
-
-    def preview(self, style, colour):
-        from core import effects
-        if style.startswith('switch:'):
-            view = self.previews.switch_still(lambda: effects.switch_effect(style.split(':')[1], 'beam'),
-                                               lambda: colour, logging.getLogger('colour-render'), height=84)
-        else:
-            view = self.previews.effect_still(style, lambda: colour, logging.getLogger("colour-render"), height=84)
-        view.setFrame_(((0, 0), (180, 84)))
-        return self.capture(view)
-
-    def changed_pixels(self, image, baseline):
-        data, before, channels = bytes(image.bitmapData()), bytes(baseline.bitmapData()), image.samplesPerPixel()
-        count = 0
-        for y in range(image.pixelsHigh()):
-            for x in range(image.pixelsWide()):
-                at = y * image.bytesPerRow() + x * channels
-                count += max(abs(data[at + c] - before[at + c]) for c in range(3)) > 3
-        return count
-
-    def save(self, image, path):
-        path.write_bytes(bytes(image.representationUsingType_properties_(self.A.NSBitmapImageFileTypePNG, {})))
-
-    def design_tile(self, family, style, selected=False, hide_pointer=False):
-        from mac_app.tests.test_window_geometry import offscreen_control_window
-        from mac_app.tests.design_offscreen import settle
-        if not hasattr(self, "design"):
-            self.design = offscreen_control_window()
-            self.design.window.setFrame_display_(((100000, 100000), (1400, 1100)), False)
-            self.design._select_page("design")
-            settle(self.design.window)
-        choices = self.design.glow_style_select if family == "crossing" else self.design.switch_style_select
-        self.theme.repaint(self.design.window.contentView())
-        choices.value = style if selected else None
-        settle(self.design.window)
-        tile = next(tile for row in choices.rows for value, tile, _name in row.tiles if value == style)
-        if tile.tile_content is not None:
-            tile.tile_content.preview.setNeedsDisplay_(True)
-        if hide_pointer:
-            from core import effects
-            names = ("preview_scene", "preview_switch_scene")
-            with mock.patch.multiple(effects, **{
-                    name: (lambda original: lambda *args, **kwargs: dict(original(*args, **kwargs), pointer=None))(
-                        getattr(effects, name)) for name in names}):
-                return tile, self.capture(tile)
-        return tile, self.capture(tile)
-
-    def style_contact_sheet(self, rows, path):
-        A = self.A
-        cell_w, cell_h = 300, 240
-        view = A.NSView.alloc().initWithFrame_(((0, 0), (cell_w * 2, cell_h * len(rows))))
-        rep = self.capture(view)
-        context = A.NSGraphicsContext.graphicsContextWithBitmapImageRep_(rep)
-        A.NSGraphicsContext.saveGraphicsState()
-        A.NSGraphicsContext.setCurrentContext_(context)
-        import Quartz
-        Quartz.CGContextScaleCTM(context.CGContext(), self.scale, self.scale)
-        self.theme.colour("ground").setFill()
-        A.NSRectFill(view.bounds())
-        for index, (family, style, light, dark) in enumerate(rows):
-            top = len(rows) * cell_h - index * cell_h
-            A.NSString.stringWithString_(f"{family}: {style}").drawAtPoint_withAttributes_((8, top - 18), {
-                A.NSFontAttributeName: self.theme.font(12), A.NSForegroundColorAttributeName: self.theme.colour("ink")})
-            for column, (label, tile_image) in enumerate((("Light", light), ("Dark", dark))):
-                x = column * cell_w
-                A.NSString.stringWithString_(label).drawAtPoint_withAttributes_((x + 8, top - 38), {
-                    A.NSFontAttributeName: self.theme.font(11), A.NSForegroundColorAttributeName: self.theme.colour("ink_2")})
-                native = A.NSImage.alloc().initWithSize_(tile_image.size())
-                native.addRepresentation_(tile_image)
-                native.drawInRect_fromRect_operation_fraction_(((x + 8, top - 48 - tile_image.size().height), tile_image.size()),
-                                                               ((0, 0), tile_image.size()), A.NSCompositingOperationSourceOver, 1)
-        A.NSGraphicsContext.restoreGraphicsState()
-        self.save(rep, path)
-
-    def colour_page(self):
-        from mac_app.tests.test_window_geometry import offscreen_control_window
-        from mac_app.tests.design_offscreen import settle
-        dark = self.theme.is_dark()
-        control = offscreen_control_window()
-        control.controller.cfg.appearance = "dark" if dark else "light"
-        control._select_page("design")
-        control.window.setFrame_display_(((100000, 100000), (1200, 1050)), False)
-        settle(control.window)
-        self.theme.set_dark(control.controller.cfg.appearance == "dark")
-        self.theme.repaint(control.window.contentView())
-        module = control.colour_module.view
-        scroll = control.pages['design']
-        clip, page = scroll.contentView(), scroll.documentView()
-        rect = module.convertRect_toView_(module.bounds(), page)
-        maximum = max(0, page.frame().size.height - clip.bounds().size.height)
-        clip.scrollToPoint_((0, min(maximum, max(0, rect.origin.y - 12))))
-        scroll.reflectScrolledClipView_(clip)
-        settle(control.window)
-        assert not control.window.isVisible()
-        return self.capture(control.window.contentView())
-
-    def contact_sheet(self, rows, compact=False):
-        A = self.A
-        cell_w, cell_h, columns = 196, 108, 6
-        styles = ("aperture",) if compact else self.styles
-        per_colour = 28 + math.ceil(len(styles) / columns) * cell_h
-        count = len(rows) if compact else sum(len(values) for _group, values in rows)
-        view = A.NSView.alloc().initWithFrame_(((0, 0), (columns * cell_w, count * per_colour)))
-        rep = self.capture(view)
-        context = A.NSGraphicsContext.graphicsContextWithBitmapImageRep_(rep)
-        A.NSGraphicsContext.saveGraphicsState()
-        A.NSGraphicsContext.setCurrentContext_(context)
-        import Quartz
-        cg = context.CGContext()
-        Quartz.CGContextScaleCTM(cg, self.scale, self.scale)
-        self.theme.colour("ground").setFill()
-        A.NSRectFill(view.bounds())
-        samples = []
-        top = count * per_colour
-        for group_index, (group, values) in enumerate(rows):
-            for colour_index, (colour, title) in enumerate(values):
-                x_offset = colour_index * cell_w if compact else 0
-                if compact:
-                    top = count * per_colour - group_index * per_colour
-                top -= 28
-                text = A.NSString.stringWithString_(f"{group} / {title}" if compact else f"{group} / {title} ({colour})")
-                text.drawAtPoint_withAttributes_((x_offset + 6, top + 5), {
-                    A.NSFontAttributeName: self.theme.font(11 if compact else 13), A.NSForegroundColorAttributeName: self.theme.colour("ink")})
-                for index, style in enumerate(styles):
-                    column, row = index % columns, index // columns
-                    image, pixels = sample(self, style, colour)
-                    samples.append(dict(group=group, colour=colour, style=style, visible_pixels=pixels))
-                    native = A.NSImage.alloc().initWithSize_((180, 84))
-                    native.addRepresentation_(image)
-                    native.drawInRect_fromRect_operation_fraction_(((x_offset + column * cell_w + 8, top - (row + 1) * cell_h + 20), (180, 84)),
-                                                                  ((0, 0), (180, 84)), A.NSCompositingOperationSourceOver, 1)
-                    A.NSString.stringWithString_(style).drawAtPoint_withAttributes_((x_offset + column * cell_w + 8, top - (row + 1) * cell_h + 4), {
-                        A.NSFontAttributeName: self.theme.font(10), A.NSForegroundColorAttributeName: self.theme.colour("ink_2")})
-                top -= math.ceil(len(styles) / columns) * cell_h
-        A.NSGraphicsContext.restoreGraphicsState()
-        return rep, samples
 
 
 class QtRenderer:
@@ -423,14 +258,14 @@ def style_metrics(renderer, family, style):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--platform", choices=("mac", "qt"), required=True)
+    parser.add_argument("--platform", choices=("qt",), required=True)
     parser.add_argument("--scale", type=int, choices=(1, 2), default=1)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--contact-sheet", action="store_true")
     parser.add_argument("--style-tiles", action="store_true", help="Render the native Design tile widgets")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
-    renderer = (MacRenderer if args.platform == "mac" else QtRenderer)(args.scale)
+    renderer = QtRenderer(args.scale)
     if args.style_tiles:
         report = []
         tile_images = {}

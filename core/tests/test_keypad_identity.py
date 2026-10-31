@@ -8,9 +8,7 @@ import sys
 import unittest
 
 from core import keytable, protocol
-from core.capture_types import MacDeadKeys
 from core.tests.app_methods import load_methods
-from core.tests.test_mac_key_repeat import load_injector, QuartzRecorder
 from core.tests import test_windows_accent_releases as windows
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "win_app"))
@@ -43,28 +41,6 @@ KEYS = [
 ]
 
 
-def mac_translator():
-    injector = load_injector()
-    spec = importlib.util.spec_from_file_location("keypad_codes", Path(__file__).resolve().parents[2] / "mac_app/key_codes.py")
-    key_codes = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(key_codes)
-    namespace = {"KeyResult": namedtuple("KeyResult", "is_trigger is_down is_repeat messages"),
-                 "SPECIAL_KEY_NAMES": key_codes.SPECIAL_KEY_NAMES,
-                 "MODIFIER_KEY_CODES": key_codes.MODIFIER_KEY_CODES,
-                 "PRINTABLE_KEY_FALLBACKS": key_codes.PRINTABLE_KEY_FALLBACKS,
-                 "protocol": protocol, "keytable": keytable,
-                 "keyboard_layout": injector.keyboard_layout, "MacDeadKeys": MacDeadKeys}
-    cls = load_methods("mac_app/bridge.py", "QuartzEventTranslator",
-                       ["key_result", "_special_key_messages", "_dead_key_messages"], namespace)
-    translator = cls()
-    translator.quartz = SimpleNamespace(kCGKeyboardEventKeycode=9, kCGKeyboardEventAutorepeat=8,
-        kCGEventFlagsChanged=12, kCGEventKeyDown=10, kCGEventKeyUp=11,
-        CGEventGetIntegerValueField=lambda event, field: event.get(field, 0), CGEventGetFlags=lambda event: 0)
-    translator.printable_down = {}
-    translator.modifier_down = set()
-    translator.dead_keys = MacDeadKeys()
-    translator._unicode_character = lambda event, code: "0"
-    return translator, injector
 
 
 class KeypadTests(unittest.TestCase):
@@ -81,37 +57,24 @@ class KeypadTests(unittest.TestCase):
     def check_receivers(self, messages, name, vk, scan, extended, mac, evdev):
         self.assertEqual([(m["type"], m["key"]) for m in messages],
                          [("keydown", name), ("keyup", name)])
-        injector = load_injector()
-        quartz = QuartzRecorder()
-        injector.Quartz = quartz
         win_events, linux_events = [], []
         state = inject_x11.KeyState()
         for message in messages:
             key, down = message["key"], message["type"] == "keydown"
-            for source in ("windows", "macos", "linux"):
-                for target in ("windows", "macos", "linux"):
+            for source in ("windows", "linux"):
+                for target in ("windows", "linux"):
                     self.assertEqual(keytable.wire_name(key, source, target, "semantic"), name)
             win_events += input_injector.plan_key_inputs(key, down, set(), {},
                 lambda ch: self.fail("keypad became text"), lambda value: scan)
-            injector.inject_key(key, down)
             linux_events += inject_x11.plan_key(key, down, None, state, None, 0, 0)
         self.assertEqual(win_events, [(vk, scan, extended), (vk, scan, extended | 2)])
-        self.assertEqual([event["code"] for event in quartz.events], [mac, mac])
-        self.assertTrue(all(event["flags"] & (1 << 21) for event in quartz.events))
         self.assertEqual(linux_events, [(inject_x11.PRESS, evdev + 8), (inject_x11.RELEASE, evdev + 8)])
         self.assertEqual(inject_portal.wayland_steps(linux_events), [(evdev, True), (evdev, False)])
 
-    def test_mac_and_linux_capture_send_named_keypad_events(self):
-        translator, _ = mac_translator()
+    def test_linux_capture_send_named_keypad_events(self):
         for row in KEYS:
             name, vk, scan, extended, mac, evdev = row
             with self.subTest(key=name):
-                messages = []
-                for kind in (10, 11):
-                    for msg in translator.key_result(kind, {9: mac}, None, {}).messages:
-                        msg["data"]["seq"] = len(messages) + 1
-                        messages.append(protocol.read_input(protocol.parse_message(protocol.dumps_message(msg))))
-                self.check_receivers(messages, *row)
                 for backend in (capture_x11, capture_portal):
                     events = []
                     hook = backend.Hooks(lambda *args: events.append(args), lambda *args: False,

@@ -1,3 +1,9 @@
+# Fork scope
+
+This personal fork supports Windows and Linux. The protocol notes below describe the
+retained upstream v6 format; they are not an independent security audit. Local changes
+are described in `docs/FORK.md`. Report fork-specific problems to its maintainer.
+
 # Security
 
 Beamer sends your keystrokes, pointer and clipboard between machines, so the link between them
@@ -41,8 +47,8 @@ matters. This is what it protects, what it does not, and how to report a problem
   which another machine on the network can imitate. That can stop a connection or point Beamer at
   the wrong address, but the encrypted link still requires the paired token.
 - **A machine with the token is trusted.** It can type and click in applications that accept
-  synthetic input on the paired machine. On Windows, Beamer runs elevated so it can reach elevated
-  windows; it cannot control the secure desktop. Treat the token like a password.
+  synthetic input on the paired machine. On Windows, Beamer normally runs with the current user rights. Optional administrator mode
+  can reach elevated windows; neither mode can control the secure desktop. Treat the token like a password.
 - **Malware on either machine.** Software that can read your keyboard or Beamer's local settings
   can already act as you or the paired machine.
 - **Traffic analysis.** Encryption hides the contents, not when machines talk or the size and timing

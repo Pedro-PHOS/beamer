@@ -1048,7 +1048,7 @@ class _Ifaddrs(ctypes.Structure):
     pass
 
 
-# The same layout on macOS and Linux; the sockaddrs it points at are not (BSD's start with a length).
+# Linux getifaddrs layout.
 _Ifaddrs._fields_ = [
     ("ifa_next", ctypes.POINTER(_Ifaddrs)),
     ("ifa_name", ctypes.c_char_p),
@@ -1062,16 +1062,9 @@ _IFF_UP, _IFF_BROADCAST, _IFF_LOOPBACK, _IFF_POINTOPOINT = 0x1, 0x2, 0x8, 0x10
 
 
 def _sockaddr_ipv4(pointer):
-    """(family, the four address bytes) of a sockaddr from getifaddrs. A BSD netmask may be cut
-    short by its length byte, and may say no family: the bytes it leaves out are zeros."""
-    if sys.platform == "darwin":
-        length = ctypes.string_at(pointer, 1)[0]
-        raw = ctypes.string_at(pointer, min(max(length, 2), 8))
-        family = raw[1]
-    else:
-        raw = ctypes.string_at(pointer, 8)
-        family = int.from_bytes(raw[:2], sys.byteorder)
-    return family, raw[4:8].ljust(4, b"\0")
+    """Read a Linux sockaddr_in returned by getifaddrs."""
+    raw = ctypes.string_at(pointer, 8)
+    return int.from_bytes(raw[:2], sys.byteorder), raw[4:8]
 
 
 def _posix_interfaces() -> list:

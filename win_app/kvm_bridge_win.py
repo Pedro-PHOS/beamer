@@ -155,17 +155,10 @@ CORNER_CHOICES = (
     ("bottom_right", N_("Bottom-right")),
 )
 TRIGGER_STYLE_CHOICES = (("double_tap", N_("Double-tap")), ("hold", N_("Hold")))
-MODIFIER_STYLE_CHOICES = (
-    ("semantic", N_("Same shortcuts")),
-    ("positional", N_("Same positions")),
-    ("mac_layout", N_("Mac keyboard layout")),
-)
+MODIFIER_STYLE_CHOICES = (("semantic", N_("Windows / Linux")),)
 MODIFIER_NOTES = {
-    "semantic": N_("On a Mac, Ctrl arrives as Command and the Windows key as Control, so Ctrl+C "
-    "copies there too. Between two PCs every key arrives as itself."),
-    "positional": N_("On a Mac, each key arrives as the Mac key in the same place: Ctrl as Control, the "
-    "Windows key as Command. Between two PCs every key arrives as itself."),
-    "mac_layout": N_("To a Mac: Alt becomes Command and Win becomes Option; Ctrl stays Control."),
+    style: N_("Ctrl, Alt and Windows/Super keep their physical identity between Windows and Linux.")
+    for style in ("semantic", "positional", "mac_layout")
 }
 IGNORED_NOTES = {
     "filled": N_("These keep working on this PC while its input is on another machine: a mouse's back button for "
@@ -243,7 +236,7 @@ def arrival_method(edge: Optional[str], driver_platform: str) -> str:
     and that is the only arrival an effect draws differently. No edge is a peer's shortcut or menu."""
     if edge is None:
         return "switch"
-    return "notch" if edge == "bottom" and keytable.is_mac(driver_platform) else "edge"
+    return "edge"
 
 
 def page_column_width(free: float) -> float:
@@ -549,6 +542,10 @@ class WindowsApplication(QWidget):
         self._refusal_notices = peerlist.RefusalThrottle()
         self._config = None
         self._closing = False
+        self._audio_engine = None
+        self._audio_signature = None
+        self._audio_retired = []
+        self._audio_started = False
         self._same_settings_signature = object()
         self._same_before_sync = None
         self._profile_last_heard = {}
@@ -976,6 +973,7 @@ class WindowsApplication(QWidget):
         self.link_module = self._link_module()
         layout.addWidget(self.link_module)
         layout.addWidget(self._input_module())
+        layout.addWidget(self._audio_module(current))
         layout.addWidget(self._same_module(current))
         self.permissions_module = None
         if pages_win.linux_permissions_visible(sys.platform, platform_parts.WAYLAND):
@@ -986,6 +984,103 @@ class WindowsApplication(QWidget):
         layout.addWidget(self._tray_module(current))
         layout.addWidget(self._updates_module(current))
         self._refresh_peers()
+
+    def _audio_module(self, current: Config) -> QWidget:
+        module = widgets.Module(tr("System audio"))
+        self.audio_send_check = QCheckBox(tr("Send this computer's audio"))
+        self.audio_mute_check = QCheckBox(tr("Mute local output while sending (Windows)"))
+        self.audio_mute_check.setToolTip(tr(
+            "Restores the previous mute state when sending stops. Some audio drivers also mute loopback capture."))
+        self.audio_target_combo = QComboBox()
+        self.audio_target_combo.setAccessibleName(tr("Audio destination"))
+        self.audio_receive_check = QCheckBox(tr("Allow audio from paired computers"))
+        self.audio_status_label = widgets.label(tr("Audio is off."), "note", wrap=True)
+        module.body.addWidget(self.audio_send_check)
+        module.body.addWidget(self.audio_mute_check)
+        module.body.addWidget(widgets.label(tr("Audio destination"), "note"))
+        module.body.addWidget(self.audio_target_combo)
+        module.body.addWidget(self.audio_receive_check)
+        module.body.addWidget(widgets.label(tr(
+            "The destination stays fixed when the mouse changes computers. Enable reception there. "
+            "Local speakers stay active unless muted above. Microphones are not transmitted."), "note", wrap=True))
+        module.body.addWidget(self.audio_status_label)
+        self.audio_send_check.toggled.connect(lambda value: self._change_audio("audio_send", value))
+        self.audio_mute_check.toggled.connect(lambda value: self._change_audio("audio_mute_local", value))
+        self.audio_receive_check.toggled.connect(lambda value: self._change_audio("audio_receive", value))
+        self.audio_target_combo.currentIndexChanged.connect(
+            lambda _: self._change_audio("audio_target", self.audio_target_combo.currentData() or ""))
+        self._refresh_audio()
+        return module
+
+    def _change_audio(self, field, value):
+        if self._config is None:
+            return
+        old = (self._config.audio_send, self._config.audio_receive, self._config.audio_target, self._config.audio_mute_local)
+        setattr(self._config, field, value)
+        if field == "audio_send" and value:
+            self._config.audio_receive = False
+        elif field == "audio_receive" and value:
+            self._config.audio_send = False
+        if not self._persist():
+            self._config.audio_send, self._config.audio_receive, self._config.audio_target, self._config.audio_mute_local = old
+        self._refresh_audio()
+
+    def _refresh_audio(self):
+        from core import audio_stream
+        if self._config is None or not hasattr(self, "audio_target_combo"):
+            return
+        config = self._config
+        peers = [p for p in self.book.peers() if audio_stream.eligible(p)]
+        choices = [("", tr("Choose a paired computer…"))] + [
+            (p["id"], p.get("label") or p.get("name") or p["id"]) for p in peers]
+        combo = self.audio_target_combo
+        old_choices = [(combo.itemData(i), combo.itemText(i)) for i in range(combo.count())]
+        combo.blockSignals(True)
+        if choices != old_choices:
+            combo.clear()
+            for ident, name in choices:
+                combo.addItem(name, ident)
+        combo.setCurrentIndex(max(0, combo.findData(config.audio_target)))
+        combo.blockSignals(False)
+        for check, value in ((self.audio_send_check, config.audio_send),
+                             (self.audio_receive_check, config.audio_receive),
+                             (self.audio_mute_check, config.audio_mute_local)):
+            check.blockSignals(True)
+            check.setChecked(value)
+            check.blockSignals(False)
+        valid_target = config.audio_target in {p["id"] for p in peers}
+        self.audio_send_check.setEnabled(valid_target or config.audio_send)
+        self.audio_mute_check.setEnabled(sys.platform == "win32" and config.audio_send)
+        signature = (config.audio_send, config.audio_receive, config.audio_target, config.machine_id,
+                     config.audio_mute_local)
+        engine = getattr(self, "_audio_engine", None)
+        if getattr(self, "_audio_started", False):
+            if signature != getattr(self, "_audio_signature", None):
+                if engine is not None:
+                    engine.stop()
+                    self._audio_retired.append(engine)
+                self._audio_engine = engine = None
+                self._audio_signature = signature
+            # Wait for a previous native recorder to release its device before restarting.
+            self._audio_retired = [old for old in self._audio_retired
+                                   if old.thread is not None and old.thread.is_alive()]
+            if engine is None and not self._audio_retired and (config.audio_send or config.audio_receive):
+                if config.audio_receive or valid_target:
+                    engine = audio_stream.AudioEngine(self.book.peers, config.machine_id,
+                        target=config.audio_target if config.audio_send else "", receive=config.audio_receive,
+                        mute_local=config.audio_mute_local and sys.platform == "win32")
+                    self._audio_engine = engine
+                    engine.start()
+        if config.audio_send and not valid_target:
+            status = tr("Choose an available paired computer for audio.")
+        elif engine is not None:
+            status = engine.status
+        elif getattr(self, "_audio_retired", []):
+            status = tr("Stopping the previous audio stream…")
+        else:
+            status = tr("Audio is off.")
+        self.audio_status_label.setText(status)
+        self.audio_status_label.setToolTip(engine.error if engine else "")
 
     def _name_module(self, current: Config) -> QWidget:
         module = widgets.Module(tr("This machine"))
@@ -2209,11 +2304,13 @@ class WindowsApplication(QWidget):
             LOGGER.exception("Could not identify the signed-in account")
             can_start = False
             account_known = False
-        import admin_mode
-        try:
-            admin_on = admin_mode.enabled()
-        except OSError:
-            admin_on = False
+        admin_on = False
+        if sys.platform == "win32":
+            import admin_mode
+            try:
+                admin_on = admin_mode.enabled()
+            except OSError:
+                pass
         enabled = False
         try:
             enabled = exe is not None and autostart_win.is_enabled()
@@ -3483,7 +3580,7 @@ class WindowsApplication(QWidget):
         module = widgets.Module(tr("Modifier keys"))
         self.modifier_choice = widgets.Choice(
             tuple((value, tr(title)) for value, title in MODIFIER_STYLE_CHOICES),
-            columns=3, current=current.modifier_style, on_change=self._set_modifier_style
+            columns=1, current="semantic", on_change=self._set_modifier_style
         )
         self.modifier_choice.set_names(tr("Modifier keys"))
         module.body.addWidget(self.modifier_choice.view)
@@ -5155,7 +5252,7 @@ class WindowsApplication(QWidget):
         self.trigger_recorder.set_title(TRIGGER_KEYS.get(config.trigger_key, config.trigger_key))
         self.trigger_style_choice.set_value(config.trigger_style)
         self._update_style_hint(config.trigger_style)
-        self.modifier_choice.set_value(config.modifier_style)
+        self.modifier_choice.set_value("semantic")
         self.modifier_note.setText(MODIFIER_NOTES[config.modifier_style])
         self.glow_style_choice.set_value(config.glow_style)
         self.glow_colour_choice.set_value(config.glow_colour)
@@ -5239,6 +5336,8 @@ class WindowsApplication(QWidget):
             self.server.stop()
         self._receiver_port = config.port
         self.server.start(config.port)
+        self._audio_started = True
+        self._refresh_audio()
 
     def _start_sending(self, config: Config) -> None:
         """The outward link and the hooks that feed it. The hooks go in only
@@ -5522,6 +5621,14 @@ class WindowsApplication(QWidget):
         if self._closing:
             return
         self._closing = True
+        if self._audio_engine is not None:
+            self._audio_engine.stop()
+        for engine in self._audio_retired:
+            engine.stop()
+        # Let the worker restore the endpoint before the process exits.
+        for engine in [self._audio_engine, *self._audio_retired]:
+            if engine is not None and engine.thread is not None:
+                engine.thread.join(timeout=3)
         self.identify_screens.stop()
         self.refresh_timer.stop()
         self.update_checker.stop()
@@ -5721,6 +5828,7 @@ class WindowsApplication(QWidget):
     def _refresh_window(self, *, skip_hidden=False) -> None:
         if self._closing:
             return
+        self._refresh_audio()
         try:
             saved = self._window_settings()
         except (ConfigError, OSError):

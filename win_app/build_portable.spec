@@ -1,3 +1,4 @@
+from PyInstaller.utils.hooks import collect_data_files
 from pathlib import Path
 
 
@@ -9,15 +10,15 @@ analysis = Analysis(
     [str(source_dir / "portable_entry.py")],
     pathex=[str(source_dir), str(source_dir.parent)],
     binaries=[],
-    datas=[(str(source_dir / "Beamer.ico"), "."), (str(source_dir / "assets"), "assets"),
+    datas=collect_data_files("soundcard") + [(str(source_dir / "Beamer.ico"), "."), (str(source_dir / "assets"), "assets"),
            (str(source_dir.parent / "VERSION"), "."),
            (str(source_dir / "identify_layer_shell.py"), ".")]
           + [(str(path), "locales") for path in (source_dir.parent / "locales").glob("*.po")],
-    hiddenimports=["kvm_bridge_win", "nacl", "_cffi_backend", "segno", "win32com.client", "pythoncom", "pywintypes"] + app_modules + core_modules,
+    hiddenimports=["soundcard", "soundcard.mediafoundation", "numpy", "kvm_bridge_win", "nacl", "_cffi_backend", "segno", "win32com.client", "pythoncom", "pywintypes"] + app_modules + core_modules,
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[str(source_dir / "hooks" / "portable_storage.py")],
-    excludes=["PIL", "pystray", "tkinter", "numpy", "PySide6.QtQml", "PySide6.QtQuick", "PySide6.Qt3DCore", "PySide6.QtMultimedia"],
+    excludes=["soundcard.coreaudio", "PIL", "pystray", "tkinter", "PySide6.QtQml", "PySide6.QtQuick", "PySide6.Qt3DCore", "PySide6.QtMultimedia"],
     noarchive=False,
 )
 

@@ -59,33 +59,6 @@ class MigrationBackupTests(unittest.TestCase):
 
     _mac_module = None
 
-    def _mac_store_and_153_file(self):
-        # Loaded once per process: an Objective-C class cannot be defined twice, so the Mac modules
-        # are never purged and re-imported between tests.
-        if MigrationBackupTests._mac_module is None:
-            if sys.platform != "darwin":
-                # Not even attempted: a failed import still leaves mac_app's config and crossing
-                # modules in sys.modules for the rest of a shared suite.
-                self.skipTest("Mac SettingsStore leg runs on macOS only")
-            old_path = sys.path[:]
-            sys.meta_path.insert(0, _BLOCKER)
-            try:
-                sys.path.insert(0, str(ROOT / "mac_app"))
-                MigrationBackupTests._mac_module = importlib.import_module("settings_store")
-            except ImportError as exc:
-                # Off the Mac there is no PyObjC, and another module's blocker is an ImportError too;
-                # the Windows and Linux legs still run.
-                self.skipTest(f"Mac SettingsStore leg skipped: {exc}")
-            finally:
-                sys.meta_path.remove(_BLOCKER)
-                sys.path[:] = old_path
-        settings_store = MigrationBackupTests._mac_module
-        store = settings_store.SettingsStore(self.folder / "settings.json")
-        normalised = store.load_settings()
-        raw = _profileless(normalised)
-        original = json.dumps(raw, indent=2, ensure_ascii=False).encode("utf-8") + b"\n"
-        store.path.write_bytes(original)
-        return store, original, settings_store
 
     def _windows_file(self):
         import app_config
@@ -112,10 +85,6 @@ class MigrationBackupTests(unittest.TestCase):
         settings = app_config.load_settings(path)
         self._assert_backup_before_write(path, original, lambda: app_config.write_settings(path, settings))
 
-    def test_mac_upgrade_backup_is_made_once_before_first_save(self):
-        store, original, _module = self._mac_store_and_153_file()
-        settings = store.load_settings()
-        self._assert_backup_before_write(store.path, original, lambda: store.save_settings(settings))
 
     def test_windows_backup_failure_leaves_original_settings_untouched(self):
         app_config, path, original = self._windows_file()
@@ -143,32 +112,7 @@ class MigrationBackupTests(unittest.TestCase):
             self.assertEqual(handle.read(), original)
         self.assertFalse(path.with_name("settings.json.before-1.5.5").exists())
 
-    def test_mac_backup_failure_leaves_original_settings_untouched(self):
-        store, original, store_module = self._mac_store_and_153_file()
-        settings = store.load_settings()
-        with mock.patch.object(store_module, "shutil", create=True):
-            store_module.shutil.copyfile.side_effect = OSError("backup denied")
-            with self.assertRaises(Exception):
-                store.save_settings(settings)
-        self.assertEqual(store.path.read_bytes(), original)
-        self.assertFalse(store.path.with_name("settings.json.before-1.5.5").exists())
 
-    def test_mac_backup_source_read_failure_aborts_save(self):
-        store, original, _module = self._mac_store_and_153_file()
-        settings = store.load_settings()
-        real_read_bytes = Path.read_bytes
-
-        def fail_source(this):
-            if this == store.path:
-                raise OSError("source read denied")
-            return real_read_bytes(this)
-
-        with mock.patch.object(Path, "read_bytes", fail_source):
-            with self.assertRaises(OSError):
-                store.save_settings(settings)
-        with store.path.open("rb") as handle:
-            self.assertEqual(handle.read(), original)
-        self.assertFalse(store.path.with_name("settings.json.before-1.5.5").exists())
 
     def test_windows_row_and_archive_write_fail_together(self):
         app_config, path, original = self._windows_file()
@@ -182,17 +126,6 @@ class MigrationBackupTests(unittest.TestCase):
                 app_config.write_settings(path, settings)
         self.assertEqual(path.read_bytes(), original)
 
-    def test_mac_row_and_archive_write_fail_together(self):
-        store, original, store_module = self._mac_store_and_153_file()
-        settings = store.load_settings()
-        settings["crossing_own"]["row"]["synthetic"] = {"ways": {"edge": False}, "notch_return": False}
-        settings["crossing_own"]["saved"].append(
-            {"id": "synthetic", "why": "edited", "at": 100, "row": {"synthetic": {"ways": {}, "notch_return": False}}}
-        )
-        with mock.patch.object(store_module.os, "replace", side_effect=OSError("atomic replace denied")):
-            with self.assertRaises(Exception):
-                store.save_settings(settings)
-        self.assertEqual(store.path.read_bytes(), original)
 
 
 class MigrationCoreTests(unittest.TestCase):
@@ -213,8 +146,12 @@ class MigrationCoreTests(unittest.TestCase):
 
 class DowngradeCompatibilityTests(unittest.TestCase):
     def _frozen_153(self, folder):
+        available = subprocess.run(["git", "cat-file", "-e", "be9661d1^{commit}"],
+                                   cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        if available.returncode:
+            self.skipTest("Historical upstream commit be9661d1 is absent from this source ZIP")
         archive = subprocess.run(
-            ["git", "archive", "be9661d1", "core", "win_app", "mac_app"],
+            ["git", "archive", "be9661d1", "core", "win_app"],
             cwd=ROOT, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
         ).stdout
         frozen = folder / "frozen"
@@ -270,18 +207,6 @@ path.write_text(json.dumps(core)); loaded = load_settings(path); write_settings(
 win = json.loads(path.read_text())
 assert win["crossing_own"] == {"sentinel":1} and win["crossing_desk"] == {"sentinel":2}
 assert win["peers"][0]["crossing_future_peer_field"] == {"keep":True}
-sys.path.insert(0, str(root / "mac_app"))
-try:
-    from settings_store import SettingsStore
-except (GuiImportBlocked, ImportError) as exc:
-    print("frozen Mac load/save skipped: " + str(exc))
-else:
-    path = folder / "mac-settings.json"; path.write_text(json.dumps(core))
-    store = SettingsStore(path); loaded = store.load_settings(); store.save_settings(loaded)
-    mac = json.loads(path.read_text())
-    assert mac["crossing_own"] == {"sentinel":1} and mac["crossing_desk"] == {"sentinel":2}
-    assert mac["peers"][0]["crossing_future_peer_field"] == {"keep":True}
-    print("core, Windows and Mac 1.5.3 loads/saves kept profile objects and peer fields")
 '''
             result = subprocess.run(
                 [sys.executable, "-c", script, str(frozen), str(work)], cwd=ROOT,
@@ -322,15 +247,6 @@ if mode == "edit":
 path.write_text(json.dumps(settings), encoding="utf-8")
 from app_config import load_settings, write_settings
 settings = load_settings(path); write_settings(path, settings)
-sys.path.insert(0, str(root / "mac_app"))
-try:
-    from settings_store import SettingsStore
-except (GuiImportBlocked, ImportError) as exc:
-    print("frozen Mac 1.5.3 load/save skipped: " + str(exc))
-else:
-    store = SettingsStore(path); settings = store.load_settings(); store.save_settings(settings)
-    print("frozen Mac 1.5.3 load/save complete")
-print("frozen 1.5.3 core and Windows round trip complete")
 '''
             for mode in ("unchanged", "normalise", "edit"):
                 with self.subTest(mode=mode):

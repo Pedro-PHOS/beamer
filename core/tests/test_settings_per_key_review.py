@@ -52,7 +52,7 @@ class TriggerClashFlood(unittest.TestCase):
     def test_three_machines_that_keep_their_trigger_on_a_clash_stop_forwarding(self):
         # Mac 0 chooses f13 as the trigger; PCs 1-3 each hold a jump chord using f13, so each keeps
         # its own trigger and its older stamp, and every copy of the message counts as "taken" again.
-        desks = RoutedDesks(self, ("mac", "win", "win", "win"))
+        desks = RoutedDesks(self, ("win", "win", "win", "win"))
         for index in (1, 2, 3):
             peers = desks.apps[index].peers
             peers[0] = dict(peers[0], jump_key="ctrl+f13")
@@ -66,7 +66,7 @@ class TriggerClashFlood(unittest.TestCase):
 
 class SliderAndPresetSplit(unittest.TestCase):
     def test_the_latest_pace_choice_survives_a_machine_that_missed_a_length_change(self):
-        desks = Desks(self, ("mac", "win"))
+        desks = Desks(self, ("win", "win"))
         desks.apps[0]._set_same(True)
         desks.apps[0].sent.clear()
         desks.link(0, 1)

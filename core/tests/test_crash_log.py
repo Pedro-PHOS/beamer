@@ -78,23 +78,6 @@ class AFatalSignal(unittest.TestCase):
         self.assertIn("waits_on_the_link", text)
 
 
-@unittest.skipUnless(sys.platform == "darwin", "the Mac's quiet stand-in for the fatal signal")
-class TheFatalSignalHandlerOnTheMac(unittest.TestCase):
-    def test_is_armed_and_writes_every_threads_stack_to_crash_log(self):
-        # faulthandler's own dump into the very descriptor the fatal handler writes to: the stack
-        # the signal would leave, with no process dying and nothing for ReportCrash to see.
-        ending = (
-            "import faulthandler, sys\n"
-            "assert faulthandler.is_enabled()\n"
-            "faulthandler.dump_traceback(file=crash_log._fault_file, all_threads=True)\n"
-            "crash_log._fault_file.flush()\n"
-            "sys.exit(3)\n"
-        )
-        with tempfile.TemporaryDirectory() as directory:
-            result, text = _run_child(directory, ending)
-        self.assertEqual(result.returncode, 3, result.stderr)
-        self.assertIn("waits_on_the_link", text)
-        self.assertIn("Current thread", text)
 
 
 if __name__ == "__main__":

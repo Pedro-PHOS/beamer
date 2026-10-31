@@ -8,11 +8,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Beamer-Status: draft, awaiting check\n"
 
-#: core/effects.py mac_app/pages.py win_app/pages_win.py
+#: core/audio_stream.py win_app/kvm_bridge_win.py
+msgid "Audio is off."
+msgstr "Audio disattivato."
+
+#: core/audio_stream.py
+msgid "Ready to receive audio from a paired computer."
+msgstr "Pronto a ricevere audio da un computer associato."
+
+#: core/audio_stream.py
+msgid "Receiving audio. Sending is disabled to prevent feedback."
+msgstr "Ricezione audio. Invio disabilitato per evitare il feedback."
+
+#: core/audio_stream.py
+msgid "Connecting audio to the selected computer…"
+msgstr "Connessione audio al computer selezionato…"
+
+#: core/audio_stream.py
+msgid "Sending system audio to the selected computer."
+msgstr "Invio dell’audio di sistema al computer selezionato."
+
+#: core/audio_stream.py
+msgid "Could not open the audio receiver."
+msgstr "Impossibile avviare il ricevitore audio."
+
+#: core/audio_stream.py
+msgid "Audio unavailable. Check the destination, reception and firewall."
+msgstr "Audio non disponibile. Controlla destinazione, ricezione e firewall."
+
+#: core/effects.py win_app/pages_win.py
 msgid "Light"
 msgstr "Luce"
 
-#: core/effects.py mac_app/pages.py win_app/pages_win.py
+#: core/effects.py win_app/pages_win.py
 msgid "Mono"
 msgstr "Mono"
 
@@ -20,19 +48,19 @@ msgstr "Mono"
 msgid "Bright"
 msgstr "Vivaci"
 
-#: core/effects.py mac_app/pages.py
+#: core/effects.py
 msgid "Quiet"
 msgstr "Discreto"
 
-#: core/effects.py mac_app/pages.py
+#: core/effects.py
 msgid "Medium"
 msgstr "Medio"
 
-#: core/effects.py mac_app/pages.py
+#: core/effects.py
 msgid "Showpiece"
 msgstr "Spettacolare"
 
-#: core/effects.py mac_app/pages.py
+#: core/effects.py
 msgid "Ring"
 msgstr "Anello"
 
@@ -104,27 +132,27 @@ msgstr "Fucsia"
 msgid "Ultraviolet"
 msgstr "Ultravioletto"
 
-#: core/effects.py mac_app/pages.py win_app/pages_win.py
+#: core/effects.py win_app/pages_win.py
 msgid "Glow"
 msgstr "Bagliore"
 
-#: core/effects.py mac_app/pages.py win_app/pages_win.py
+#: core/effects.py win_app/pages_win.py
 msgid "A band of light that deepens the harder you push."
 msgstr "Una fascia di luce che si intensifica quanto più spingi."
 
-#: core/effects.py mac_app/pages.py win_app/pages_win.py
+#: core/effects.py win_app/pages_win.py
 msgid "Beam"
 msgstr "Raggio"
 
-#: core/effects.py mac_app/pages.py win_app/pages_win.py
+#: core/effects.py win_app/pages_win.py
 msgid "A thin line with a comet of light running along it."
 msgstr "Una linea sottile percorsa da una cometa di luce."
 
-#: core/effects.py mac_app/pages.py win_app/pages_win.py
+#: core/effects.py win_app/pages_win.py
 msgid "Aperture"
 msgstr "Diaframma"
 
-#: core/effects.py mac_app/pages.py win_app/pages_win.py
+#: core/effects.py win_app/pages_win.py
 msgid "A fine lens of light opens under pressure and closes softly behind the arriving pointer."
 msgstr "Una sottile lente di luce si apre sotto la pressione e si richiude dolcemente dietro il puntatore che arriva."
 
@@ -160,7 +188,7 @@ msgstr "Metà"
 msgid "Quarter"
 msgstr "Un quarto"
 
-#: core/effects.py mac_app/pages.py
+#: core/effects.py
 msgid "Same as crossing"
 msgstr "Come il passaggio"
 
@@ -765,15 +793,15 @@ msgstr "Usa le vie della scrivania"
 msgid "Older"
 msgstr "Datato"
 
-#: core/profiles.py mac_app/diagram.py
+#: core/profiles.py
 msgid "Offline"
 msgstr "Non in linea"
 
-#: core/profiles.py mac_app/diagram.py win_app/diagram.py
+#: core/profiles.py win_app/diagram.py
 msgid "Own"
 msgstr "Personale"
 
-#: core/profiles.py mac_app/diagram.py win_app/diagram.py win_app/kvm_bridge_win.py
+#: core/profiles.py win_app/diagram.py win_app/kvm_bridge_win.py
 msgid "Desk"
 msgstr "Scrivania"
 
@@ -875,23 +903,23 @@ msgstr "Un computer connesso non è disponibile finché non ha la beta.6 o succe
 msgid "No paired machine is connected."
 msgstr "Nessun computer abbinato è connesso."
 
-#: core/settings_sync.py mac_app/kvm_bridge_app.py mac_app/pages.py win_app/kvm_bridge_win.py win_app/pages_win.py
+#: core/settings_sync.py win_app/kvm_bridge_win.py win_app/pages_win.py
 msgid "Crossing"
 msgstr "Passaggio"
 
-#: core/settings_sync.py mac_app/kvm_bridge_app.py mac_app/pages.py win_app/kvm_bridge_win.py win_app/pages_win.py
+#: core/settings_sync.py win_app/kvm_bridge_win.py win_app/pages_win.py
 msgid "Design"
 msgstr "Aspetto"
 
-#: core/settings_sync.py mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
+#: core/settings_sync.py win_app/kvm_bridge_win.py
 msgid "Shortcut"
 msgstr "Scorciatoia"
 
-#: core/settings_sync.py mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
+#: core/settings_sync.py win_app/kvm_bridge_win.py
 msgid "Names"
 msgstr "Nomi"
 
-#: core/settings_sync.py mac_app/diagram.py mac_app/kvm_bridge_app.py win_app/diagram.py win_app/kvm_bridge_win.py
+#: core/settings_sync.py win_app/diagram.py win_app/kvm_bridge_win.py
 msgid "Resistance"
 msgstr "Resistenza"
 
@@ -989,59 +1017,59 @@ msgstr "questo Mac"
 msgid "this computer"
 msgstr "questo computer"
 
-#: core/ways.py mac_app/diagram.py
+#: core/ways.py
 msgid "middle"
 msgstr "centrale"
 
-#: core/ways.py mac_app/ledger.py win_app/crossing_ledger.py
+#: core/ways.py win_app/crossing_ledger.py
 msgid "Top left"
 msgstr "in alto a sinistra"
 
-#: core/ways.py mac_app/ledger.py win_app/crossing_ledger.py
+#: core/ways.py win_app/crossing_ledger.py
 msgid "Top right"
 msgstr "in alto a destra"
 
-#: core/ways.py mac_app/ledger.py win_app/crossing_ledger.py
+#: core/ways.py win_app/crossing_ledger.py
 msgid "Bottom left"
 msgstr "in basso a sinistra"
 
-#: core/ways.py mac_app/ledger.py win_app/crossing_ledger.py
+#: core/ways.py win_app/crossing_ledger.py
 msgid "Bottom right"
 msgstr "in basso a destra"
 
-#: core/ways.py mac_app/kvm_bridge_app.py
+#: core/ways.py
 msgid "top left"
 msgstr "in alto a sinistra"
 
-#: core/ways.py mac_app/kvm_bridge_app.py
+#: core/ways.py
 msgid "top right"
 msgstr "in alto a destra"
 
-#: core/ways.py mac_app/kvm_bridge_app.py
+#: core/ways.py
 msgid "bottom left"
 msgstr "in basso a sinistra"
 
-#: core/ways.py mac_app/kvm_bridge_app.py
+#: core/ways.py
 msgid "bottom right"
 msgstr "in basso a destra"
 
-#: core/ways.py mac_app/ledger.py mac_app/pages.py win_app/crossing_ledger.py
+#: core/ways.py win_app/crossing_ledger.py
 msgid "Top"
 msgstr "Superiore"
 
-#: core/ways.py mac_app/ledger.py
+#: core/ways.py
 msgid "Middle"
 msgstr "Centrale"
 
-#: core/ways.py mac_app/ledger.py mac_app/pages.py win_app/crossing_ledger.py
+#: core/ways.py win_app/crossing_ledger.py
 msgid "Bottom"
 msgstr "Inferiore"
 
-#: core/ways.py mac_app/ledger.py mac_app/pages.py win_app/crossing_ledger.py win_app/pages_win.py
+#: core/ways.py win_app/crossing_ledger.py win_app/pages_win.py
 msgid "Left"
 msgstr "Sinistro"
 
-#: core/ways.py mac_app/ledger.py mac_app/pages.py win_app/crossing_ledger.py win_app/pages_win.py
+#: core/ways.py win_app/crossing_ledger.py win_app/pages_win.py
 msgid "Right"
 msgstr "Destro"
 
@@ -1122,7 +1150,7 @@ msgstr "{first} e {second} passerebbero entrambi per {where} di {here}. Sposta u
 msgid "{name} has no way in: {other} already leads from the {side} edge of {here}. Give each its own thirds of that edge by moving the machines on the map, or move one to another side."
 msgstr "{name} non ha una via d'ingresso: {other} parte già dal bordo {side} di {here}. Assegna a ciascuno i propri terzi di quel bordo spostando i computer sulla mappa, o sposta uno dei due su un altro lato."
 
-#: core/ways.py mac_app/kvm_bridge_app.py win_app/pages_win.py
+#: core/ways.py win_app/pages_win.py
 msgid "another machine"
 msgstr "un altro computer"
 
@@ -1177,7 +1205,7 @@ msgstr "quel tasto è già assegnato a un altro computer"
 msgid "the {edge} edge of display {display}"
 msgstr "il bordo {edge} dello schermo {display}"
 
-#: core/ways.py mac_app/kvm_bridge_app.py mac_app/pages.py
+#: core/ways.py
 msgid "the notch"
 msgstr "il notch"
 
@@ -1243,7 +1271,7 @@ msgstr "{name} ha anche {other} sul suo lato {facing}, quindi nessuno dei suoi b
 msgid "That shortcut clashes with the jump key {key}; the jump key has been kept."
 msgstr "Quella scorciatoia coincide con il tasto di salto {key}; è stato mantenuto il tasto di salto."
 
-#: core/ways.py mac_app/kvm_bridge_app.py win_app/pages_win.py
+#: core/ways.py win_app/pages_win.py
 #, python-brace-format
 msgid "the {corner} corner"
 msgstr "l'angolo {corner}"
@@ -1252,2783 +1280,6 @@ msgstr "l'angolo {corner}"
 #, python-brace-format
 msgid "the {edge} edge"
 msgstr "il bordo {edge}"
-
-#: mac_app/bridge.py
-#, python-brace-format
-msgid "{name} does not accept input from this Mac"
-msgstr "{name} non accetta input da questo Mac"
-
-#: mac_app/bridge.py
-#, python-brace-format
-msgid "{name} could not read the request to take it"
-msgstr "{name} non è riuscito a leggere la richiesta di controllo"
-
-#: mac_app/bridge.py
-#, python-brace-format
-msgid "{name} refused the input"
-msgstr "{name} ha rifiutato l'input"
-
-#: mac_app/bridge.py win_app/sender.py
-#, python-brace-format
-msgid "{name} did not answer"
-msgstr "{name} non ha risposto"
-
-#: mac_app/bridge.py win_app/sender.py
-#, python-brace-format
-msgid "Lost the link to {name}"
-msgstr "Collegamento con {name} perso"
-
-#: mac_app/bridge.py
-msgid "Waiting to connect"
-msgstr "In attesa di connessione"
-
-#: mac_app/bridge.py
-msgid "Settings saved; reconnecting"
-msgstr "Impostazioni salvate; riconnessione"
-
-#: mac_app/bridge.py mac_app/kvm_bridge_app.py mac_app/link_state.py mac_app/wake.py win_app/pages_win.py
-msgid "the other machine"
-msgstr "l'altro computer"
-
-#: mac_app/bridge.py win_app/kvm_bridge_win.py
-msgid "Beamer"
-msgstr "Beamer"
-
-#: mac_app/bridge.py
-msgid "Input returned to this Mac"
-msgstr "L'input è tornato a questo Mac"
-
-#: mac_app/bridge.py win_app/sender.py
-#, python-brace-format
-msgid "Skipped {name}: not connected."
-msgstr "{name} saltato: non connesso."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/bridge.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Shook home from {name}. Turn this off in Crossing → Way home."
-msgstr "Tornato da {name} scuotendo il puntatore. Disattivalo in Passaggio → Via di casa."
-
-#: mac_app/bridge.py win_app/sender.py
-#, python-brace-format
-msgid "Cannot switch — {status}"
-msgstr "Impossibile passare: {status}"
-
-#: mac_app/bridge.py
-#, python-brace-format
-msgid "{machine} took over {name}"
-msgstr "{machine} ha preso il controllo di {name}"
-
-#: mac_app/bridge.py
-#, python-brace-format
-msgid "Another machine took over {name}"
-msgstr "Un altro computer ha preso il controllo di {name}"
-
-#: mac_app/bridge.py
-#, python-brace-format
-msgid "{name} could not be reached"
-msgstr "Impossibile raggiungere {name}"
-
-#: mac_app/diagram.py
-msgid "right of"
-msgstr "a destra di"
-
-#: mac_app/diagram.py
-msgid "left of"
-msgstr "a sinistra di"
-
-#: mac_app/diagram.py mac_app/pages.py
-msgid "below"
-msgstr "sotto"
-
-#: mac_app/diagram.py mac_app/pages.py
-msgid "above"
-msgstr "sopra"
-
-#: mac_app/diagram.py
-msgid "start"
-msgstr "iniziale"
-
-#: mac_app/diagram.py
-msgid "end"
-msgstr "finale"
-
-#: mac_app/diagram.py win_app/kvm_bridge_win.py
-msgid "Crosses"
-msgstr "Passa"
-
-#: mac_app/diagram.py
-msgid "Overlaps"
-msgstr "Si sovrappone"
-
-#: mac_app/diagram.py
-msgid "Drag to connect"
-msgstr "Trascina per collegare"
-
-#: mac_app/diagram.py
-msgid "Edge off"
-msgstr "Bordo disattivato"
-
-#: mac_app/diagram.py mac_app/ledger.py mac_app/machines_panel.py win_app/crossing_ledger.py win_app/diagram.py win_app/machines_win.py
-msgid "In the shortcut's cycle"
-msgstr "Nel ciclo della scorciatoia"
-
-#: mac_app/diagram.py win_app/crossing_ledger.py win_app/diagram.py win_app/sender.py
-msgid "Other machine"
-msgstr "Altro computer"
-
-#: mac_app/diagram.py mac_app/kvm_bridge_app.py mac_app/machines_panel.py
-msgid "This Mac"
-msgstr "Questo Mac"
-
-#: mac_app/diagram.py mac_app/machines_panel.py
-msgid "Selected"
-msgstr "Selezionato"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/diagram.py
-msgid "Drag a corner to resize, or use Option and the arrow keys."
-msgstr "Trascina un angolo per ridimensionare, oppure usa Opzione e i tasti freccia."
-
-#: mac_app/diagram.py
-msgid "Whole desk layout"
-msgstr "Disposizione completa della scrivania"
-
-#: mac_app/diagram.py
-msgid "No machines paired."
-msgstr "Nessun computer abbinato."
-
-#. {third} is one of the three sections along an edge.
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{name}, {side} This Mac, {third} third. {outcome}."
-msgstr "{name}, {side} questo Mac, terzo {third}. {outcome}."
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{name}, {side} This Mac. {outcome}."
-msgstr "{name}, {side} questo Mac. {outcome}."
-
-#. third names are one of the three sections of a screen edge.
-#: mac_app/diagram.py
-msgid "click to turn it off"
-msgstr "fai clic per disattivarlo"
-
-#. third names are one of the three sections of a screen edge.
-#: mac_app/diagram.py
-msgid "click to turn it on"
-msgstr "fai clic per attivarlo"
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "Current pressure {pressure} of {value} pointer units at the {edge} edge."
-msgstr "Pressione attuale {pressure} su {value} unità del puntatore sul bordo {edge}."
-
-#: mac_app/diagram.py
-msgid "machine"
-msgstr "computer"
-
-#: mac_app/diagram.py
-msgid "Not in use"
-msgstr "Non in uso"
-
-#: mac_app/diagram.py win_app/diagram.py
-msgid "Recentre"
-msgstr "Ricentra"
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{name} third: {detail}"
-msgstr "Terzo {name}: {detail}"
-
-#: mac_app/diagram.py
-msgid "Rename this Mac on Overview."
-msgstr "Rinomina questo Mac in Panoramica."
-
-#: mac_app/diagram.py win_app/diagram.py
-#, python-brace-format
-msgid "Recentre {name}"
-msgstr "Ricentra {name}"
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "Machine · {id}"
-msgstr "Computer · {id}"
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{name}, In the shortcut's cycle"
-msgstr "{name}, nel ciclo della scorciatoia"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{name}, {status}"
-msgstr "{name}, {status}"
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{name} is in the shortcut's cycle."
-msgstr "{name} è nel ciclo della scorciatoia."
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{name} is out of the shortcut's cycle."
-msgstr "{name} è fuori dal ciclo della scorciatoia."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/diagram.py win_app/diagram.py
-#, python-brace-format
-msgid "{name} resized."
-msgstr "{name} ridimensionato."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/diagram.py
-msgid "Set elsewhere"
-msgstr "Impostato altrove"
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "No push. Current pressure is 0 of {value} pointer units."
-msgstr "Nessuna spinta. La pressione attuale è 0 su {value} unità del puntatore."
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{name} · macOS"
-msgstr "{name} · macOS"
-
-#: mac_app/diagram.py mac_app/ledger.py win_app/crossing_ledger.py
-#, python-brace-format
-msgid "{platform} · {status}"
-msgstr "{platform} · {status}"
-
-#: mac_app/diagram.py mac_app/ledger.py
-#, python-brace-format
-msgid "Beamer {version} · only sees which side"
-msgstr "Beamer {version} · vede solo il lato"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{name}: drag a corner to resize, or use Option and the arrow keys."
-msgstr "{name}: trascina un angolo per ridimensionare, oppure usa Opzione e i tasti freccia."
-
-#: mac_app/diagram.py win_app/crossing_ledger.py
-msgid "Computer"
-msgstr "Computer"
-
-#: mac_app/diagram.py mac_app/ledger.py mac_app/link_state.py mac_app/machines.py win_app/crossing_ledger.py win_app/peers_view.py
-msgid "Linked"
-msgstr "Collegato"
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{label}, {outcome}."
-msgstr "{label}, {outcome}."
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{label}, {name}, this Mac."
-msgstr "{label}, {name}, questo Mac."
-
-#: mac_app/diagram.py
-#, python-brace-format
-msgid "{label}, this Mac."
-msgstr "{label}, questo Mac."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Input on this Mac"
-msgstr "Input su questo Mac"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Input held on this Mac; crossing is off"
-msgstr "Input bloccato su questo Mac; il passaggio è disattivato"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Input on another machine"
-msgstr "Input su un altro computer"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "About Beamer"
-msgstr "Informazioni su Beamer"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Hide Beamer"
-msgstr "Nascondi Beamer"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Hide Others"
-msgstr "Nascondi altre"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Quit Beamer"
-msgstr "Esci da Beamer"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Edit"
-msgstr "Modifica"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Undo"
-msgstr "Annulla"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Redo"
-msgstr "Ripeti"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Cut"
-msgstr "Taglia"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Copy"
-msgstr "Copia"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Paste"
-msgstr "Incolla"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Select All"
-msgstr "Seleziona tutto"
-
-#: mac_app/kvm_bridge_app.py
-msgid "View"
-msgstr "Vista"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Window"
-msgstr "Finestra"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Close"
-msgstr "Chiudi"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Minimise"
-msgstr "Contrai"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Shortcut: {style} {key} ·"
-msgstr "Scorciatoia: {style} {key} ·"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Idle"
-msgstr "Inattivo"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Get update"
-msgstr "Scarica l'aggiornamento"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "What's new"
-msgstr "Novità"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Dismiss"
-msgstr "Ignora"
-
-#: mac_app/kvm_bridge_app.py mac_app/machines.py mac_app/machines_panel.py mac_app/widgets.py win_app/crossing_ledger.py win_app/peers_view.py
-msgid "Mac"
-msgstr "Mac"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Everything"
-msgstr "Tutto"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Shares every group and can replace local values on this machine."
-msgstr "Condivide ogni gruppo e può sostituire i valori locali su questo computer."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Older Beamer versions share known Crossing and Design settings without group choices."
-msgstr "Le versioni precedenti di Beamer condividono le impostazioni note di Passaggio e Aspetto senza scegliere i gruppi."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Revert"
-msgstr "Ripristina"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Start Beamer when you log in"
-msgstr "Apri Beamer al login"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Open Login Items settings"
-msgstr "Apri le impostazioni Elementi login"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Show in Dock"
-msgstr "Mostra nel Dock"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Show in menu bar"
-msgstr "Mostra nella barra dei menu"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Automatically check for updates"
-msgstr "Controlla automaticamente gli aggiornamenti"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Check for updates"
-msgstr "Controlla aggiornamenti"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Download"
-msgstr "Scarica"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Mouse only"
-msgstr "Solo mouse"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Reverse other machines' scrolling"
-msgstr "Inverti lo scorrimento degli altri computer"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Delay"
-msgstr "Ritardo"
-
-#: mac_app/kvm_bridge_app.py mac_app/ledger.py win_app/crossing_ledger.py win_app/kvm_bridge_win.py
-msgid "Machine"
-msgstr "Computer"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Send input"
-msgstr "Invia input"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Pause crossing"
-msgstr "Sospendi il passaggio"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Hold this Mac's edges while an app on it is full screen"
-msgstr "Blocca i bordi di questo Mac mentre un'app è a schermo intero"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "This screen decides, including when another machine drives it. On, a full-screen app here holds pointer crossings; shortcuts and jump keys still work. Off, another machine's pointer can go home or onward through the configured ways."
-msgstr "Decide questo schermo, anche quando lo controlla un altro computer. Se attivo, un'app a schermo intero qui blocca il passaggio del puntatore; scorciatoie e tasti di salto funzionano comunque. Se disattivo, il puntatore di un altro computer può tornare a casa o proseguire attraverso le vie configurate."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "This screen's setting applies to every pointer on it."
-msgstr "L'impostazione di questo schermo vale per ogni puntatore che vi si trova."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Hide the pointer on the machine not in use"
-msgstr "Nascondi il puntatore sul computer non in uso"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Same ways on every machine"
-msgstr "Stesse vie su tutti i computer"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Set every machine's ways from this screen. Turning it on changes nothing until you do; each machine's own ways are kept."
-msgstr "Imposta le vie di tutti i computer da questa schermata. Attivarlo non cambia nulla finché non le modifichi; ciascun computer conserva le proprie vie."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Identify screens"
-msgstr "Identifica gli schermi"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Show these numbers on every linked machine's screens for 3 seconds."
-msgstr "Mostra questi numeri sugli schermi di tutti i computer collegati per 3 secondi."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py
-msgid "Option-click a display to split or group · drag to move · click a third of a lit edge to leave it out · drag a corner to resize"
-msgstr "Opzione-clic su uno schermo per dividerlo o raggrupparlo · trascina per spostare · fai clic su un terzo di un bordo illuminato per escluderlo · trascina un angolo per ridimensionare"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Switching moves every machine to this profile's places and ways."
-msgstr "Passare a questo profilo applica a tutti i computer le sue posizioni e vie."
-
-#: mac_app/kvm_bridge_app.py mac_app/machines_panel.py win_app/machines_win.py
-msgid "Machines"
-msgstr "Computer"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Keep this machine's own ways"
-msgstr "Usa le vie di questo computer"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Use the desk's ways"
-msgstr "Usa le vie della scrivania"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Share mine with the desk"
-msgstr "Condividi le mie con la scrivania"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py
-msgid "This Mac keeps its own ways"
-msgstr "Questo Mac mantiene le proprie vie"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Don't cross while dragging with this Mac's pointer"
-msgstr "Non passare mentre trascini con il puntatore di questo Mac"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Shake to come home"
-msgstr "Scuoti per tornare a casa"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Delete…"
-msgstr "Elimina…"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Profile name"
-msgstr "Nome del profilo"
-
-#: mac_app/kvm_bridge_app.py mac_app/machines_panel.py win_app/kvm_bridge_win.py win_app/machines_win.py
-msgid "Cancel"
-msgstr "Annulla"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Earlier ways ▾"
-msgstr "Vie precedenti ▾"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Earlier ways ▴"
-msgstr "Vie precedenti ▴"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py
-msgid "hold"
-msgstr "tieni premuto"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py
-msgid "double-tap"
-msgstr "doppio tocco"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Time between taps"
-msgstr "Tempo tra i tocchi"
-
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-msgid "With Hold, input goes to the last machine."
-msgstr "Con Tieni premuto, l'input va all'ultimo computer."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Nothing yet. Every key and button goes to the machine that has input."
-msgstr "Ancora nulla. Ogni tasto e pulsante va al computer che ha l'input."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Animate crossings on this Mac"
-msgstr "Anima i passaggi su questo Mac"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Show where the pointer lands"
-msgstr "Mostra dove arriva il puntatore"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Hover to preview"
-msgstr "Passa sopra per l'anteprima"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Length"
-msgstr "Durata"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Sets the effect's playback time."
-msgstr "Imposta il tempo di riproduzione dell'effetto."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Size"
-msgstr "Dimensione"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Sets effect depth relative to the shorter screen edge."
-msgstr "Imposta la profondità dell'effetto rispetto al lato più corto dello schermo."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Tick as the push builds"
-msgstr "Vibra mentre la spinta cresce"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Ticks at"
-msgstr "Vibra a"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Try it"
-msgstr "Prova"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Modifier keys"
-msgstr "Tasti modificatori"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Hide addresses"
-msgstr "Nascondi indirizzi"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Beamer changes language when it next opens."
-msgstr "Beamer cambierà lingua alla prossima apertura."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Relaunch Beamer"
-msgstr "Riavvia Beamer"
-
-#: mac_app/kvm_bridge_app.py
-msgid "First paired machine's port"
-msgstr "Porta del primo computer abbinato"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Accessibility"
-msgstr "Accessibilità"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Lets Beamer move this Mac's pointer and type on it when another machine drives."
-msgstr "Consente a Beamer di muovere il puntatore di questo Mac e di scrivere quando lo controlla un altro computer."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Input Monitoring"
-msgstr "Monitoraggio input"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Lets Beamer read this keyboard and trackpad, to send them to another machine."
-msgstr "Consente a Beamer di leggere questa tastiera e questo trackpad, per inviarli a un altro computer."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Required"
-msgstr "Obbligatorio"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Grant"
-msgstr "Concedi"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Saved. Connecting…"
-msgstr "Salvato. Connessione…"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Current chain: Idle"
-msgstr "Catena attuale: inattiva"
-
-#: mac_app/kvm_bridge_app.py
-msgid "This Mac drives other machines"
-msgstr "Questo Mac controlla gli altri computer"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Other machines drive this Mac"
-msgstr "Gli altri computer controllano questo Mac"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Profile"
-msgstr "Profilo"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Configuration reloaded"
-msgstr "Configurazione ricaricata"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Beamer is using the config on disk."
-msgstr "Beamer usa la configurazione salvata sul disco."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Open Beamer's website, kalkmancode.co.uk/beamer"
-msgstr "Apri il sito di Beamer, kalkmancode.co.uk/beamer"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Click a machine on the map to set its ways. The ledger says how it reaches each other machine."
-msgstr "Fai clic su un computer sulla mappa per impostarne le vie. L'elenco indica come raggiunge ogni altro computer."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Off: the trackpad stays still while you push."
-msgstr "Disattivato: il trackpad resta fermo mentre spingi."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Switches the moment this Mac's pointer touches the edge. Each screen supplies its own zones."
-msgstr "Passa nell'istante in cui il puntatore di questo Mac tocca il bordo. Ogni schermo fornisce le proprie zone."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Custom: the key map in settings.json is kept as it is."
-msgstr "Personalizzata: la mappa dei tasti in settings.json resta com'è."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Refused: that position is already occupied."
-msgstr "Rifiutato: quella posizione è già occupata."
-
-#: mac_app/kvm_bridge_app.py mac_app/link_state.py
-msgid "Not paired"
-msgstr "Non abbinato"
-
-#: mac_app/kvm_bridge_app.py mac_app/machines.py win_app/peers_view.py
-msgid "No address"
-msgstr "Nessun indirizzo"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Settings"
-msgstr "Impostazioni"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Same on all machines"
-msgstr "Uguale su tutti i computer"
-
-#: mac_app/kvm_bridge_app.py
-msgid "At login"
-msgstr "Al login"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Dock and menu bar"
-msgstr "Dock e barra dei menu"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Updates"
-msgstr "Aggiornamenti"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Checking for updates…"
-msgstr "Ricerca aggiornamenti…"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Beamer is up to date."
-msgstr "Beamer è aggiornato."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Update available."
-msgstr "Aggiornamento disponibile."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Could not check for updates. Check your connection and try again."
-msgstr "Impossibile controllare gli aggiornamenti. Controlla la connessione e riprova."
-
-#: mac_app/kvm_bridge_app.py mac_app/widgets.py win_app/kvm_bridge_win.py
-msgid "Match design with"
-msgstr "Segui l'aspetto di"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "None"
-msgstr "Nessuno"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Appearance"
-msgstr "Aspetto della finestra"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Keyboard sharing"
-msgstr "Condivisione della tastiera"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Another machine's pointer here"
-msgstr "Il puntatore di un altro computer qui"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Pointer speed"
-msgstr "Velocità del puntatore"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Scrolling"
-msgstr "Scorrimento"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Scroll speed"
-msgstr "Velocità di scorrimento"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Keyboard and pointer"
-msgstr "Tastiera e puntatore"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "New profile…"
-msgstr "Nuovo profilo…"
-
-#: mac_app/kvm_bridge_app.py mac_app/ledger.py mac_app/machines_panel.py win_app/crossing_ledger.py win_app/kvm_bridge_win.py win_app/machines_win.py
-msgid "Rename"
-msgstr "Rinomina"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "This machine kept the ways set while it ran an older Beamer."
-msgstr "Questo computer ha mantenuto le vie impostate quando usava una versione precedente di Beamer."
-
-#: mac_app/kvm_bridge_app.py
-msgid "●  Crosses"
-msgstr "●  Passa"
-
-#: mac_app/kvm_bridge_app.py
-msgid "●  Offline, ways kept"
-msgstr "●  Non in linea, vie mantenute"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py
-msgid "Back to This Mac"
-msgstr "Torna a questo Mac"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py
-msgid "The desk is full. Remove an unused profile before adding more ways."
-msgstr "La scrivania è piena. Rimuovi un profilo inutilizzato prima di aggiungere altre vie."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Shake sensitivity"
-msgstr "Sensibilità dello scuotimento"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Same → Shortcut"
-msgstr "Uguale su tutti → Scorciatoia"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py
-msgid "Rename profile"
-msgstr "Rinomina profilo"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "New profile"
-msgstr "Nuovo profilo"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Save"
-msgstr "Salva"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py
-msgid "Add"
-msgstr "Aggiungi"
-
-#: mac_app/kvm_bridge_app.py mac_app/pages.py win_app/kvm_bridge_win.py
-msgid "Drag a machine on the map to where it sits. The ledger says how each one is reached; click a row to pick it on the map."
-msgstr "Trascina un computer sulla mappa dove si trova. L'elenco indica come si raggiunge ciascuno; fai clic su una riga per selezionarlo sulla mappa."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Click a machine to set its ways · Tab and Return pick one from the keyboard"
-msgstr "Fai clic su un computer per impostarne le vie · Usa Tab e Invio per sceglierne uno dalla tastiera"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-msgid "Before Beamer 1.5.5"
-msgstr "Prima di Beamer 1.5.5"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-msgid "From an older Beamer"
-msgstr "Da una versione precedente di Beamer"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-msgid "When Same ways went off"
-msgstr "Quando Stesse vie è stato disattivato"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-msgid "When Same ways went on"
-msgstr "Quando Stesse vie è stato attivato"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-msgid "Before you changed it"
-msgstr "Prima della tua modifica"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-msgid "Before a restore"
-msgstr "Prima di un ripristino"
-
-#: mac_app/kvm_bridge_app.py
-msgid "With Hold, input goes to the first ready machine in order. Choose which machines join the cycle with the tick boxes on their tiles."
-msgstr "Con Tieni premuto, l'input va al primo computer pronto, in ordine. Scegli quali computer entrano nel ciclo con le caselle sui loro riquadri."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Stays on this Mac"
-msgstr "Resta su questo Mac"
-
-#: mac_app/kvm_bridge_app.py mac_app/machines_panel.py win_app/kvm_bridge_win.py win_app/machines_win.py
-msgid "Remove"
-msgstr "Rimuovi"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "That key is the shortcut; it always stays with Beamer."
-msgstr "Quel tasto è la scorciatoia; resta sempre a Beamer."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "On screen"
-msgstr "Sullo schermo"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Notch style"
-msgstr "Stile del notch"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Style"
-msgstr "Stile"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Style for"
-msgstr "Stile per"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Show at"
-msgstr "Mostra su"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Frame rate"
-msgstr "Frequenza fotogrammi"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Colour"
-msgstr "Colore"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Trackpad"
-msgstr "Trackpad"
-
-#: mac_app/kvm_bridge_app.py mac_app/machines_panel.py win_app/machines_win.py
-msgid "Address"
-msgstr "Indirizzo"
-
-#: mac_app/kvm_bridge_app.py
-msgctxt "list"
-msgid " or "
-msgstr " o "
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Hold {key}, or push through {ways}"
-msgstr "Tieni premuto {key}, oppure spingi attraverso {ways}"
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Double-tap {key}, or push through {ways}"
-msgstr "Tocca due volte {key}, oppure spingi attraverso {ways}"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Saved. Changes apply as you make them."
-msgstr "Salvato. Le modifiche si applicano subito."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Quit Beamer and start it again."
-msgstr "Esci da Beamer e aprilo di nuovo."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Grant both Mac permissions first."
-msgstr "Concedi prima entrambi i permessi del Mac."
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Current chain: {route}"
-msgstr "Catena attuale: {route}"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Granted"
-msgstr "Concesso"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Both granted. Relaunch Beamer so macOS passes it the keyboard."
-msgstr "Entrambi concessi. Riavvia Beamer perché macOS gli passi la tastiera."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Resume crossing"
-msgstr "Riprendi il passaggio"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Return input to Mac"
-msgstr "Riporta l'input al Mac"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Not yet learned"
-msgstr "Non ancora rilevato"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Read from the network the first time this Mac connects; nothing to type."
-msgstr "Viene letto dalla rete la prima volta che questo Mac si connette; non c'è nulla da digitare."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Beamer • Local"
-msgstr "Beamer • Locale"
-
-#: mac_app/kvm_bridge_app.py
-msgid " macOS plays them only while a finger is on the trackpad, so press and hold Try it."
-msgstr " macOS le riproduce solo mentre un dito è sul trackpad, quindi tieni premuto Prova."
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Once the pointer is through to another machine the notch keeps playing for {seconds} seconds. Outline and Island apply to Glow and Beam; other styles draw their own notch."
-msgstr "Quando il puntatore è passato a un altro computer, il notch continua per {seconds} secondi. Contorno e Isola valgono per Bagliore e Raggio; gli altri stili disegnano un proprio notch."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Input is on another machine for as long as the key is held. If you jump while holding the shortcut, releasing it brings input home."
-msgstr "L'input resta su un altro computer finché tieni premuto il tasto. Se salti mentre tieni premuta la scorciatoia, rilasciandola l'input torna a casa."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Tap twice to switch; tap twice again to come back."
-msgstr "Tocca due volte per passare; tocca di nuovo due volte per tornare."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Follows this Mac's mouse or trackpad on every screen; each screen supplies its own zones."
-msgstr "Segue il mouse o il trackpad di questo Mac su ogni schermo; ogni schermo fornisce le proprie zone."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Crossing shares resistance and drag protection. Design shares effects, colour, length, size and arrival animation. Shortcut shares shortcut on/off, trigger key and style, and destination. Names shares this machine's name and paired-machine labels."
-msgstr "Passaggio condivide resistenza e protezione durante il trascinamento. Aspetto condivide effetti, colore, durata, dimensione e animazione di arrivo. Scorciatoia condivide attivazione della scorciatoia, tasto e modo di attivazione, e destinazione. Nomi condivide il nome di questo computer e le etichette dei computer abbinati."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Ways: set on the Crossing page · {state}"
-msgstr "Vie: si impostano nella pagina Passaggio · {state}"
-
-#: mac_app/kvm_bridge_app.py
-msgid "For menu-bar-only use, turn off Show in Dock and close this window. Beamer stays in the menu bar. Its Dock icon appears while this window is open."
-msgstr "Per usare Beamer solo dalla barra dei menu, disattiva Mostra nel Dock e chiudi questa finestra. Beamer resta nella barra dei menu. L'icona nel Dock appare quando questa finestra è aperta."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Checks GitHub at startup and once a day. Updates are downloaded and installed by you."
-msgstr "Controlla GitHub all'avvio e una volta al giorno. Scarichi e installi tu gli aggiornamenti."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "System"
-msgstr "Sistema"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgctxt "appearance"
-msgid "Light"
-msgstr "Chiaro"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Dark"
-msgstr "Scuro"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "This window"
-msgstr "Questa finestra"
-
-#: mac_app/kvm_bridge_app.py
-msgid "System follows your Mac's light or dark setting."
-msgstr "Sistema segue l'impostazione chiara o scura del Mac."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Keep this machine's keyboard here. Pointer and clipboard sharing stay on."
-msgstr "Mantieni la tastiera su questo computer. Il puntatore e gli appunti restano condivisi."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Pointer speed for another machine's mouse or trackpad while it drives this Mac."
-msgstr "Velocità del puntatore per il mouse o il trackpad di un altro computer mentre controlla questo Mac."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Link"
-msgstr "Collegamento"
-
-#: mac_app/kvm_bridge_app.py
-msgid "This Mac's pointer always hides while it drives another machine. On, it also hides after another machine stops driving it, until its own mouse or trackpad moves."
-msgstr "Il puntatore di questo Mac si nasconde sempre mentre controlla un altro computer. Se attivo, si nasconde anche dopo che un altro computer smette di controllarlo, finché il suo mouse o trackpad non si muove."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Each chip is a side of this screen; click one to add or remove it. The side a machine touches crosses on its lit thirds; any other free side wraps round to it, arriving on its far side. A corner is a diagonal push, shown as a square on the map. The notch is this Mac only."
-msgstr "Ogni etichetta è un lato di questo schermo; fai clic per aggiungerlo o toglierlo. Il lato toccato da un computer fa passare sui suoi terzi illuminati; ogni altro lato libero rimanda a esso, arrivando sul lato opposto. Un angolo è una spinta in diagonale, mostrata come un quadrato sulla mappa. Il notch vale solo per questo Mac."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "This machine's pointer"
-msgstr "Il puntatore di questo computer"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Applies when this physical pointer pushes through this screen's ways; visiting pointers are not protected by this switch."
-msgstr "Vale quando questo puntatore fisico spinge attraverso le vie di questo schermo; i puntatori in visita non sono protetti da questo interruttore."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Way home"
-msgstr "Via di casa"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Shake the mouse or trackpad left and right a few times while you drive another machine, and input comes straight back to the machine you are using."
-msgstr "Scuoti il mouse o il trackpad a destra e a sinistra alcune volte mentre controlli un altro computer, e l'input torna subito al computer che stai usando."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py
-msgid "Push back the way you came: where an edge leads back to This Mac"
-msgstr "Spingi indietro per la stessa via: dove un bordo riporta a questo Mac"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "+"
-msgstr "+"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Double-tap"
-msgstr "Doppio tocco"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Hold"
-msgstr "Tieni premuto"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "How you press it"
-msgstr "Come lo premi"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Last machine"
-msgstr "Ultimo computer"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Next in order"
-msgstr "Prossimo in ordine"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Next among ticked"
-msgstr "Prossimo spuntato"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Shortcut goes to"
-msgstr "La scorciatoia va a"
-
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-msgid "With Hold, input goes to the first ready machine in order."
-msgstr "Con Tieni premuto, l'input va al primo computer pronto, in ordine."
-
-#: mac_app/kvm_bridge_app.py
-msgid "These keys and buttons keep working on this Mac while its input is on another machine: a mouse's back button for this Mac's browser, say, or a volume key for its speakers."
-msgstr "Questi tasti e pulsanti continuano a funzionare su questo Mac mentre il suo input è su un altro computer: per esempio il tasto Indietro del mouse per il browser di questo Mac, o un tasto del volume per i suoi altoparlanti."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Turns crossing and landing animations on or off on this screen. Saved style choices stay in place."
-msgstr "Attiva o disattiva le animazioni di passaggio e di arrivo su questo schermo. Gli stili scelti restano salvati."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "For shortcut, menu and jump arrivals; requires Animate crossings on this screen."
-msgstr "Per gli arrivi da scorciatoia, menu e salto; richiede Anima i passaggi su questo schermo."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Outline"
-msgstr "Contorno"
-
-#: mac_app/kvm_bridge_app.py
-msgid "A line of colour runs round the notch, faster the harder you push."
-msgstr "Una linea di colore corre attorno al notch, tanto più veloce quanto più spingi."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Island"
-msgstr "Isola"
-
-#: mac_app/kvm_bridge_app.py
-msgid "The notch grows as you push, with a meter inside, and flashes as you go through."
-msgstr "Il notch si allarga mentre spingi, con un indicatore all'interno, e lampeggia quando passi."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Keep animating"
-msgstr "Continua l'animazione"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Shortcut and menu"
-msgstr "Scorciatoia e menu"
-
-#: mac_app/kvm_bridge_app.py
-msgid "What plays around the pointer for shortcut, menu and jump arrivals. Same as crossing uses this screen's crossing style."
-msgstr "Cosa appare attorno al puntatore negli arrivi da scorciatoia, menu e salto. Come il passaggio usa lo stile di passaggio di questo schermo."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Any colour works with any style. The notch's Outline uses it too; Island keeps Beamer's own cyan."
-msgstr "Qualsiasi colore funziona con qualsiasi stile. Anche il Contorno del notch lo usa; Isola mantiene il ciano di Beamer."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Every quarter"
-msgstr "A ogni quarto"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Halfway"
-msgstr "A metà"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Only when through"
-msgstr "Solo al passaggio"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Feel it"
-msgstr "Prova la vibrazione"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Same shortcuts"
-msgstr "Stesse scorciatoie"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Same positions"
-msgstr "Stesse posizioni"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Hides every IP and hardware address in this window and its menu."
-msgstr "Nasconde ogni indirizzo IP e hardware in questa finestra e nel suo menu."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Automatic"
-msgstr "Automatica"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Language"
-msgstr "Lingua"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Wake-on-LAN"
-msgstr "Wake-on-LAN"
-
-#: mac_app/kvm_bridge_app.py
-msgid "A new address or port takes effect when you connect."
-msgstr "Un nuovo indirizzo o una nuova porta hanno effetto quando ti connetti."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Connect"
-msgstr "Connetti"
-
-#: mac_app/kvm_bridge_app.py
-msgid "On Overview, turn on Start Beamer when you log in. If macOS needs approval, that page shows the status and opens Login Items settings."
-msgstr "In Panoramica, attiva Apri Beamer al login. Se macOS richiede un'approvazione, quella pagina mostra lo stato e apre le impostazioni Elementi login."
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Push through {ways}"
-msgstr "Spingi attraverso {ways}"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Input capture ready."
-msgstr "Acquisizione dell'input pronta."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Nothing is paired yet. Pairing fills the address and port in."
-msgstr "Ancora nulla di abbinato. L'abbinamento compila indirizzo e porta."
-
-#: mac_app/kvm_bridge_app.py
-msgid "This Mac drives every machine"
-msgstr "Questo Mac controlla tutti i computer"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Every machine drives this Mac"
-msgstr "Tutti i computer controllano questo Mac"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Configuration not reloaded"
-msgstr "Configurazione non ricaricata"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Driving {name}"
-msgstr "Controlla {name}"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Driven by {name}"
-msgstr "Controllato da {name}"
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid ""
-"Beamer {version}\n"
-"Beamer's website"
-msgstr ""
-"Beamer {version}\n"
-"Sito di Beamer"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Plays {name}"
-msgstr "Riproduce {name}"
-
-#: mac_app/kvm_bridge_app.py
-msgid "On a PC, Command arrives as Control, so Command-C copies there too, and Control arrives as the Windows key. Between two Macs every key arrives as itself."
-msgstr "Su un PC, Comando arriva come Ctrl, quindi Comando-C copia anche lì, e Ctrl arriva come tasto Windows. Tra due Mac ogni tasto arriva com'è."
-
-#: mac_app/kvm_bridge_app.py
-msgid "On a PC, each key arrives as the key in its place, so Command arrives as the Windows key. Between two Macs every key arrives as itself."
-msgstr "Su un PC, ogni tasto arriva come il tasto nella stessa posizione, quindi Comando arriva come tasto Windows. Tra due Mac ogni tasto arriva com'è."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "On"
-msgstr "Attivato"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Off"
-msgstr "Disattivato"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Beamer {version} is available."
-msgstr "Beamer {version} è disponibile."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Download Beamer {version}"
-msgstr "Scarica Beamer {version}"
-
-#. {reason} is the system's reason for refusing the login item.
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "macOS refused: {reason}"
-msgstr "macOS ha rifiutato: {reason}"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Login item status: Requires approval. Allow Beamer in System Settings, General, Login Items."
-msgstr "Stato dell'elemento login: richiede approvazione. Consenti Beamer in Impostazioni di Sistema, Generali, Elementi login."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Login item status: Requires approval. Move Beamer to Applications and reopen it before allowing it in Login Items."
-msgstr "Stato dell'elemento login: richiede approvazione. Sposta Beamer in Applicazioni e riaprilo prima di consentirlo in Elementi login."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "{name}'s ways"
-msgstr "Vie di {name}"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Editing {name}'s ways ·"
-msgstr "Modifica delle vie di {name} ·"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Jump keys and permissions are set on {name}."
-msgstr "I tasti di salto e i permessi si impostano su {name}."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Changes go to {name} at once."
-msgstr "Le modifiche arrivano subito a {name}."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Restore"
-msgstr "Ripristina"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Delete"
-msgstr "Elimina"
-
-#: mac_app/kvm_bridge_app.py
-msgid "The order follows the tiles from top to bottom, then left to right. This Mac is always in the cycle. Choose which machines join the cycle with the tick boxes on their tiles."
-msgstr "L'ordine segue i riquadri dall'alto in basso, poi da sinistra a destra. Questo Mac è sempre nel ciclo. Scegli quali computer entrano nel ciclo con le caselle sui loro riquadri."
-
-#: mac_app/kvm_bridge_app.py
-msgid "The order follows the tiles from top to bottom, then left to right. This Mac is always in the cycle."
-msgstr "L'ordine segue i riquadri dall'alto in basso, poi da sinistra a destra. Questo Mac è sempre nel ciclo."
-
-#. {name} is the machine name.
-#: mac_app/kvm_bridge_app.py mac_app/machines_panel.py win_app/machines_win.py
-#, python-brace-format
-msgid "Remove {name}"
-msgstr "Rimuovi {name}"
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "the {side} edge"
-msgstr "il bordo {side}"
-
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-#, python-brace-format
-msgid "Hold {key}"
-msgstr "Tieni premuto {key}"
-
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-#, python-brace-format
-msgid "Double-tap {key}"
-msgstr "Tocca due volte {key}"
-
-#: mac_app/kvm_bridge_app.py mac_app/link_state.py
-#, python-brace-format
-msgid "Waking {name}. It connects on its own once it is up."
-msgstr "Risveglio di {name}. Si connette da solo appena è acceso."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Beamer needs both, granted separately. macOS only delivers keyboard events to a process started after the grant, so relaunch Beamer once you have given them."
-msgstr "Beamer ha bisogno di entrambi, concessi separatamente. macOS invia gli eventi della tastiera solo a un processo avviato dopo la concessione, quindi riavvia Beamer dopo averli concessi."
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Settings…"
-msgstr "Impostazioni…"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Reload configuration"
-msgstr "Ricarica la configurazione"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-msgid "Open log folder"
-msgstr "Apri la cartella dei registri"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Beamer {version} is available…"
-msgstr "Beamer {version} è disponibile…"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Beamer {version}"
-msgstr "Beamer {version}"
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "This Mac drives {name}"
-msgstr "Questo Mac controlla {name}"
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "{name} drives this Mac"
-msgstr "{name} controlla questo Mac"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Same as crossing: {name}"
-msgstr "Come il passaggio: {name}"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "{name}, {intensity}"
-msgstr "{name}, {intensity}"
-
-#: mac_app/kvm_bridge_app.py
-msgid "A tick at a quarter, half and three quarters of the push, then a double tick as the pointer goes through. macOS plays them only while a finger is on the trackpad, so press and hold Try it."
-msgstr "Una vibrazione a un quarto, a metà e a tre quarti della spinta, poi una doppia quando il puntatore passa. macOS le riproduce solo mentre un dito è sul trackpad, quindi tieni premuto Prova."
-
-#: mac_app/kvm_bridge_app.py
-msgid "One tick halfway through the push, then a double tick as the pointer goes through. macOS plays them only while a finger is on the trackpad, so press and hold Try it."
-msgstr "Una vibrazione a metà della spinta, poi una doppia quando il puntatore passa. macOS le riproduce solo mentre un dito è sul trackpad, quindi tieni premuto Prova."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Nothing on the way in, then a double tick as the pointer goes through. macOS plays them only while a finger is on the trackpad, so press and hold Try it."
-msgstr "Nulla durante la spinta, poi una doppia vibrazione quando il puntatore passa. macOS le riproduce solo mentre un dito è sul trackpad, quindi tieni premuto Prova."
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Follows this Mac's mouse or trackpad on every screen; each screen supplies its own zones. This screen's {side} edge lights to show the resistance."
-msgstr "Segue il mouse o il trackpad di questo Mac su ogni schermo; ogni schermo fornisce le proprie zone. Il bordo {side} di questo schermo si illumina per mostrare la resistenza."
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Could not save this Mac's name: {error}"
-msgstr "Impossibile salvare il nome di questo Mac: {error}"
-
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Could not save the machine's name: {error}"
-msgstr "Impossibile salvare il nome del computer: {error}"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Login item status: Not found. Check Beamer is installed in Applications, then turn it on again."
-msgstr "Stato dell'elemento login: non trovato. Controlla che Beamer sia installato in Applicazioni, poi riattivalo."
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Could not open Login Items settings: {reason}"
-msgstr "Impossibile aprire le impostazioni Elementi login: {reason}"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "{name} has no way back to {machine} except the shortcut and a shake."
-msgstr "{name} non ha una via di ritorno verso {machine}, se non la scorciatoia e lo scuotimento."
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-#, python-brace-format
-msgid "Before {name} changed it"
-msgstr "Prima che {name} le modificasse"
-
-# New in 1.5.5: awaiting Lorenzo's check
-#: mac_app/kvm_bridge_app.py win_app/pages_win.py
-#, python-brace-format
-msgid "{date} · {reason}"
-msgstr "{date} · {reason}"
-
-#. {detail} is a diagnostic reason supplied by macOS.
-#: mac_app/kvm_bridge_app.py
-msgid "Retrying input capture…"
-msgstr "Nuovo tentativo di acquisizione dell'input…"
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "The address and port of {name}, the first machine paired. Another machine is changed by pairing it again."
-msgstr "Indirizzo e porta di {name}, il primo computer abbinato. Per cambiare un altro computer, abbinalo di nuovo."
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Crossing to {name} while it sleeps sends a wake-up packet and waits for it."
-msgstr "Passare a {name} mentre è in stop invia un pacchetto di risveglio e attende che si riattivi."
-
-#. {error} is the system error message.
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Could not save the change: {error}"
-msgstr "Impossibile salvare la modifica: {error}"
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "{error}"
-msgstr "{error}"
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Login item status: {status}. Move Beamer to Applications and open it there to start at login."
-msgstr "Stato dell'elemento login: {status}. Sposta Beamer in Applicazioni e aprilo da lì per avviarlo al login."
-
-#: mac_app/kvm_bridge_app.py
-msgid "Login item status: Enabled. Beamer will start when you log in."
-msgstr "Stato dell'elemento login: attivo. Beamer si aprirà al login."
-
-#: mac_app/kvm_bridge_app.py mac_app/wake.py win_app/peers_view.py win_app/sender.py
-#, python-brace-format
-msgid "Waking {name}…"
-msgstr "Risveglio di {name}…"
-
-#: mac_app/kvm_bridge_app.py mac_app/pages.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Send input to {name}"
-msgstr "Invia input a {name}"
-
-#: mac_app/kvm_bridge_app.py
-msgid "Login item status: Not registered. Turn on Start Beamer when you log in."
-msgstr "Stato dell'elemento login: non registrato. Attiva Apri Beamer al login."
-
-#. {detail} is a diagnostic reason supplied by macOS.
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Retrying input capture… {detail}"
-msgstr "Nuovo tentativo di acquisizione dell'input… {detail}"
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Wake {name}"
-msgstr "Risveglia {name}"
-
-#: mac_app/kvm_bridge_app.py
-#, python-brace-format
-msgid "Login item status: {status}."
-msgstr "Stato dell'elemento login: {status}."
-
-#: mac_app/ledger.py mac_app/machines_panel.py win_app/crossing_ledger.py win_app/machines_win.py
-msgid "Leave out"
-msgstr "Escludi"
-
-#: mac_app/ledger.py
-msgid "Return saves, Escape cancels"
-msgstr "Invio salva, Esc annulla"
-
-#: mac_app/ledger.py mac_app/machines_panel.py
-msgid "Only on this Mac"
-msgstr "Solo su questo Mac"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Place it on the map"
-msgstr "Posizionalo sulla mappa"
-
-#: mac_app/ledger.py
-msgid "No notch"
-msgstr "Nessun notch"
-
-#: mac_app/ledger.py
-msgid "Return through the notch"
-msgstr "Ritorna attraverso il notch"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Jump"
-msgstr "Salto"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Clear"
-msgstr "Cancella"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Left out"
-msgstr "Escluso"
-
-#: mac_app/ledger.py mac_app/machines_panel.py win_app/crossing_ledger.py win_app/machines_win.py
-msgid "Put back"
-msgstr "Reinserisci"
-
-#: mac_app/ledger.py
-msgid "Machines and crossing ways"
-msgstr "Computer e vie di passaggio"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Edges"
-msgstr "Bordi"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Corners"
-msgstr "Angoli"
-
-#: mac_app/ledger.py mac_app/previews.py win_app/crossing_ledger.py
-msgid "Notch"
-msgstr "Notch"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Keys"
-msgstr "Tasti"
-
-#: mac_app/ledger.py mac_app/widgets.py win_app/widgets.py
-msgid "Press a key combination…"
-msgstr "Premi una combinazione di tasti…"
-
-#: mac_app/ledger.py mac_app/widgets.py win_app/kvm_bridge_win.py win_app/widgets.py
-msgid "Click again to cancel"
-msgstr "Fai di nuovo clic per annullare"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py win_app/kvm_bridge_win.py
-msgid "Offline, ways kept"
-msgstr "Non in linea, vie mantenute"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Left out machines stay paired and linked. The shortcut, menu and clipboard still reach them."
-msgstr "I computer esclusi restano abbinati e collegati. La scorciatoia, il menu e gli appunti li raggiungono comunque."
-
-#: mac_app/ledger.py
-msgid "Leave this machine out of pointer crossings"
-msgstr "Escludi questo computer dal passaggio del puntatore"
-
-#: mac_app/ledger.py
-msgid "Notch, no notch"
-msgstr "Notch, nessun notch"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Return through the notch, on"
-msgstr "Ritorna attraverso il notch, attivo"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Return through the notch, off"
-msgstr "Ritorna attraverso il notch, disattivo"
-
-#: mac_app/ledger.py
-msgctxt "switch state"
-msgid "on"
-msgstr "attivo"
-
-#: mac_app/ledger.py
-msgctxt "switch state"
-msgid "off"
-msgstr "disattivo"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Notch, on"
-msgstr "Notch, attivo"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Notch, off"
-msgstr "Notch, disattivo"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-#, python-brace-format
-msgid "Push into the notch to reach {name}"
-msgstr "Spingi nel notch per raggiungere {name}"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-#, python-brace-format
-msgid "Coming back from {name}, arrive just below the notch"
-msgstr "Tornando da {name}, arriva appena sotto il notch"
-
-#. {key} is the recorded key combination; {name} is the machine name.
-#: mac_app/ledger.py win_app/crossing_ledger.py
-#, python-brace-format
-msgid "Press {key} to send input to {name}; press again to bring it home."
-msgstr "Premi {key} per inviare l'input a {name}; premi di nuovo per riportarlo a casa."
-
-#: mac_app/ledger.py mac_app/machines_panel.py
-#, python-brace-format
-msgid "Rename {name}"
-msgstr "Rinomina {name}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{side} edge"
-msgstr "Bordo {side}"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "Left out: Put back to change its ways"
-msgstr "Escluso: reinseriscilo per cambiarne le vie"
-
-#: mac_app/ledger.py
-msgid "unavailable"
-msgstr "non disponibile"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-msgid "macOS"
-msgstr "macOS"
-
-#: mac_app/ledger.py mac_app/machines.py mac_app/widgets.py win_app/crossing_ledger.py win_app/peers_view.py
-msgid "Windows"
-msgstr "Windows"
-
-#: mac_app/ledger.py mac_app/machines.py win_app/crossing_ledger.py win_app/peers_view.py
-msgid "Linux"
-msgstr "Linux"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "Put back {name}"
-msgstr "Reinserisci {name}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "Leave out {name}"
-msgstr "Escludi {name}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge}: touches {name}; click to turn it {state}"
-msgstr "{edge}: tocca {name}; fai clic per impostarlo su {state}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge}, touches {name}, {state}"
-msgstr "{edge}, tocca {name}, {state}"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-#, python-brace-format
-msgid "{corner} corner, {state}"
-msgstr "Angolo {corner}, {state}"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-#, python-brace-format
-msgid "{side}, wraps"
-msgstr "{side}, rimanda"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge} wraps round to {name}; click to remove"
-msgstr "{edge} rimanda a {name}; fai clic per toglierlo"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge}, wraps round, {state}"
-msgstr "{edge}, rimanda, {state}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{corner} corner: click to turn it off"
-msgstr "Angolo {corner}: fai clic per disattivarlo"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{corner} corner: click to turn it on"
-msgstr "Angolo {corner}: fai clic per attivarlo"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-#, python-brace-format
-msgid "{name}'s corner"
-msgstr "Angolo di {name}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "Place {name} beside this Mac first"
-msgstr "Posiziona prima {name} accanto a questo Mac"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "held by {name}"
-msgstr "occupato da {name}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge}, wraps round, kept"
-msgstr "{edge}, rimanda, mantenuto"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge}, {third} third, {state}"
-msgstr "{edge}, terzo {third}, {state}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge} wraps round to {name} once Edge is on; click to turn Edge on"
-msgstr "{edge} rimanda a {name} quando Bordo è attivo; fai clic per attivare Bordo"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge}: none of it is free just now; click to remove"
-msgstr "{edge}: al momento nessuna parte è libera; fai clic per toglierlo"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge}: click to wrap round to {name}"
-msgstr "{edge}: fai clic per rimandare a {name}"
-
-#: mac_app/ledger.py win_app/crossing_ledger.py
-#, python-brace-format
-msgid "{side}, {name}"
-msgstr "{side}, {name}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge}: {name}'s"
-msgstr "{edge}: di {name}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{edge}, held by {name}"
-msgstr "{edge}, occupato da {name}"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{third} third: click to leave it out"
-msgstr "Terzo {third}: fai clic per escluderlo"
-
-#: mac_app/ledger.py
-#, python-brace-format
-msgid "{third} third: click to turn it on"
-msgstr "Terzo {third}: fai clic per attivarlo"
-
-#: mac_app/link_state.py
-msgid "Beamer keeps trying to reconnect."
-msgstr "Beamer continua a provare a riconnettersi."
-
-#: mac_app/link_state.py
-msgid "Disconnected"
-msgstr "Disconnesso"
-
-#: mac_app/link_state.py mac_app/machines.py win_app/peers_view.py
-msgid "Dropped"
-msgstr "Interrotto"
-
-#: mac_app/link_state.py mac_app/machines.py
-msgid "Live"
-msgstr "Attivo"
-
-#: mac_app/link_state.py
-msgid "Waking"
-msgstr "Risveglio"
-
-#: mac_app/link_state.py mac_app/machines.py
-msgid "Tunnel"
-msgstr "Tunnel"
-
-#: mac_app/link_state.py
-msgid "On Mac"
-msgstr "Sul Mac"
-
-#: mac_app/link_state.py
-msgid "Setup"
-msgstr "Configurazione"
-
-#: mac_app/link_state.py
-msgid "Pair a machine on Overview and Beamer connects on its own."
-msgstr "Abbina un computer in Panoramica e Beamer si connette da solo."
-
-#. a machine's address and port, as in "192.0.2.20 port 24820".
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "{host} port {port}"
-msgstr "{host} porta {port}"
-
-#: mac_app/link_state.py
-msgid "Pairing removed"
-msgstr "Abbinamento rimosso"
-
-#: mac_app/link_state.py mac_app/machines.py win_app/pages_win.py win_app/peers_view.py
-msgid "Refused"
-msgstr "Rifiutato"
-
-#: mac_app/link_state.py
-msgid "Token mismatch"
-msgstr "Token non corrispondente"
-
-#: mac_app/link_state.py
-msgid "Version mismatch"
-msgstr "Versione non corrispondente"
-
-#: mac_app/link_state.py
-msgid "Did not wake"
-msgstr "Non si è riattivato"
-
-#: mac_app/link_state.py mac_app/machines.py
-msgid "No reply"
-msgstr "Nessuna risposta"
-
-#: mac_app/link_state.py mac_app/machines.py
-msgid "Blocked"
-msgstr "Bloccato"
-
-#: mac_app/link_state.py
-msgid "macOS 27 blocked direct LAN access. Open Beamer Tunnel from Applications."
-msgstr "macOS 27 ha bloccato l'accesso diretto alla rete locale. Apri Beamer Tunnel da Applicazioni."
-
-#: mac_app/link_state.py mac_app/machines.py win_app/peers_view.py
-msgid "Unreachable"
-msgstr "Non raggiungibile"
-
-#: mac_app/link_state.py mac_app/machines.py win_app/peers_view.py
-msgid "Not listening"
-msgstr "Non in ascolto"
-
-#: mac_app/link_state.py mac_app/machines.py
-msgid "No receiver"
-msgstr "Nessun ricevitore"
-
-#: mac_app/link_state.py mac_app/machines.py win_app/kvm_bridge_win.py win_app/peers_view.py
-msgid "Waiting"
-msgstr "In attesa"
-
-#: mac_app/link_state.py mac_app/machines.py
-msgid "Looking"
-msgstr "Ricerca"
-
-#: mac_app/link_state.py
-msgid "Unlocking"
-msgstr "Sblocco"
-
-#: mac_app/link_state.py
-msgid "Paused"
-msgstr "In pausa"
-
-#: mac_app/link_state.py
-msgid "Held"
-msgstr "Bloccato"
-
-#: mac_app/link_state.py mac_app/pages.py win_app/pages_win.py
-msgid "Held: an app is full screen."
-msgstr "Bloccato: un'app è a schermo intero."
-
-#: mac_app/link_state.py mac_app/machines.py win_app/peers_view.py
-#, python-brace-format
-msgid "{status}. Beamer keeps trying to reconnect."
-msgstr "{status}. Beamer continua a provare a riconnettersi."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "From {name}"
-msgstr "Da {name}"
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "{name}'s keyboard and pointer are on this Mac. Push its pointer back through the edge it arrived by to send them home."
-msgstr "La tastiera e il puntatore di {name} sono su questo Mac. Riporta il suo puntatore attraverso il bordo da cui è arrivato per rimandarli a casa."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "Connected to {name} through the macOS 27 tunnel."
-msgstr "Connesso a {name} attraverso il tunnel di macOS 27."
-
-#: mac_app/link_state.py mac_app/machines.py win_app/peers_view.py
-#, python-brace-format
-msgid "Connected to {name}."
-msgstr "Connesso a {name}."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "{name} no longer has this pairing: remove {name} here and pair the two again."
-msgstr "{name} non ha più questo abbinamento: rimuovi {name} qui e abbina di nuovo i due computer."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "{name} refused this Mac's token. Remove it, then pair again to write a fresh one."
-msgstr "{name} ha rifiutato il token di questo Mac. Rimuovilo, poi abbinalo di nuovo per scriverne uno nuovo."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "{name} runs a different Beamer from this Mac. Update both to the same version."
-msgstr "{name} usa una versione di Beamer diversa da questo Mac. Aggiorna entrambi alla stessa versione."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "{name} did not answer within a minute of the wake-up packet."
-msgstr "{name} non ha risposto entro un minuto dal pacchetto di risveglio."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "{address} is not answering. {name} may be asleep or off this network."
-msgstr "{address} non risponde. {name} potrebbe essere in stop o fuori da questa rete."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "{name} answers, but Beamer is not listening on port {port}. Open Beamer on {name}."
-msgstr "{name} risponde, ma Beamer non è in ascolto sulla porta {port}. Apri Beamer su {name}."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "{name} stopped responding. Beamer keeps trying to reconnect."
-msgstr "{name} ha smesso di rispondere. Beamer continua a provare a riconnettersi."
-
-#: mac_app/link_state.py mac_app/machines.py win_app/peers_view.py
-#, python-brace-format
-msgid "Looking for {name}. It connects on its own once Beamer is open there."
-msgstr "Ricerca di {name}. Si connette da solo appena Beamer è aperto lì."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "{name} is at its lock screen and is unlocking itself; input follows once the desktop is back."
-msgstr "{name} è alla schermata di blocco e si sta sbloccando; l'input segue appena torna la scrivania."
-
-#: mac_app/link_state.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "On {name}"
-msgstr "Su {name}"
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "Keyboard and pointer are on {name}. Do the same again to bring them home."
-msgstr "Tastiera e puntatore sono su {name}. Ripeti la stessa azione per riportarli a casa."
-
-#: mac_app/link_state.py
-#, python-brace-format
-msgid "Connected to {name}. Crossing is held, so you can lean on an edge."
-msgstr "Connesso a {name}. Il passaggio è bloccato, quindi puoi appoggiarti a un bordo."
-
-#: mac_app/login_item.py
-msgid "Not registered"
-msgstr "Non registrato"
-
-#: mac_app/login_item.py
-msgid "Enabled"
-msgstr "Attivo"
-
-#: mac_app/login_item.py
-msgid "Requires approval"
-msgstr "Richiede approvazione"
-
-#: mac_app/login_item.py
-msgid "Not found"
-msgstr "Non trovato"
-
-#: mac_app/login_item.py win_app/kvm_bridge_win.py
-msgid "Unknown"
-msgstr "Sconosciuto"
-
-#: mac_app/machines.py win_app/peers_view.py
-msgid "iPhone"
-msgstr "iPhone"
-
-#: mac_app/machines.py win_app/peers_view.py
-msgid "Android"
-msgstr "Android"
-
-#: mac_app/machines.py win_app/peers_view.py
-msgid "Other"
-msgstr "Altro"
-
-#: mac_app/machines.py win_app/peers_view.py
-msgid "Needs re-pair"
-msgstr "Da riabbinare"
-
-#: mac_app/machines.py win_app/peers_view.py
-msgid "NOT IN USE"
-msgstr "NON IN USO"
-
-#: mac_app/machines.py win_app/peers_view.py
-msgid "Pair again"
-msgstr "Abbina di nuovo"
-
-#: mac_app/machines.py
-msgid "Driving this Mac"
-msgstr "Controlla questo Mac"
-
-#: mac_app/machines.py win_app/peers_view.py
-msgid "Input here"
-msgstr "Input qui"
-
-#: mac_app/machines.py win_app/peers_view.py
-msgid "Version"
-msgstr "Versione"
-
-#: mac_app/machines.py mac_app/machines_panel.py win_app/peers_view.py
-#, python-brace-format
-msgid "{address} · port {port}"
-msgstr "{address} · porta {port}"
-
-#: mac_app/machines.py
-#, python-brace-format
-msgid "{name} is not in use on this Mac."
-msgstr "{name} non è in uso su questo Mac."
-
-#: mac_app/machines.py win_app/peers_view.py
-#, python-brace-format
-msgid "{name} was paired on Beamer 1.4. Pair the two again to link them on 1.5.0."
-msgstr "{name} è stato abbinato con Beamer 1.4. Abbina di nuovo i due computer per collegarli con la 1.5.0."
-
-#: mac_app/machines.py
-#, python-brace-format
-msgid "{name}'s keyboard and pointer are on this Mac. Push the pointer back through the edge it arrived by to send them home."
-msgstr "La tastiera e il puntatore di {name} sono su questo Mac. Riporta il puntatore attraverso il bordo da cui è arrivato per rimandarli a casa."
-
-#: mac_app/machines.py
-#, python-brace-format
-msgid "This Mac's keyboard and pointer are on {name}. Do the same again to bring them home."
-msgstr "La tastiera e il puntatore di questo Mac sono su {name}. Ripeti la stessa azione per riportarli a casa."
-
-#: mac_app/machines.py win_app/peers_view.py
-#, python-brace-format
-msgid "Waiting for {name} to connect."
-msgstr "In attesa che {name} si connetta."
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-#, python-brace-format
-msgid "Expires in {n} s"
-msgstr "Scade tra {n} s"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Pair nearby"
-msgstr "Abbina nelle vicinanze"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Pair a phone"
-msgstr "Abbina un telefono"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Pair a machine"
-msgstr "Abbina un computer"
-
-#: mac_app/machines_panel.py
-msgid "No machines paired yet."
-msgstr "Ancora nessun computer abbinato."
-
-#: mac_app/machines_panel.py
-msgid "Beamer connects to each machine on its own whenever both are running."
-msgstr "Beamer si connette da solo a ogni computer quando entrambi sono in funzione."
-
-#: mac_app/machines_panel.py
-msgid "Rename this Mac"
-msgstr "Rinomina questo Mac"
-
-#: mac_app/machines_panel.py
-msgid "Name for this Mac"
-msgstr "Nome di questo Mac"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Show a code"
-msgstr "Mostra un codice"
-
-#: mac_app/machines_panel.py
-msgid "The pairing code as a QR code"
-msgstr "Il codice di abbinamento come codice QR"
-
-#: mac_app/machines_panel.py
-msgid "Cancel code"
-msgstr "Annulla codice"
-
-#: mac_app/machines_panel.py
-msgid "Nearby pairing digits"
-msgstr "Cifre dell'abbinamento nelle vicinanze"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Confirm"
-msgstr "Conferma"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Pair"
-msgstr "Abbina"
-
-#: mac_app/machines_panel.py
-msgid "Choose a machine, or type its address, then type the code it shows."
-msgstr "Scegli un computer, o digita il suo indirizzo, poi digita il codice che mostra."
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "In use"
-msgstr "In uso"
-
-#: mac_app/machines_panel.py
-msgid "This Mac drives it"
-msgstr "Questo Mac lo controlla"
-
-#: mac_app/machines_panel.py
-msgid "It drives this Mac"
-msgstr "Controlla questo Mac"
-
-#: mac_app/machines_panel.py
-msgid "Press Pair nearby on the other machine within 60 seconds."
-msgstr "Premi Abbina nelle vicinanze sull'altro computer entro 60 secondi."
-
-#: mac_app/machines_panel.py
-msgid "Choose a machine to pair nearby."
-msgstr "Scegli un computer da abbinare nelle vicinanze."
-
-#: mac_app/machines_panel.py
-msgid "Compare all six digits on both machines, then confirm on each."
-msgstr "Confronta tutte e sei le cifre su entrambi i computer, poi conferma su ciascuno."
-
-#: mac_app/machines_panel.py
-msgid "Waiting for confirmation on the other machine."
-msgstr "In attesa di conferma sull'altro computer."
-
-#: mac_app/machines_panel.py
-msgid "Nearby pairing complete."
-msgstr "Abbinamento nelle vicinanze completato."
-
-#: mac_app/machines_panel.py
-msgid "Nearby pairing expired. Press Pair nearby to try again."
-msgstr "L'abbinamento nelle vicinanze è scaduto. Premi Abbina nelle vicinanze per riprovare."
-
-#: mac_app/machines_panel.py
-msgid "Nearby pairing refused. Use a new window to try again."
-msgstr "Abbinamento nelle vicinanze rifiutato. Usa una nuova finestra per riprovare."
-
-#: mac_app/machines_panel.py
-msgid "The new peer could not be saved."
-msgstr "Impossibile salvare il nuovo computer."
-
-#. {name} and {address} come from the other machine.
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "{name}, {address}, older Beamer"
-msgstr "{name}, {address}, Beamer precedente"
-
-#: mac_app/machines_panel.py
-msgid "That machine"
-msgstr "Quel computer"
-
-#: mac_app/machines_panel.py
-msgid "Show a code on this Mac"
-msgstr "Mostra un codice su questo Mac"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Enter a code from another machine"
-msgstr "Inserisci un codice da un altro computer"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "On this network"
-msgstr "In questa rete"
-
-#: mac_app/machines_panel.py
-msgid "Address of a machine that is not listed"
-msgstr "Indirizzo di un computer non in elenco"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Not listed? Type its address."
-msgstr "Non in elenco? Digita il suo indirizzo."
-
-#: mac_app/machines_panel.py
-msgid "Code shown on the other machine"
-msgstr "Codice mostrato sull'altro computer"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Re-pair"
-msgstr "Riabbina"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Pin address"
-msgstr "Mantieni questo indirizzo"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Keeps this address through reconnects and re-pairing. Turn off to follow address changes automatically."
-msgstr "Mantiene questo indirizzo dopo le riconnessioni e un nuovo abbinamento. Disattiva per seguire automaticamente i cambiamenti di indirizzo."
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Hide directions"
-msgstr "Nascondi direzioni"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Directions"
-msgstr "Direzioni"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Keep"
-msgstr "Mantieni"
-
-#: mac_app/machines_panel.py
-msgid "Pairing is not available on this Mac."
-msgstr "L'abbinamento non è disponibile su questo Mac."
-
-#: mac_app/machines_panel.py
-msgid "Connecting to the selected machine…"
-msgstr "Connessione al computer selezionato…"
-
-#: mac_app/machines_panel.py win_app/crossing_ledger.py win_app/sender.py
-msgid "Another machine"
-msgstr "Un altro computer"
-
-#: mac_app/machines_panel.py
-msgid "Looking for machines running Beamer. Open it on the other machine and it appears here; across a VPN or on guest Wi-Fi it may not, so type its address below."
-msgstr "Ricerca dei computer con Beamer in funzione. Apri Beamer sull'altro computer e comparirà qui; attraverso una VPN o su una rete Wi-Fi ospite potrebbe non comparire, quindi digita il suo indirizzo qui sotto."
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "{name}, {address}, showing a code"
-msgstr "{name}, {address}, sta mostrando un codice"
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "{name}, {address}"
-msgstr "{name}, {address}"
-
-#: mac_app/machines_panel.py
-msgid "On the other machine, open Beamer, choose this Mac in its list and type the code."
-msgstr "Sull'altro computer, apri Beamer, scegli questo Mac nel suo elenco e digita il codice."
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "{name}, {state}"
-msgstr "{name}, {state}"
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Name for {name}"
-msgstr "Nome per {name}"
-
-#. {name} is the other machine's chosen name.
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Off: no input or settings link to {name}. Pairing, directions, ways and jump key are kept. Turn it back on here to reconnect."
-msgstr "Disattivato: nessun collegamento di input o di impostazioni con {name}. Abbinamento, direzioni, vie e tasto di salto restano. Riattivalo qui per riconnetterti."
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-#, python-brace-format
-msgid "{action} {name}"
-msgstr "{action} {name}"
-
-#. {name} is the other machine's chosen name.
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Input moves only when this Mac enables this switch and {name} enables It drives this Mac."
-msgstr "L'input passa solo quando questo Mac attiva questo interruttore e {name} attiva Controlla questo Mac."
-
-#. {name} is the other machine's chosen name.
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Input moves only when {name} enables This machine drives it and this Mac enables this switch."
-msgstr "L'input passa solo quando {name} attiva Questo computer lo controlla e questo Mac attiva questo interruttore."
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "{action} directions for {name}"
-msgstr "{action} le direzioni per {name}"
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Remove {name}? It stays paired on that machine until you remove this one there too."
-msgstr "Rimuovere {name}? Resta abbinato su quel computer finché non rimuovi anche questo lì."
-
-#: mac_app/machines_panel.py
-msgid "The QR is hidden while addresses are hidden."
-msgstr "Il QR è nascosto mentre gli indirizzi sono nascosti."
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Pairing with {name}…"
-msgstr "Abbinamento con {name}…"
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Paired with {name}. Connecting…"
-msgstr "Abbinato a {name}. Connessione…"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-#, python-brace-format
-msgid "Re-pair {name}"
-msgstr "Riabbina {name}"
-
-#: mac_app/machines_panel.py win_app/machines_win.py
-msgid "Left out of the layout. The shortcut and the menu still reach it."
-msgstr "Escluso dalla disposizione. La scorciatoia e il menu lo raggiungono comunque."
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Off: {name} cannot connect or drive this Mac. Turn it back on here to reconnect."
-msgstr "Disattivato: {name} non può connettersi né controllare questo Mac. Riattivalo qui per riconnetterti."
-
-#: mac_app/machines_panel.py
-msgid "Hide"
-msgstr "Nascondi"
-
-#: mac_app/machines_panel.py
-msgid "Show"
-msgstr "Mostra"
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Confirm removing {name}"
-msgstr "Conferma la rimozione di {name}"
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Keep {name}"
-msgstr "Mantieni {name}"
-
-#: mac_app/machines_panel.py
-msgid "this machine"
-msgstr "questo computer"
-
-#: mac_app/machines_panel.py
-msgid "The same code as a QR, for a phone to scan."
-msgstr "Lo stesso codice come QR, da scansionare con un telefono."
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Beamer cannot look for machines: {reason}"
-msgstr "Beamer non può cercare computer: {reason}"
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Code shown on {name}"
-msgstr "Codice mostrato su {name}"
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "The code is {n} digits."
-msgstr "Il codice ha {n} cifre."
-
-#. {error} is the system error message.
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Could not remove it: {error}"
-msgstr "Impossibile rimuoverlo: {error}"
-
-#. {error} is the system error message.
-#: mac_app/machines_panel.py win_app/kvm_bridge_win.py
-#, python-brace-format
-msgid "Nearby pairing is not available: {error}"
-msgstr "L'abbinamento nelle vicinanze non è disponibile: {error}"
-
-#: mac_app/machines_panel.py
-msgid "Not selected"
-msgstr "Non selezionato"
-
-#: mac_app/machines_panel.py
-msgid "No network address found"
-msgstr "Nessun indirizzo di rete trovato"
-
-#: mac_app/machines_panel.py
-msgid "No QR while this Mac has no address."
-msgstr "Nessun QR finché questo Mac non ha un indirizzo."
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "{name} is not showing a code yet. Show one in Beamer on it first."
-msgstr "{name} non mostra ancora un codice. Mostrane prima uno in Beamer su quel computer."
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "Six digits, as shown on {name}."
-msgstr "Sei cifre, come mostrate su {name}."
-
-#: mac_app/machines_panel.py
-#, python-brace-format
-msgid "No QR: {reason}"
-msgstr "Nessun QR: {reason}"
-
-#: mac_app/pages.py
-msgid "This Mac only."
-msgstr "Solo questo Mac."
-
-#: mac_app/pages.py
-msgid "The notch is this Mac only."
-msgstr "Il notch vale solo per questo Mac."
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Changes apply as you make them."
-msgstr "Le modifiche si applicano subito."
-
-#: mac_app/pages.py
-msgid "Closing this window keeps Beamer running in the menu bar."
-msgstr "Chiudendo questa finestra Beamer resta attivo nella barra dei menu."
-
-#: mac_app/pages.py
-msgid "Simple"
-msgstr "Semplice"
-
-#: mac_app/pages.py
-msgid "Ways below lead to the selected machine. Its side is shared with that machine. Resistance, drag protection and Shortcut apply to this Mac's input for every destination."
-msgstr "Le vie qui sotto portano al computer selezionato. Il suo lato è condiviso con quel computer. Resistenza, protezione durante il trascinamento e Scorciatoia valgono per l'input di questo Mac verso ogni destinazione."
-
-#: mac_app/pages.py
-msgid "Used on this screen. Shared animation settings may follow another machine; Animate, window appearance, notch and trackpad controls stay on this Mac."
-msgstr "Usato su questo schermo. Le impostazioni dell'animazione condivise possono seguire un altro computer; Anima i passaggi, aspetto della finestra e controlli del notch e del trackpad restano su questo Mac."
-
-#: mac_app/pages.py
-msgid "Modifier keys and Stays here belong to this Mac's input. Pointer speed and scrolling belong to this screen when another machine drives it. Every machine keeps its own."
-msgstr "Tasti modificatori e Resta qui riguardano l'input di questo Mac. Velocità del puntatore e scorrimento riguardano questo schermo quando lo controlla un altro computer. Ogni computer mantiene i propri."
-
-#: mac_app/pages.py
-msgid "Classic"
-msgstr "Classico"
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Signal"
-msgstr "Segnale"
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Colourful"
-msgstr "Colorato"
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Ocean"
-msgstr "Oceano"
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Sunset"
-msgstr "Tramonto"
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Aurora"
-msgstr "Aurora"
-
-#: mac_app/pages.py
-msgid "to the left of"
-msgstr "a sinistra di"
-
-#: mac_app/pages.py
-msgid "to the right of"
-msgstr "a destra di"
-
-#: mac_app/pages.py
-msgid "This corner crosses its left or right edge."
-msgstr "Questo angolo passa dal suo bordo sinistro o destro."
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "On. Pause it to lean on an edge without switching."
-msgstr "Attivo. Sospendilo per appoggiarti a un bordo senza passare."
-
-#: mac_app/pages.py
-msgid "the edge"
-msgstr "il bordo"
-
-#: mac_app/pages.py
-msgid "a corner"
-msgstr "un angolo"
-
-#: mac_app/pages.py
-msgid "With only the notch or a corner on, input arrives by the notch's or corner's own side, so this choice does nothing on this Mac; the other machine's own push still follows it."
-msgstr "Con solo il notch o un angolo attivo, l'input arriva dal lato del notch o dell'angolo, quindi questa scelta non ha effetto su questo Mac; la spinta dell'altro computer la segue comunque."
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Overview"
-msgstr "Panoramica"
-
-#: mac_app/pages.py
-msgid "Where input is, whether each link is up, and the controls you reach for every day. Pair your machines here first."
-msgstr "Dove si trova l'input, se ogni collegamento è attivo, e i controlli che usi ogni giorno. Abbina prima qui i tuoi computer."
-
-#: mac_app/pages.py
-msgid "Permissions"
-msgstr "Permessi"
-
-#: mac_app/pages.py
-msgid "macOS must allow Beamer to read this Mac's input and to move its pointer and type when another machine drives it."
-msgstr "macOS deve consentire a Beamer di leggere l'input di questo Mac e di muoverne il puntatore e scrivere quando lo controlla un altro computer."
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Keyboard"
-msgstr "Tastiera"
-
-#: mac_app/pages.py
-msgid "How this Mac's modifier keys arrive on other machines, which keys and buttons stay on this Mac, and how fast another machine's pointer moves here. The switch key is on the Crossing page."
-msgstr "Come arrivano i tasti modificatori di questo Mac sugli altri computer, quali tasti e pulsanti restano su questo Mac, e quanto velocemente si muove qui il puntatore di un altro computer. Il tasto per passare è nella pagina Passaggio."
-
-#: mac_app/pages.py
-msgid "How crossing looks and feels on this Mac: the edge, the corner, the notch and the trackpad."
-msgstr "Come appare e si sente il passaggio su questo Mac: il bordo, l'angolo, il notch e il trackpad."
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Connection"
-msgstr "Connessione"
-
-#: mac_app/pages.py
-msgid "Local connection details for the first machine you paired. Pair again to change another machine's entry."
-msgstr "Dettagli della connessione locale per il primo computer abbinato. Abbina di nuovo per cambiare la voce di un altro computer."
-
-#: mac_app/pages.py
-msgid "Changes apply as you make them. Closing this window keeps Beamer running in the menu bar."
-msgstr "Le modifiche si applicano subito. Chiudendo questa finestra Beamer resta attivo nella barra dei menu."
-
-#: mac_app/pages.py
-msgid "Where the other machine is"
-msgstr "Dove si trova l'altro computer"
-
-#: mac_app/pages.py
-msgid "Not paired yet, so no edge or shortcut moves input until you pair a machine on Overview."
-msgstr "Non ancora abbinato, quindi nessun bordo o scorciatoia sposta l'input finché non abbini un computer in Panoramica."
-
-#: mac_app/pages.py
-msgid "No machine is driven by this Mac, so edges and the shortcut do nothing."
-msgstr "Nessun computer è controllato da questo Mac, quindi i bordi e la scorciatoia non fanno nulla."
-
-#: mac_app/pages.py
-msgid "Not connected to any machine, so edges and the shortcut do nothing yet."
-msgstr "Non connesso a nessun computer, quindi i bordi e la scorciatoia non fanno ancora nulla."
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Only the shortcut is switched on; there is nothing to pause."
-msgstr "È attiva solo la scorciatoia; non c'è nulla da sospendere."
-
-#: mac_app/pages.py win_app/pages_win.py
-msgid "Pauses pointer crossing through this screen, including another machine's pointer. Shortcuts and jump keys still work. Resets when Beamer restarts."
-msgstr "Sospende il passaggio del puntatore attraverso questo schermo, compreso il puntatore di un altro computer. Scorciatoie e tasti di salto funzionano comunque. Si azzera al riavvio di Beamer."
-
-#: mac_app/pages.py
-msgid "This Mac has no notch, so this only shows how it would look."
-msgstr "Questo Mac non ha il notch, quindi qui vedi solo come apparirebbe."
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "{names} already cross from the {side} edge of this Mac. The thirds you pick go to {name}; the rest stay where they are."
-msgstr "{names} passano già dal bordo {side} di questo Mac. I terzi che scegli vanno a {name}; gli altri restano dove sono."
-
-#: mac_app/pages.py
-msgid "At the notch, Glow and Beam do not draw: the notch style you choose here plays instead, and their tiles show it."
-msgstr "Nel notch, Bagliore e Raggio non disegnano: al loro posto appare lo stile del notch che scegli qui, e i loro riquadri lo mostrano."
-
-#: mac_app/pages.py
-msgid "Plays Glow"
-msgstr "Riproduce Bagliore"
-
-#: mac_app/pages.py
-msgid "Closes onto the pointer"
-msgstr "Si stringe sul puntatore"
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "{names} already crosses from the {side} edge of this Mac. The thirds you pick go to {name}; the rest stay with {holder}."
-msgstr "{names} passa già dal bordo {side} di questo Mac. I terzi che scegli vanno a {name}; gli altri restano a {holder}."
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "Not placed yet: {names}"
-msgstr "Ancora da posizionare: {names}"
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "Where {name} is"
-msgstr "Dove si trova {name}"
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "{place} is not one of your ways in, so this only shows how it would look. Turn it on under Crossing. {name} draws its own form round the notch."
-msgstr "{place} non è una delle tue vie d'ingresso, quindi qui vedi solo come apparirebbe. Attivalo in Passaggio. {name} disegna la propria forma attorno al notch."
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "{name} draws its own form round the notch."
-msgstr "{name} disegna la propria forma attorno al notch."
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "With only the notch or a corner on, input arrives by the notch's or corner's own side, so this choice does nothing on this Mac; {name}'s own push still follows it."
-msgstr "Con solo il notch o un angolo attivo, l'input arriva dal lato del notch o dell'angolo, quindi questa scelta non ha effetto su questo Mac; la spinta di {name} la segue comunque."
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "{name} is {position} this Mac."
-msgstr "{name} è {position} questo Mac."
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "{name} is not placed yet."
-msgstr "{name} non è ancora posizionato."
-
-#: mac_app/pages.py
-msgid "No way in is on."
-msgstr "Nessuna via d'ingresso è attiva."
-
-#: mac_app/pages.py
-msgid "Bring input back"
-msgstr "Riporta qui l'input"
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "{place} is not one of your ways in, so this only shows how it would look. Turn it on under Crossing."
-msgstr "{place} non è una delle tue vie d'ingresso, quindi qui vedi solo come apparirebbe. Attivalo in Passaggio."
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "{place} is not one of your ways in, so this only shows how it would look. Turn it on under Crossing. At the notch, Glow and Beam do not draw: the notch style you choose here plays instead, and their tiles show it."
-msgstr "{place} non è una delle tue vie d'ingresso, quindi qui vedi solo come apparirebbe. Attivalo in Passaggio. Nel notch, Bagliore e Raggio non disegnano: al loro posto appare lo stile del notch che scegli qui, e i loro riquadri lo mostrano."
-
-#: mac_app/pages.py
-#, python-brace-format
-msgid "{name} is unavailable"
-msgstr "{name} non è disponibile"
-
-#: mac_app/previews.py win_app/kvm_bridge_win.py
-msgid "Edge"
-msgstr "Bordo"
-
-#: mac_app/previews.py win_app/kvm_bridge_win.py
-msgid "Corner"
-msgstr "Angolo"
-
-#: mac_app/wake.py win_app/sender.py
-#, python-brace-format
-msgid "{name} did not wake"
-msgstr "{name} non si è riattivato"
-
-#: mac_app/wake.py win_app/sender.py
-msgid "Could not send the wake-up packet"
-msgstr "Impossibile inviare il pacchetto di risveglio"
-
-#: mac_app/wake.py win_app/sender.py
-#, python-brace-format
-msgid "{name} is awake — switch again to send input"
-msgstr "{name} è attivo: passa di nuovo per inviare l'input"
-
-#: mac_app/widgets.py
-msgid "Press a key…"
-msgstr "Premi un tasto…"
-
-#: mac_app/widgets.py win_app/kvm_bridge_win.py
-msgid "Click, then press the key"
-msgstr "Fai clic, poi premi il tasto"
-
-#: mac_app/widgets.py win_app/widgets.py
-msgid "Click, then press a key combination"
-msgstr "Fai clic, poi premi una combinazione di tasti"
-
-#: mac_app/widgets.py win_app/kvm_bridge_win.py
-msgid "Add a key or button"
-msgstr "Aggiungi un tasto o un pulsante"
-
-#: mac_app/widgets.py win_app/widgets.py
-msgid "Press a key or button…"
-msgstr "Premi un tasto o un pulsante…"
-
-#: mac_app/widgets.py win_app/kvm_bridge_win.py win_app/widgets.py
-msgid "Click, then press it"
-msgstr "Fai clic, poi premilo"
-
-#: mac_app/widgets.py win_app/widgets.py
-msgid "Choose a key combination"
-msgstr "Scegli una combinazione di tasti"
-
-#: mac_app/widgets.py
-msgid "Add a key or button that stays on this Mac"
-msgstr "Aggiungi un tasto o un pulsante che resta su questo Mac"
-
-#. {key} is the key combination recorded by the person.
-#: mac_app/widgets.py
-#, python-brace-format
-msgid "Shortcut key, {key}"
-msgstr "Tasto della scorciatoia, {key}"
-
-#. {key} is the key combination recorded by the person.
-#. {key} is the key combination recorded for a machine.
-#: mac_app/widgets.py win_app/widgets.py
-#, python-brace-format
-msgid "Jump straight here key, {key}"
-msgstr "Tasto per saltare qui direttamente, {key}"
-
-#: mac_app/widgets.py win_app/crossing_ledger.py
-msgid "Set a key"
-msgstr "Imposta un tasto"
-
-#: mac_app/widgets.py
-#, python-brace-format
-msgid "Digit {n}"
-msgstr "Cifra {n}"
-
-#: mac_app/widgets.py
-#, python-brace-format
-msgid "{name}  ⌘{key}"
-msgstr "{name}  ⌘{key}"
-
-#. {name} is a settings page name.
-#: mac_app/widgets.py
-#, python-brace-format
-msgid "{name}, needs attention"
-msgstr "{name}, richiede attenzione"
 
 #: win_app/admin_mode.py
 msgid "This setting is only available on Windows."
@@ -4074,18 +1325,74 @@ msgstr "Windows non ha trovato la shell del desktop. Avvia Esplora file e riprov
 msgid "Administrator permission was cancelled. Your previous setting has been kept."
 msgstr "La richiesta dei privilegi di amministratore è stata annullata. L'impostazione precedente è stata mantenuta."
 
+#: win_app/crossing_ledger.py win_app/kvm_bridge_win.py
+msgid "Machine"
+msgstr "Computer"
+
+#: win_app/crossing_ledger.py
+msgid "Edges"
+msgstr "Bordi"
+
+#: win_app/crossing_ledger.py
+msgid "Corners"
+msgstr "Angoli"
+
+#: win_app/crossing_ledger.py
+msgid "Keys"
+msgstr "Tasti"
+
 #: win_app/crossing_ledger.py
 msgid "Return saves, Escape cancels · Only on this PC"
 msgstr "Invio salva, Esc annulla · Solo su questo PC"
+
+#: win_app/crossing_ledger.py win_app/kvm_bridge_win.py win_app/machines_win.py
+msgid "Rename"
+msgstr "Rinomina"
+
+#: win_app/crossing_ledger.py win_app/machines_win.py
+msgid "Leave out"
+msgstr "Escludi"
+
+#: win_app/crossing_ledger.py
+msgid "Place it on the map"
+msgstr "Posizionalo sulla mappa"
+
+#: win_app/crossing_ledger.py win_app/diagram.py win_app/machines_win.py
+msgid "In the shortcut's cycle"
+msgstr "Nel ciclo della scorciatoia"
+
+#: win_app/crossing_ledger.py
+msgid "Clear"
+msgstr "Cancella"
 
 #: win_app/crossing_ledger.py
 msgid "Clear jump key"
 msgstr "Cancella il tasto di salto"
 
+#: win_app/crossing_ledger.py
+msgid "Notch"
+msgstr "Notch"
+
 # New in 1.5.5: awaiting Lorenzo's check
 #: win_app/crossing_ledger.py
 msgid "Return here"
 msgstr "Ritorna qui"
+
+#: win_app/crossing_ledger.py
+msgid "Computer"
+msgstr "Computer"
+
+#: win_app/crossing_ledger.py
+msgid "Left out"
+msgstr "Escluso"
+
+#: win_app/crossing_ledger.py win_app/machines_win.py
+msgid "Put back"
+msgstr "Reinserisci"
+
+#: win_app/crossing_ledger.py
+msgid "Left out machines stay paired and linked. The shortcut, menu and clipboard still reach them."
+msgstr "I computer esclusi restano abbinati e collegati. La scorciatoia, il menu e gli appunti li raggiungono comunque."
 
 #: win_app/crossing_ledger.py
 msgid "Leave this machine out of crossings"
@@ -4104,8 +1411,74 @@ msgid "turn it on"
 msgstr "attivarlo"
 
 #: win_app/crossing_ledger.py
+msgid "Set a key"
+msgstr "Imposta un tasto"
+
+#: win_app/crossing_ledger.py
+msgid "Jump"
+msgstr "Salto"
+
+#: win_app/crossing_ledger.py win_app/peers_view.py
+msgid "Linked"
+msgstr "Collegato"
+
+#: win_app/crossing_ledger.py win_app/kvm_bridge_win.py
+msgid "Offline, ways kept"
+msgstr "Non in linea, vie mantenute"
+
+#: win_app/crossing_ledger.py win_app/peers_view.py
+msgid "Mac"
+msgstr "Mac"
+
+#: win_app/crossing_ledger.py
 msgid "PC"
 msgstr "PC"
+
+#: win_app/crossing_ledger.py
+msgid "Notch, on"
+msgstr "Notch, attivo"
+
+#: win_app/crossing_ledger.py
+msgid "Notch, off"
+msgstr "Notch, disattivo"
+
+#: win_app/crossing_ledger.py
+msgid "Return through the notch, on"
+msgstr "Ritorna attraverso il notch, attivo"
+
+#: win_app/crossing_ledger.py
+msgid "Return through the notch, off"
+msgstr "Ritorna attraverso il notch, disattivo"
+
+#: win_app/crossing_ledger.py win_app/sender.py
+msgid "Another machine"
+msgstr "Un altro computer"
+
+#: win_app/crossing_ledger.py win_app/peers_view.py
+msgid "Windows"
+msgstr "Windows"
+
+#: win_app/crossing_ledger.py
+msgid "macOS"
+msgstr "macOS"
+
+#: win_app/crossing_ledger.py win_app/peers_view.py
+msgid "Linux"
+msgstr "Linux"
+
+#: win_app/crossing_ledger.py
+#, python-brace-format
+msgid "Push into the notch to reach {name}"
+msgstr "Spingi nel notch per raggiungere {name}"
+
+#: win_app/crossing_ledger.py
+#, python-brace-format
+msgid "Coming back from {name}, arrive just below the notch"
+msgstr "Tornando da {name}, arriva appena sotto il notch"
+
+#: win_app/crossing_ledger.py win_app/diagram.py win_app/sender.py
+msgid "Other machine"
+msgstr "Altro computer"
 
 #: win_app/crossing_ledger.py
 #, python-brace-format
@@ -4130,6 +1503,20 @@ msgid "leave it out"
 msgstr "escluderlo"
 
 #: win_app/crossing_ledger.py
+msgid "Left out: Put back to change its ways"
+msgstr "Escluso: reinseriscilo per cambiarne le vie"
+
+#: win_app/crossing_ledger.py
+#, python-brace-format
+msgid "{platform} · {status}"
+msgstr "{platform} · {status}"
+
+#: win_app/crossing_ledger.py
+#, python-brace-format
+msgid "Press {key} to send input to {name}; press again to bring it home."
+msgstr "Premi {key} per inviare l'input a {name}; premi di nuovo per riportarlo a casa."
+
+#: win_app/crossing_ledger.py
 #, python-brace-format
 msgid "Choose a key combination to jump to {name} and back."
 msgstr "Scegli una combinazione di tasti per saltare a {name} e tornare."
@@ -4151,13 +1538,28 @@ msgstr "Bordo {side}: tocca {name}; fai clic per {action}"
 
 #: win_app/crossing_ledger.py
 #, python-brace-format
+msgid "{side}, wraps"
+msgstr "{side}, rimanda"
+
+#: win_app/crossing_ledger.py
+#, python-brace-format
 msgid "{side} edge, wraps round, on"
 msgstr "Bordo {side}, rimanda, attivo"
 
 #: win_app/crossing_ledger.py
 #, python-brace-format
+msgid "{name}'s corner"
+msgstr "Angolo di {name}"
+
+#: win_app/crossing_ledger.py
+#, python-brace-format
 msgid "{corner} corner, unavailable"
 msgstr "Angolo {corner}, non disponibile"
+
+#: win_app/crossing_ledger.py
+#, python-brace-format
+msgid "{corner} corner, {state}"
+msgstr "Angolo {corner}, {state}"
 
 #: win_app/crossing_ledger.py
 #, python-brace-format
@@ -4188,6 +1590,11 @@ msgstr "Il bordo {side} rimanda a {name} quando Bordo è attivo; fai clic per at
 #, python-brace-format
 msgid "{side} edge: none of it is free just now; click to remove"
 msgstr "Bordo {side}: al momento nessuna parte è libera; fai clic per toglierlo"
+
+#: win_app/crossing_ledger.py
+#, python-brace-format
+msgid "{side}, {name}"
+msgstr "{side}, {name}"
 
 #: win_app/crossing_ledger.py
 #, python-brace-format
@@ -4227,6 +1634,10 @@ msgid "Crossing layout"
 msgstr "Disposizione del passaggio"
 
 #: win_app/diagram.py
+msgid "Recentre"
+msgstr "Ricentra"
+
+#: win_app/diagram.py
 msgid "at a corner of This PC"
 msgstr "in un angolo di questo PC"
 
@@ -4248,6 +1659,11 @@ msgstr "{name}, {position}{detail}. {result}"
 msgctxt "list"
 msgid "; "
 msgstr "; "
+
+#: win_app/diagram.py
+#, python-brace-format
+msgid "Recentre {name}"
+msgstr "Ricentra {name}"
 
 #: win_app/diagram.py
 msgid "Rename this computer on Overview."
@@ -4272,6 +1688,12 @@ msgstr "Pressione attuale {pressure} su {threshold} unità del puntatore sul bor
 #, python-brace-format
 msgid "No push. Current pressure is 0 of {threshold} pointer units."
 msgstr "Nessuna spinta. La pressione attuale è 0 su {threshold} unità del puntatore."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/diagram.py
+#, python-brace-format
+msgid "{name} resized."
+msgstr "{name} ridimensionato."
 
 #: win_app/firewall_win.py
 msgid "Windows treats this network as public; if you trust it, change its network profile to Private in Windows Settings."
@@ -4389,6 +1811,10 @@ msgstr "Il ricevitore richiede attenzione"
 msgid "Stopped"
 msgstr "Fermo"
 
+#: win_app/kvm_bridge_win.py win_app/peers_view.py
+msgid "Waiting"
+msgstr "In attesa"
+
 #: win_app/kvm_bridge_win.py
 msgid "Connected"
 msgstr "Connesso"
@@ -4398,16 +1824,8 @@ msgid "Error"
 msgstr "Errore"
 
 #: win_app/kvm_bridge_win.py
-msgid "On a Mac, Ctrl arrives as Command and the Windows key as Control, so Ctrl+C copies there too. Between two PCs every key arrives as itself."
-msgstr "Su un Mac, Ctrl arriva come Comando e il tasto Windows come Control, quindi Ctrl+C copia anche lì. Tra due PC ogni tasto arriva com'è."
-
-#: win_app/kvm_bridge_win.py
-msgid "On a Mac, each key arrives as the Mac key in the same place: Ctrl as Control, the Windows key as Command. Between two PCs every key arrives as itself."
-msgstr "Su un Mac, ogni tasto arriva come il tasto Mac nella stessa posizione: Ctrl come Control, il tasto Windows come Comando. Tra due PC ogni tasto arriva com'è."
-
-#: win_app/kvm_bridge_win.py
-msgid "To a Mac: Alt becomes Command and Win becomes Option; Ctrl stays Control."
-msgstr "Verso un Mac: Alt diventa Comando e Win diventa Opzione; Ctrl resta Control."
+msgid "Ctrl, Alt and Windows/Super keep their physical identity between Windows and Linux."
+msgstr "Ctrl, Alt e Windows/Super mantengono la propria identità fisica tra Windows e Linux."
 
 #: win_app/kvm_bridge_win.py
 msgid "These keep working on this PC while its input is on another machine: a mouse's back button for this PC's browser, say, or a volume key for its speakers."
@@ -4434,8 +1852,44 @@ msgid "Bottom-right"
 msgstr "In basso a destra"
 
 #: win_app/kvm_bridge_win.py
-msgid "Mac keyboard layout"
-msgstr "Layout tastiera Mac"
+msgid "Double-tap"
+msgstr "Doppio tocco"
+
+#: win_app/kvm_bridge_win.py
+msgid "Hold"
+msgstr "Tieni premuto"
+
+#: win_app/kvm_bridge_win.py
+msgid "Windows / Linux"
+msgstr "Windows / Linux"
+
+#: win_app/kvm_bridge_win.py
+msgid "Applies when this physical pointer pushes through this screen's ways; visiting pointers are not protected by this switch."
+msgstr "Vale quando questo puntatore fisico spinge attraverso le vie di questo schermo; i puntatori in visita non sono protetti da questo interruttore."
+
+#: win_app/kvm_bridge_win.py
+msgid "Input is on another machine for as long as the key is held. If you jump while holding the shortcut, releasing it brings input home."
+msgstr "L'input resta su un altro computer finché tieni premuto il tasto. Se salti mentre tieni premuta la scorciatoia, rilasciandola l'input torna a casa."
+
+#: win_app/kvm_bridge_win.py
+msgid "Tap twice to switch; tap twice again to come back."
+msgstr "Tocca due volte per passare; tocca di nuovo due volte per tornare."
+
+#: win_app/kvm_bridge_win.py
+msgid "Resume crossing"
+msgstr "Riprendi il passaggio"
+
+#: win_app/kvm_bridge_win.py
+msgid "Pause crossing"
+msgstr "Sospendi il passaggio"
+
+#: win_app/kvm_bridge_win.py
+msgid "Sets the effect's playback time."
+msgstr "Imposta il tempo di riproduzione dell'effetto."
+
+#: win_app/kvm_bridge_win.py
+msgid "Sets effect depth relative to the shorter screen edge."
+msgstr "Imposta la profondità dell'effetto rispetto al lato più corto dello schermo."
 
 #: win_app/kvm_bridge_win.py
 #, python-brace-format
@@ -4446,6 +1900,54 @@ msgstr "Imposta il tempo di riproduzione dell'effetto. Valore attuale: {value}."
 #, python-brace-format
 msgid "Sets effect depth relative to the shorter screen edge. Current value: {value}."
 msgstr "Imposta la profondità dell'effetto rispetto al lato più corto dello schermo. Valore attuale: {value}."
+
+#: win_app/kvm_bridge_win.py
+msgid "Beamer"
+msgstr "Beamer"
+
+#: win_app/kvm_bridge_win.py
+msgid "Get update"
+msgstr "Scarica l'aggiornamento"
+
+#: win_app/kvm_bridge_win.py
+msgid "What's new"
+msgstr "Novità"
+
+#: win_app/kvm_bridge_win.py
+msgid "Dismiss"
+msgstr "Ignora"
+
+#: win_app/kvm_bridge_win.py
+msgid "Quit Beamer"
+msgstr "Esci da Beamer"
+
+#: win_app/kvm_bridge_win.py
+msgid "System audio"
+msgstr "Audio di sistema"
+
+#: win_app/kvm_bridge_win.py
+msgid "Send this computer's audio"
+msgstr "Invia l’audio di questo computer"
+
+#: win_app/kvm_bridge_win.py
+msgid "Mute local output while sending (Windows)"
+msgstr "Silenzia l’uscita locale durante l’invio (Windows)"
+
+#: win_app/kvm_bridge_win.py
+msgid "Restores the previous mute state when sending stops. Some audio drivers also mute loopback capture."
+msgstr "Ripristina lo stato audio precedente al termine dell’invio. Alcuni driver audio silenziano anche la cattura loopback."
+
+#: win_app/kvm_bridge_win.py
+msgid "Audio destination"
+msgstr "Destinazione audio"
+
+#: win_app/kvm_bridge_win.py
+msgid "Allow audio from paired computers"
+msgstr "Consenti audio dai computer associati"
+
+#: win_app/kvm_bridge_win.py
+msgid "Choose an available paired computer for audio."
+msgstr "Scegli un computer associato disponibile per l’audio."
 
 #: win_app/kvm_bridge_win.py win_app/machines_win.py
 msgid "Only on this computer"
@@ -4476,6 +1978,26 @@ msgid "Show in tray"
 msgstr "Mostra nell'area di notifica"
 
 #: win_app/kvm_bridge_win.py
+msgid "Updates"
+msgstr "Aggiornamenti"
+
+#: win_app/kvm_bridge_win.py
+msgid "Automatically check for updates"
+msgstr "Controlla automaticamente gli aggiornamenti"
+
+#: win_app/kvm_bridge_win.py
+msgid "Check for updates"
+msgstr "Controlla aggiornamenti"
+
+#: win_app/kvm_bridge_win.py
+msgid "Download"
+msgstr "Scarica"
+
+#: win_app/kvm_bridge_win.py
+msgid "Link"
+msgstr "Collegamento"
+
+#: win_app/kvm_bridge_win.py
 msgid "Keyboard and mouse"
 msgstr "Tastiera e mouse"
 
@@ -4494,6 +2016,18 @@ msgstr "Su Wayland il desktop lascia passare l'input a un altro computer solo qu
 #: win_app/kvm_bridge_win.py
 msgid "Hold this PC's edges while an app on it is full screen"
 msgstr "Blocca i bordi di questo PC mentre un'app è a schermo intero"
+
+#: win_app/kvm_bridge_win.py
+msgid "This screen decides, including when another machine drives it. On, a full-screen app here holds pointer crossings; shortcuts and jump keys still work. Off, another machine's pointer can go home or onward through the configured ways."
+msgstr "Decide questo schermo, anche quando lo controlla un altro computer. Se attivo, un'app a schermo intero qui blocca il passaggio del puntatore; scorciatoie e tasti di salto funzionano comunque. Se disattivo, il puntatore di un altro computer può tornare a casa o proseguire attraverso le vie configurate."
+
+#: win_app/kvm_bridge_win.py
+msgid "This screen's setting applies to every pointer on it."
+msgstr "L'impostazione di questo schermo vale per ogni puntatore che vi si trova."
+
+#: win_app/kvm_bridge_win.py
+msgid "Hide the pointer on the machine not in use"
+msgstr "Nascondi il puntatore sul computer non in uso"
 
 #: win_app/kvm_bridge_win.py
 msgid "This PC's pointer hides while it drives another machine, and after another machine stops driving it, until its own mouse moves."
@@ -4516,6 +2050,34 @@ msgid "Waiting for Windows permission…"
 msgstr "In attesa dell'autorizzazione di Windows…"
 
 #: win_app/kvm_bridge_win.py
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: win_app/kvm_bridge_win.py
+msgid "Crossing shares resistance and drag protection. Design shares effects, colour, length, size and arrival animation. Shortcut shares shortcut on/off, trigger key and style, and destination. Names shares this machine's name and paired-machine labels."
+msgstr "Passaggio condivide resistenza e protezione durante il trascinamento. Aspetto condivide effetti, colore, durata, dimensione e animazione di arrivo. Scorciatoia condivide attivazione della scorciatoia, tasto e modo di attivazione, e destinazione. Nomi condivide il nome di questo computer e le etichette dei computer abbinati."
+
+#: win_app/kvm_bridge_win.py
+msgid "Everything"
+msgstr "Tutto"
+
+#: win_app/kvm_bridge_win.py
+msgid "Shares every group and can replace local values on this machine."
+msgstr "Condivide ogni gruppo e può sostituire i valori locali su questo computer."
+
+#: win_app/kvm_bridge_win.py
+msgid "Older Beamer versions share known Crossing and Design settings without group choices."
+msgstr "Le versioni precedenti di Beamer condividono le impostazioni note di Passaggio e Aspetto senza scegliere i gruppi."
+
+#: win_app/kvm_bridge_win.py
+msgid "Revert"
+msgstr "Ripristina"
+
+#: win_app/kvm_bridge_win.py
+msgid "None"
+msgstr "Nessuno"
+
+#: win_app/kvm_bridge_win.py
 msgid "At sign-in"
 msgstr "All'accesso"
 
@@ -4533,8 +2095,55 @@ msgstr "Nell'area di notifica, senza finestra."
 
 # New in 1.5.5: awaiting Lorenzo's check
 #: win_app/kvm_bridge_win.py
+msgid "Same ways on every machine"
+msgstr "Stesse vie su tutti i computer"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "New profile…"
+msgstr "Nuovo profilo…"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Delete…"
+msgstr "Elimina…"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Set every machine's ways from this screen. Turning it on changes nothing until you do; each machine's own ways are kept."
+msgstr "Imposta le vie di tutti i computer da questa schermata. Attivarlo non cambia nulla finché non le modifichi; ciascun computer conserva le proprie vie."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Profile name"
+msgstr "Nome del profilo"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Save"
+msgstr "Salva"
+
+#: win_app/kvm_bridge_win.py win_app/machines_win.py
+msgid "Cancel"
+msgstr "Annulla"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
 msgid "Alt-click a display to split or group · drag to move · click a third of a lit edge to leave it out · drag a corner to resize"
 msgstr "Alt-clic su uno schermo per dividerlo o raggrupparlo · trascina per spostare · fai clic su un terzo di un bordo illuminato per escluderlo · trascina un angolo per ridimensionare"
+
+#: win_app/kvm_bridge_win.py
+msgid "Identify screens"
+msgstr "Identifica gli schermi"
+
+#: win_app/kvm_bridge_win.py
+msgid "Show these numbers on every linked machine's screens for 3 seconds."
+msgstr "Mostra questi numeri sugli schermi di tutti i computer collegati per 3 secondi."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Switching moves every machine to this profile's places and ways."
+msgstr "Passare a questo profilo applica a tutti i computer le sue posizioni e vie."
 
 # New in 1.5.5: awaiting Lorenzo's check
 #: win_app/kvm_bridge_win.py
@@ -4542,9 +2151,48 @@ msgid "Back to This PC"
 msgstr "Torna a questo PC"
 
 # New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Keep this machine's own ways"
+msgstr "Usa le vie di questo computer"
+
+# New in 1.5.5: awaiting Lorenzo's check
 #: win_app/kvm_bridge_win.py win_app/pages_win.py
 msgid "Earlier ways"
 msgstr "Vie precedenti"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Use the desk's ways"
+msgstr "Usa le vie della scrivania"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Share mine with the desk"
+msgstr "Condividi le mie con la scrivania"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "This machine kept the ways set while it ran an older Beamer."
+msgstr "Questo computer ha mantenuto le vie impostate quando usava una versione precedente di Beamer."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Way home"
+msgstr "Via di casa"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Shake to come home"
+msgstr "Scuoti per tornare a casa"
+
+#: win_app/kvm_bridge_win.py
+msgid "Shake sensitivity"
+msgstr "Sensibilità dello scuotimento"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Delete"
+msgstr "Elimina"
 
 #: win_app/kvm_bridge_win.py win_app/pages_win.py
 #, python-brace-format
@@ -4558,6 +2206,10 @@ msgid "double-tap {key}"
 msgstr "tocca due volte {key}"
 
 #: win_app/kvm_bridge_win.py
+msgid "This machine's pointer"
+msgstr "Il puntatore di questo computer"
+
+#: win_app/kvm_bridge_win.py
 msgid "Don't cross while dragging with this PC's pointer"
 msgstr "Non passare mentre trascini con il puntatore di questo PC"
 
@@ -4566,12 +2218,32 @@ msgid "Switches the moment this PC's pointer touches the edge. Each screen suppl
 msgstr "Passa nell'istante in cui il puntatore di questo PC tocca il bordo. Ogni schermo fornisce le proprie zone."
 
 #: win_app/kvm_bridge_win.py
+msgid "Keyboard sharing"
+msgstr "Condivisione della tastiera"
+
+#: win_app/kvm_bridge_win.py
+msgid "Mouse only"
+msgstr "Solo mouse"
+
+#: win_app/kvm_bridge_win.py
+msgid "Another machine's pointer here"
+msgstr "Il puntatore di un altro computer qui"
+
+#: win_app/kvm_bridge_win.py
 msgid "Reverse scrolling from other machines"
 msgstr "Inverti lo scorrimento degli altri computer"
 
 #: win_app/kvm_bridge_win.py
+msgid "Modifier keys"
+msgstr "Tasti modificatori"
+
+#: win_app/kvm_bridge_win.py
 msgid "Stays on this PC"
 msgstr "Resta su questo PC"
+
+#: win_app/kvm_bridge_win.py
+msgid "Add a key or button"
+msgstr "Aggiungi un tasto o un pulsante"
 
 #: win_app/kvm_bridge_win.py
 msgid "On Wayland the shortcut only brings input back: the desktop lets input go to another machine only when the pointer pushes through an edge, and keys on the Stays on this PC list cannot stay here while input is away."
@@ -4586,8 +2258,28 @@ msgid "From here, where the double-tap cannot be seen, the key combination pushe
 msgstr "Da qui, dove il doppio tocco non è visibile, la combinazione di tasti spinge il puntatore attraverso il bordo verso il computer a cui va la scorciatoia. Il desktop chiede una volta di consentirlo, e le sue impostazioni della tastiera possono cambiare i tasti."
 
 #: win_app/kvm_bridge_win.py
+msgid "Shortcut goes to"
+msgstr "La scorciatoia va a"
+
+#: win_app/kvm_bridge_win.py
+msgid "How you press it"
+msgstr "Come lo premi"
+
+#: win_app/kvm_bridge_win.py
+msgid "Time between taps"
+msgstr "Tempo tra i tocchi"
+
+#: win_app/kvm_bridge_win.py
+msgid "Match design with"
+msgstr "Segui l'aspetto di"
+
+#: win_app/kvm_bridge_win.py
 msgid "None: this PC keeps its own Design."
 msgstr "Nessuno: questo PC mantiene il proprio Aspetto."
+
+#: win_app/kvm_bridge_win.py
+msgid "Appearance"
+msgstr "Aspetto della finestra"
 
 #: win_app/kvm_bridge_win.py
 msgid "System follows your Linux desktop's light or dark setting."
@@ -4598,24 +2290,80 @@ msgid "System follows Windows' light or dark setting."
 msgstr "Sistema segue l'impostazione chiara o scura di Windows."
 
 #: win_app/kvm_bridge_win.py
+msgid "On screen"
+msgstr "Sullo schermo"
+
+#: win_app/kvm_bridge_win.py
 msgid "Animate crossings on this PC"
 msgstr "Anima i passaggi su questo PC"
+
+#: win_app/kvm_bridge_win.py
+msgid "Show where the pointer lands"
+msgstr "Mostra dove arriva il puntatore"
 
 #: win_app/kvm_bridge_win.py
 msgid "Jump arrivals use this screen's landing animation too."
 msgstr "Anche gli arrivi da salto usano l'animazione di arrivo di questo schermo."
 
 #: win_app/kvm_bridge_win.py
+msgid "Style"
+msgstr "Stile"
+
+#: win_app/kvm_bridge_win.py
+msgid "Hover to preview"
+msgstr "Passa sopra per l'anteprima"
+
+#: win_app/kvm_bridge_win.py
+msgid "Style for"
+msgstr "Stile per"
+
+#: win_app/kvm_bridge_win.py
+msgid "Show at"
+msgstr "Mostra su"
+
+#: win_app/kvm_bridge_win.py
 msgid "For shortcut, menu and jump arrivals. Same as crossing uses this screen's crossing style."
 msgstr "Per gli arrivi da scorciatoia, menu e salto. Come il passaggio usa lo stile di passaggio di questo schermo."
+
+#: win_app/kvm_bridge_win.py
+msgid "Frame rate"
+msgstr "Frequenza fotogrammi"
+
+#: win_app/kvm_bridge_win.py
+msgid "Colour"
+msgstr "Colore"
 
 #: win_app/kvm_bridge_win.py
 msgid "For the crossing and the shortcut alike"
 msgstr "Sia per il passaggio sia per la scorciatoia"
 
 #: win_app/kvm_bridge_win.py
+msgid "Idle"
+msgstr "Inattivo"
+
+#: win_app/kvm_bridge_win.py
+msgid "Current chain: Idle"
+msgstr "Catena attuale: inattiva"
+
+#: win_app/kvm_bridge_win.py
 msgid "Addresses"
 msgstr "Indirizzi"
+
+#: win_app/kvm_bridge_win.py
+msgid "Hide addresses"
+msgstr "Nascondi indirizzi"
+
+#: win_app/kvm_bridge_win.py
+msgid "Language"
+msgstr "Lingua"
+
+#: win_app/kvm_bridge_win.py
+msgid "Beamer changes language when it next opens."
+msgstr "Beamer cambierà lingua alla prossima apertura."
+
+#: win_app/kvm_bridge_win.py
+msgid "Relaunch Beamer"
+msgstr "Riavvia Beamer"
 
 #: win_app/kvm_bridge_win.py
 msgid "This PC's address"
@@ -4661,6 +2409,19 @@ msgstr "Questo PC controlla gli altri computer"
 msgid "Machines drive this PC"
 msgstr "Gli altri computer controllano questo PC"
 
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Profile"
+msgstr "Profilo"
+
+#: win_app/kvm_bridge_win.py
+msgid "Settings…"
+msgstr "Impostazioni…"
+
+#: win_app/kvm_bridge_win.py
+msgid "About Beamer"
+msgstr "Informazioni su Beamer"
+
 #: win_app/kvm_bridge_win.py
 msgid "On this PC"
 msgstr "Su questo PC"
@@ -4682,6 +2443,18 @@ msgid "Enter the passphrase for this portable folder."
 msgstr "Inserisci la frase segreta di questa cartella portatile."
 
 #: win_app/kvm_bridge_win.py
+msgid "Length"
+msgstr "Durata"
+
+#: win_app/kvm_bridge_win.py
+msgid "Size"
+msgstr "Dimensione"
+
+#: win_app/kvm_bridge_win.py
+msgid "The destination stays fixed when the mouse changes computers. Enable reception there. Local speakers stay active unless muted above. Microphones are not transmitted."
+msgstr "La destinazione rimane fissa quando il mouse cambia computer. Abilita la ricezione su quel computer. Gli altoparlanti locali restano attivi se non silenziati sopra. I microfoni non vengono trasmessi."
+
+#: win_app/kvm_bridge_win.py
 msgid "Beamer requests keyboard and pointer access when each Wayland session starts."
 msgstr "Beamer chiede l'accesso a tastiera e puntatore all'inizio di ogni sessione Wayland."
 
@@ -4692,6 +2465,26 @@ msgstr "Non richiesto"
 #: win_app/kvm_bridge_win.py
 msgid "Ask again"
 msgstr "Chiedi di nuovo"
+
+#: win_app/kvm_bridge_win.py
+msgid "Checks GitHub at startup and once a day. Updates are downloaded and installed by you."
+msgstr "Controlla GitHub all'avvio e una volta al giorno. Scarichi e installi tu gli aggiornamenti."
+
+#: win_app/kvm_bridge_win.py
+msgid "Checking for updates…"
+msgstr "Ricerca aggiornamenti…"
+
+#: win_app/kvm_bridge_win.py
+msgid "Beamer is up to date."
+msgstr "Beamer è aggiornato."
+
+#: win_app/kvm_bridge_win.py
+msgid "Update available."
+msgstr "Aggiornamento disponibile."
+
+#: win_app/kvm_bridge_win.py
+msgid "Could not check for updates. Check your connection and try again."
+msgstr "Impossibile controllare gli aggiornamenti. Controlla la connessione e riprova."
 
 #: win_app/kvm_bridge_win.py
 msgid "Download portable zip"
@@ -4718,12 +2511,35 @@ msgid "Beamer will run as administrator on this PC. Changing this restarts Beame
 msgstr "Beamer verrà eseguito come amministratore su questo PC. La modifica riavvia Beamer; Windows potrebbe chiedere l'autorizzazione."
 
 #: win_app/kvm_bridge_win.py
+msgid "Same on all machines"
+msgstr "Uguale su tutti i computer"
+
+#: win_app/kvm_bridge_win.py
 msgid "Start at sign-in needs Beamer to run as the signed-in account."
 msgstr "Per avviarsi all'accesso, Beamer deve essere eseguito con l'account attualmente connesso."
 
 #: win_app/kvm_bridge_win.py
+msgid "Crosses"
+msgstr "Passa"
+
+#: win_app/kvm_bridge_win.py
 msgid "Each chip is a side of this screen; click one to add or remove it. The side a machine touches crosses on its lit thirds; any other free side wraps round to it, arriving on its far side. A corner is a diagonal push, shown as a square on the map."
 msgstr "Ogni etichetta è un lato di questo schermo; fai clic per aggiungerlo o toglierlo. Il lato toccato da un computer fa passare sui suoi terzi illuminati; ogni altro lato libero rimanda a esso, arrivando sul lato opposto. Un angolo è una spinta in diagonale, mostrata come un quadrato sulla mappa."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Earlier ways ▴"
+msgstr "Vie precedenti ▴"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Earlier ways ▾"
+msgstr "Vie precedenti ▾"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Shake the mouse or trackpad left and right a few times while you drive another machine, and input comes straight back to the machine you are using."
+msgstr "Scuoti il mouse o il trackpad a destra e a sinistra alcune volte mentre controlli un altro computer, e l'input torna subito al computer che stai usando."
 
 # New in 1.5.5: awaiting Lorenzo's check
 #: win_app/kvm_bridge_win.py
@@ -4732,16 +2548,73 @@ msgstr "Spingi indietro per la stessa via: dove un bordo riporta a questo PC"
 
 # New in 1.5.5: awaiting Lorenzo's check
 #: win_app/kvm_bridge_win.py
+msgid "Click a machine on the map to set its ways. The ledger says how it reaches each other machine."
+msgstr "Fai clic su un computer sulla mappa per impostarne le vie. L'elenco indica come raggiunge ogni altro computer."
+
+#: win_app/kvm_bridge_win.py
+msgid "Drag a machine on the map to where it sits. The ledger says how each one is reached; click a row to pick it on the map."
+msgstr "Trascina un computer sulla mappa dove si trova. L'elenco indica come si raggiunge ciascuno; fai clic su una riga per selezionarlo sulla mappa."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Click a machine to set its ways · Tab and Return pick one from the keyboard"
+msgstr "Fai clic su un computer per impostarne le vie · Usa Tab e Invio per sceglierne uno dalla tastiera"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "+"
+msgstr "+"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "New profile"
+msgstr "Nuovo profilo"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
 msgid "This PC keeps its own ways"
 msgstr "Questo PC mantiene le proprie vie"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Same → Shortcut"
+msgstr "Uguale su tutti → Scorciatoia"
 
 #: win_app/kvm_bridge_win.py
 msgid "Follows this PC's mouse or trackpad on every screen; each screen supplies its own zones."
 msgstr "Segue il mouse o il trackpad di questo PC su ogni schermo; ogni schermo fornisce le proprie zone."
 
 #: win_app/kvm_bridge_win.py
+msgid "Keep this machine's keyboard here. Pointer and clipboard sharing stay on."
+msgstr "Mantieni la tastiera su questo computer. Il puntatore e gli appunti restano condivisi."
+
+#: win_app/kvm_bridge_win.py
+msgid "Pointer speed"
+msgstr "Velocità del puntatore"
+
+#: win_app/kvm_bridge_win.py
+msgid "Scroll speed"
+msgstr "Velocità di scorrimento"
+
+#: win_app/kvm_bridge_win.py
 msgid "For the trackpad or mouse of whichever machine drives this PC."
 msgstr "Per il trackpad o il mouse del computer che controlla questo PC."
+
+#: win_app/kvm_bridge_win.py win_app/widgets.py
+msgid "Click, then press it"
+msgstr "Fai clic, poi premilo"
+
+#: win_app/kvm_bridge_win.py win_app/widgets.py
+msgid "Click again to cancel"
+msgstr "Fai di nuovo clic per annullare"
+
+#: win_app/kvm_bridge_win.py win_app/machines_win.py
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: win_app/kvm_bridge_win.py
+msgid "That key is the shortcut; it always stays with Beamer."
+msgstr "Quel tasto è la scorciatoia; resta sempre a Beamer."
 
 #: win_app/kvm_bridge_win.py
 msgid "That could not be saved, so the list is unchanged."
@@ -4752,8 +2625,20 @@ msgid "Shortcut key"
 msgstr "Tasto della scorciatoia"
 
 #: win_app/kvm_bridge_win.py
+msgid "Click, then press the key"
+msgstr "Fai clic, poi premi il tasto"
+
+#: win_app/kvm_bridge_win.py
 msgid "That key cannot be the shortcut. Choose a modifier such as Right Ctrl, a function key, or a key like Insert or Scroll Lock."
 msgstr "Quel tasto non può essere la scorciatoia. Scegli un modificatore come Ctrl destro, un tasto funzione, o un tasto come Ins o Bloc Scorr."
+
+#: win_app/kvm_bridge_win.py
+msgid "Turns crossing and landing animations on or off on this screen. Saved style choices stay in place."
+msgstr "Attiva o disattiva le animazioni di passaggio e di arrivo su questo schermo. Gli stili scelti restano salvati."
+
+#: win_app/kvm_bridge_win.py
+msgid "For shortcut, menu and jump arrivals; requires Animate crossings on this screen."
+msgstr "Per gli arrivi da scorciatoia, menu e salto; richiede Anima i passaggi su questo schermo."
 
 #: win_app/kvm_bridge_win.py
 msgid "Sets depth relative to the shorter screen edge."
@@ -4797,6 +2682,14 @@ msgid "Enter the passphrase again."
 msgstr "Inserisci di nuovo la frase segreta."
 
 #: win_app/kvm_bridge_win.py
+msgid "Choose a paired computer…"
+msgstr "Scegli un computer associato…"
+
+#: win_app/kvm_bridge_win.py
+msgid "Stopping the previous audio stream…"
+msgstr "Interruzione del flusso audio precedente…"
+
+#: win_app/kvm_bridge_win.py
 msgid "With it off, closing the window quits Beamer. Open Beamer again to bring the window back."
 msgstr "Se disattivato, chiudere la finestra chiude Beamer. Apri di nuovo Beamer per riavere la finestra."
 
@@ -4807,6 +2700,22 @@ msgstr "Questo desktop non ha un'area di notifica, quindi la finestra di Beamer 
 #: win_app/kvm_bridge_win.py
 msgid "Update through your software store, or download the Flatpak from the release page and open it."
 msgstr "Aggiorna tramite il tuo negozio di software oppure scarica il file Flatpak dalla pagina della versione e aprilo."
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Beamer {version} is available."
+msgstr "Beamer {version} è disponibile."
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Send input to {name}"
+msgstr "Invia input a {name}"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Ways: set on the Crossing page · {state}"
+msgstr "Vie: si impostano nella pagina Passaggio · {state}"
 
 #: win_app/kvm_bridge_win.py
 msgid "Seam crossings need X11 on Linux."
@@ -4820,6 +2729,30 @@ msgstr "Impossibile salvare queste vie. Riprova."
 # New in 1.5.5: awaiting Lorenzo's check
 #: win_app/kvm_bridge_win.py
 #, python-brace-format
+msgid "{name}'s ways"
+msgstr "Vie di {name}"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Editing {name}'s ways ·"
+msgstr "Modifica delle vie di {name} ·"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Changes go to {name} at once."
+msgstr "Le modifiche arrivano subito a {name}."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Jump keys and permissions are set on {name}."
+msgstr "I tasti di salto e i permessi si impostano su {name}."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
 msgid "Shortcut: {shortcut} (set in {link})"
 msgstr "Scorciatoia: {shortcut} (si imposta in {link})"
 
@@ -4827,10 +2760,28 @@ msgstr "Scorciatoia: {shortcut} (si imposta in {link})"
 msgid "That position cannot connect this machine."
 msgstr "Quella posizione non può collegare questo computer."
 
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Shook home from {name}. Turn this off in Crossing → Way home."
+msgstr "Tornato da {name} scuotendo il puntatore. Disattivalo in Passaggio → Via di casa."
+
 #: win_app/kvm_bridge_win.py
 #, python-brace-format
 msgid "{value} px"
 msgstr "{value} px"
+
+#: win_app/kvm_bridge_win.py
+msgid "Last machine"
+msgstr "Ultimo computer"
+
+#: win_app/kvm_bridge_win.py
+msgid "Next in order"
+msgstr "Prossimo in ordine"
+
+#: win_app/kvm_bridge_win.py
+msgid "Next among ticked"
+msgstr "Prossimo spuntato"
 
 #: win_app/kvm_bridge_win.py
 #, python-brace-format
@@ -4838,8 +2789,47 @@ msgid "{value} ms"
 msgstr "{value} ms"
 
 #: win_app/kvm_bridge_win.py
+msgid "System"
+msgstr "Sistema"
+
+#: win_app/kvm_bridge_win.py
+msgctxt "appearance"
+msgid "Light"
+msgstr "Chiaro"
+
+#: win_app/kvm_bridge_win.py
+msgid "Dark"
+msgstr "Scuro"
+
+#: win_app/kvm_bridge_win.py
+msgid "This window"
+msgstr "Questa finestra"
+
+#: win_app/kvm_bridge_win.py
+msgid "Shortcut and menu"
+msgstr "Scorciatoia e menu"
+
+#: win_app/kvm_bridge_win.py
+msgid "Edge"
+msgstr "Bordo"
+
+#: win_app/kvm_bridge_win.py
+msgid "Corner"
+msgstr "Angolo"
+
+#: win_app/kvm_bridge_win.py
 msgid "The effects stopped working and are off until Beamer restarts, so crossings show Glow in the same colours. The log says why."
 msgstr "Gli effetti hanno smesso di funzionare e restano disattivati fino al riavvio di Beamer, quindi i passaggi mostrano Bagliore con gli stessi colori. Il registro spiega perché."
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Driving {name}"
+msgstr "Controlla {name}"
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Driven by {name}"
+msgstr "Controllato da {name}"
 
 #: win_app/kvm_bridge_win.py
 msgid "Beamer could not save the removal. Try again in a moment."
@@ -4854,6 +2844,11 @@ msgid "Save failed"
 msgstr "Salvataggio non riuscito"
 
 #: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Beamer {version}"
+msgstr "Beamer {version}"
+
+#: win_app/kvm_bridge_win.py
 msgid "Another Beamer copy controls input on this PC. Quit it to use input in this copy."
 msgstr "Un'altra copia di Beamer controlla l'input su questo PC. Chiudila per usare l'input in questa copia."
 
@@ -4861,6 +2856,15 @@ msgstr "Un'altra copia di Beamer controlla l'input su questo PC. Chiudila per us
 #, python-brace-format
 msgid "<b>Beamer {version}</b><br>One keyboard and mouse for all your Macs and PCs.<br><br><a href=\"{url}\" style=\"color: {colour};\">{link}</a>"
 msgstr "<b>Beamer {version}</b><br>Una sola tastiera e un solo mouse per tutti i tuoi Mac e PC.<br><br><a href=\"{url}\" style=\"color: {colour};\">{link}</a>"
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "On {name}"
+msgstr "Su {name}"
+
+#: win_app/kvm_bridge_win.py
+msgid "Unknown"
+msgstr "Sconosciuto"
 
 #: win_app/kvm_bridge_win.py
 msgid "Use at least 12 characters for the passphrase."
@@ -4893,6 +2897,26 @@ msgid "No portable download is available for this release. See What's new."
 msgstr "Per questa versione non è disponibile un download portatile. Consulta Novità."
 
 #: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Download Beamer {version}"
+msgstr "Scarica Beamer {version}"
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Beamer {version} is available…"
+msgstr "Beamer {version} è disponibile…"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "On"
+msgstr "Attivato"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Off"
+msgstr "Disattivato"
+
+#: win_app/kvm_bridge_win.py
 msgid "Starts in the tray when you sign in, as administrator."
 msgstr "All'accesso si avvia nell'area di notifica, come amministratore."
 
@@ -4908,6 +2932,11 @@ msgstr "Solo l'app installata può avviarsi all'accesso."
 #: win_app/kvm_bridge_win.py
 msgid "These ways could not be changed."
 msgstr "Impossibile modificare queste vie."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+msgid "Restore"
+msgstr "Ripristina"
 
 # New in 1.5.5: awaiting Lorenzo's check
 #: win_app/kvm_bridge_win.py
@@ -4932,6 +2961,16 @@ msgstr "Rimuovi {key}"
 
 #: win_app/kvm_bridge_win.py
 #, python-brace-format
+msgid "Plays {name}"
+msgstr "Riproduce {name}"
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "{name}, {intensity}"
+msgstr "{name}, {intensity}"
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
 msgid "Pairing is not available: {error}"
 msgstr "L'abbinamento non è disponibile: {error}"
 
@@ -4939,6 +2978,18 @@ msgstr "L'abbinamento non è disponibile: {error}"
 #, python-brace-format
 msgid "This PC's address: {address} · port {port}"
 msgstr "Indirizzo di questo PC: {address} · porta {port}"
+
+#: win_app/kvm_bridge_win.py
+msgid "Automatic"
+msgstr "Automatica"
+
+#: win_app/kvm_bridge_win.py
+msgid "Reload configuration"
+msgstr "Ricarica la configurazione"
+
+#: win_app/kvm_bridge_win.py
+msgid "Open log folder"
+msgstr "Apri la cartella dei registri"
 
 #: win_app/kvm_bridge_win.py
 #, python-brace-format
@@ -4949,6 +3000,11 @@ msgstr "Beamer — {status}: {detail}"
 #, python-brace-format
 msgid "Could not save this PC's name: {error}"
 msgstr "Impossibile salvare il nome di questo PC: {error}"
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Could not save the machine's name: {error}"
+msgstr "Impossibile salvare il nome del computer: {error}"
 
 #: win_app/kvm_bridge_win.py
 msgid "When enabled, Beamer starts in the tray as administrator."
@@ -4962,6 +3018,22 @@ msgstr "Se attivo, Beamer si avvia nell'area di notifica con i tuoi normali priv
 #, python-brace-format
 msgid "Windows refused: {error}"
 msgstr "Windows ha rifiutato: {error}"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "{name} has no way back to {machine} except the shortcut and a shake."
+msgstr "{name} non ha una via di ritorno verso {machine}, se non la scorciatoia e lo scuotimento."
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Same as crossing: {name}"
+msgstr "Come il passaggio: {name}"
+
+#: win_app/kvm_bridge_win.py
+#, python-brace-format
+msgid "Nearby pairing is not available: {error}"
+msgstr "L'abbinamento nelle vicinanze non è disponibile: {error}"
 
 #: win_app/kvm_bridge_win.py
 #, python-brace-format
@@ -4989,8 +3061,32 @@ msgid "the change failed: {error}"
 msgstr "la modifica non è riuscita: {error}"
 
 #: win_app/machines_win.py
+msgid "Pair a machine"
+msgstr "Abbina un computer"
+
+#: win_app/machines_win.py
 msgid "Pairing code"
 msgstr "Codice di abbinamento"
+
+#: win_app/machines_win.py
+msgid "Pin address"
+msgstr "Mantieni questo indirizzo"
+
+#: win_app/machines_win.py
+msgid "Keeps this address through reconnects and re-pairing. Turn off to follow address changes automatically."
+msgstr "Mantiene questo indirizzo dopo le riconnessioni e un nuovo abbinamento. Disattiva per seguire automaticamente i cambiamenti di indirizzo."
+
+#: win_app/machines_win.py
+msgid "Re-pair"
+msgstr "Riabbina"
+
+#: win_app/machines_win.py
+msgid "Left out of the layout. The shortcut and the menu still reach it."
+msgstr "Escluso dalla disposizione. La scorciatoia e il menu lo raggiungono comunque."
+
+#: win_app/machines_win.py
+msgid "In use"
+msgstr "In uso"
 
 #: win_app/machines_win.py
 msgid "Off on this PC: no input or settings link to this machine. Pairing, directions, ways and jump key are kept. Turn it back on here to reconnect."
@@ -5013,8 +3109,32 @@ msgid "Input moves only when the other machine enables This machine drives it an
 msgstr "L'input passa solo quando l'altro computer attiva Questo computer lo controlla e questo PC attiva questo interruttore."
 
 #: win_app/machines_win.py
+msgid "Directions"
+msgstr "Direzioni"
+
+#: win_app/machines_win.py
+msgid "Keep"
+msgstr "Mantieni"
+
+#: win_app/machines_win.py
+msgid "Machines"
+msgstr "Computer"
+
+#: win_app/machines_win.py
+msgid "Pair a phone"
+msgstr "Abbina un telefono"
+
+#: win_app/machines_win.py
+msgid "Pair nearby"
+msgstr "Abbina nelle vicinanze"
+
+#: win_app/machines_win.py
 msgid "QR code for the pairing code"
 msgstr "Codice QR del codice di abbinamento"
+
+#: win_app/machines_win.py
+msgid "Show a code"
+msgstr "Mostra un codice"
 
 #: win_app/machines_win.py
 msgid "Time left"
@@ -5029,6 +3149,10 @@ msgid "Nearby pairing time left"
 msgstr "Tempo rimanente per l'abbinamento nelle vicinanze"
 
 #: win_app/machines_win.py
+msgid "Confirm"
+msgstr "Conferma"
+
+#: win_app/machines_win.py
 msgid "No other machine is showing a code yet."
 msgstr "Nessun altro computer sta ancora mostrando un codice."
 
@@ -5037,12 +3161,32 @@ msgid "Address of the other machine"
 msgstr "Indirizzo dell'altro computer"
 
 #: win_app/machines_win.py
+msgid "Address"
+msgstr "Indirizzo"
+
+#: win_app/machines_win.py
 msgid "Code"
 msgstr "Codice"
 
 #: win_app/machines_win.py
+msgid "Pair"
+msgstr "Abbina"
+
+#: win_app/machines_win.py
 msgid "Show a code on this PC"
 msgstr "Mostra un codice su questo PC"
+
+#: win_app/machines_win.py
+msgid "Enter a code from another machine"
+msgstr "Inserisci un codice da un altro computer"
+
+#: win_app/machines_win.py
+msgid "On this network"
+msgstr "In questa rete"
+
+#: win_app/machines_win.py
+msgid "Not listed? Type its address."
+msgstr "Non in elenco? Digita il suo indirizzo."
 
 #: win_app/machines_win.py
 msgid "Pairing digits"
@@ -5053,14 +3197,33 @@ msgid "Pairing…"
 msgstr "Abbinamento…"
 
 #: win_app/machines_win.py
+msgid "Hide directions"
+msgstr "Nascondi direzioni"
+
+#: win_app/machines_win.py
 #, python-brace-format
 msgid "Pin address for {name}"
 msgstr "Mantieni questo indirizzo per {name}"
 
 #: win_app/machines_win.py
 #, python-brace-format
+msgid "Re-pair {name}"
+msgstr "Riabbina {name}"
+
+#: win_app/machines_win.py
+#, python-brace-format
+msgid "{action} {name}"
+msgstr "{action} {name}"
+
+#: win_app/machines_win.py
+#, python-brace-format
 msgid "{name}: {status}"
 msgstr "{name}: {status}"
+
+#: win_app/machines_win.py
+#, python-brace-format
+msgid "Remove {name}"
+msgstr "Rimuovi {name}"
 
 #: win_app/machines_win.py
 #, python-brace-format
@@ -5076,6 +3239,11 @@ msgstr "L'input passa solo quando questo PC attiva questo interruttore e {name} 
 #, python-brace-format
 msgid "Input moves only when {name} enables This PC drives it and this PC enables this switch."
 msgstr "L'input passa solo quando {name} attiva Questo PC lo controlla e questo PC attiva questo interruttore."
+
+#: win_app/machines_win.py
+#, python-brace-format
+msgid "Expires in {n} s"
+msgstr "Scade tra {n} s"
 
 #: win_app/machines_win.py
 #, python-brace-format
@@ -5107,6 +3275,10 @@ msgid "This PC only."
 msgstr "Solo questo PC."
 
 #: win_app/pages_win.py
+msgid "Changes apply as you make them."
+msgstr "Le modifiche si applicano subito."
+
+#: win_app/pages_win.py
 msgid "Closing this window keeps Beamer running in the tray."
 msgstr "Chiudendo questa finestra Beamer resta attivo nell'area di notifica."
 
@@ -5134,9 +3306,17 @@ msgstr "Tasti modificatori e Resta qui riguardano l'input di questo PC. Velocit�
 msgid "Ready"
 msgstr "Pronto"
 
+#: win_app/pages_win.py win_app/peers_view.py
+msgid "Refused"
+msgstr "Rifiutato"
+
 #: win_app/pages_win.py
 msgid "Unavailable"
 msgstr "Non disponibile"
+
+#: win_app/pages_win.py
+msgid "On. Pause it to lean on an edge without switching."
+msgstr "Attivo. Sospendilo per appoggiarti a un bordo senza passare."
 
 #: win_app/pages_win.py
 msgid "top-left"
@@ -5175,12 +3355,20 @@ msgid "below this PC"
 msgstr "sotto questo PC"
 
 #: win_app/pages_win.py
+msgid "Overview"
+msgstr "Panoramica"
+
+#: win_app/pages_win.py
 msgid "The machines paired with this PC, where input is right now, and the controls you reach for every day. Pair a machine here first."
 msgstr "I computer abbinati a questo PC, dove si trova ora l'input, e i controlli che usi ogni giorno. Abbina prima qui un computer."
 
 #: win_app/pages_win.py
 msgid "Choose how the pointer or a key moves input to each machine, and how hard the edge pushes back first."
 msgstr "Scegli come il puntatore o un tasto sposta l'input verso ogni computer, e quanto resiste prima il bordo."
+
+#: win_app/pages_win.py
+msgid "Keyboard"
+msgstr "Tastiera"
 
 #: win_app/pages_win.py
 msgid "How this PC's Ctrl and Windows keys arrive on another machine, the keys and buttons that stay here, and how fast another machine's pointer moves here."
@@ -5191,12 +3379,78 @@ msgid "How crossing looks on this PC: the light as you push toward another machi
 msgstr "Come appare il passaggio su questo PC: la luce mentre spingi verso un altro computer, e dove arriva il puntatore."
 
 #: win_app/pages_win.py
+msgid "Connection"
+msgstr "Connessione"
+
+#: win_app/pages_win.py
 msgid "This PC's network access, address and listening port; hide addresses in this window and tray."
 msgstr "Accesso alla rete, indirizzo e porta di ascolto di questo PC; nascondi gli indirizzi in questa finestra e nell'area di notifica."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/pages_win.py
+msgid "Before Beamer 1.5.5"
+msgstr "Prima di Beamer 1.5.5"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/pages_win.py
+msgid "From an older Beamer"
+msgstr "Da una versione precedente di Beamer"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/pages_win.py
+msgid "When Same ways went off"
+msgstr "Quando Stesse vie è stato disattivato"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/pages_win.py
+msgid "When Same ways went on"
+msgstr "Quando Stesse vie è stato attivato"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/pages_win.py
+msgid "Before you changed it"
+msgstr "Prima della tua modifica"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/pages_win.py
+msgid "Before a restore"
+msgstr "Prima di un ripristino"
+
+#: win_app/pages_win.py
+msgid "Signal"
+msgstr "Segnale"
+
+#: win_app/pages_win.py
+msgid "Colourful"
+msgstr "Colorato"
+
+#: win_app/pages_win.py
+msgid "Ocean"
+msgstr "Oceano"
+
+#: win_app/pages_win.py
+msgid "Sunset"
+msgstr "Tramonto"
+
+#: win_app/pages_win.py
+msgid "Aurora"
+msgstr "Aurora"
 
 #: win_app/pages_win.py
 msgid "Not paired yet, so no edge or shortcut moves input until you pair a machine above."
 msgstr "Non ancora abbinato, quindi nessun bordo o scorciatoia sposta l'input finché non abbini un computer qui sopra."
+
+#: win_app/pages_win.py
+msgid "Only the shortcut is switched on; there is nothing to pause."
+msgstr "È attiva solo la scorciatoia; non c'è nulla da sospendere."
+
+#: win_app/pages_win.py
+msgid "Pauses pointer crossing through this screen, including another machine's pointer. Shortcuts and jump keys still work. Resets when Beamer restarts."
+msgstr "Sospende il passaggio del puntatore attraverso questo schermo, compreso il puntatore di un altro computer. Scorciatoie e tasti di salto funzionano comunque. Si azzera al riavvio di Beamer."
+
+#: win_app/pages_win.py
+msgid "Held: an app is full screen."
+msgstr "Bloccato: un'app è a schermo intero."
 
 #: win_app/pages_win.py
 msgid "Above"
@@ -5205,6 +3459,20 @@ msgstr "Sopra"
 #: win_app/pages_win.py
 msgid "Below"
 msgstr "Sotto"
+
+#: win_app/pages_win.py
+msgid "the other machine"
+msgstr "l'altro computer"
+
+#: win_app/pages_win.py
+msgid "With Hold, input goes to the last machine."
+msgstr "Con Tieni premuto, l'input va all'ultimo computer."
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/pages_win.py
+#, python-brace-format
+msgid "{date} · {reason}"
+msgstr "{date} · {reason}"
 
 #: win_app/pages_win.py
 #, python-brace-format
@@ -5240,6 +3508,10 @@ msgid "Input moves to {name} when you {ways}."
 msgstr "L'input passa a {name} quando {ways}."
 
 #: win_app/pages_win.py
+msgid "With Hold, input goes to the first ready machine in order."
+msgstr "Con Tieni premuto, l'input va al primo computer pronto, in ordine."
+
+#: win_app/pages_win.py
 msgid "The order follows the tiles from top to bottom, then left to right. This PC is always in the cycle."
 msgstr "L'ordine segue i riquadri dall'alto in basso, poi da sinistra a destra. Questo PC è sempre nel ciclo."
 
@@ -5251,6 +3523,12 @@ msgstr "Scegli quali computer entrano nel ciclo con le caselle sui loro riquadri
 #, python-brace-format
 msgid "{first} {second} {third}"
 msgstr "{first} {second} {third}"
+
+# New in 1.5.5: awaiting Lorenzo's check
+#: win_app/pages_win.py
+#, python-brace-format
+msgid "Before {name} changed it"
+msgstr "Prima che {name} le modificasse"
 
 #. {side} is the direction of the screen edge.
 #: win_app/pages_win.py
@@ -5299,6 +3577,16 @@ msgstr "Nulla sposta l'input verso {name}: scegli almeno una via qui sotto."
 #, python-brace-format
 msgid "Input moves to {name} when you {ways}. The shortcut switches home or to the last available machine; if it is unavailable, another available machine can take input."
 msgstr "L'input passa a {name} quando {ways}. La scorciatoia riporta a casa o all'ultimo computer disponibile; se non è disponibile, un altro computer disponibile può ricevere l'input."
+
+#: win_app/pages_win.py
+#, python-brace-format
+msgid "Hold {key}"
+msgstr "Tieni premuto {key}"
+
+#: win_app/pages_win.py
+#, python-brace-format
+msgid "Double-tap {key}"
+msgstr "Tocca due volte {key}"
 
 #: win_app/pages_win.py
 #, python-brace-format
@@ -5391,8 +3679,66 @@ msgid "press {key} twice"
 msgstr "premi due volte {key}"
 
 #: win_app/peers_view.py
+msgid "iPhone"
+msgstr "iPhone"
+
+#: win_app/peers_view.py
+msgid "Android"
+msgstr "Android"
+
+#: win_app/peers_view.py
+msgid "No address"
+msgstr "Nessun indirizzo"
+
+#: win_app/peers_view.py
+msgid "Dropped"
+msgstr "Interrotto"
+
+#: win_app/peers_view.py
+msgid "Other"
+msgstr "Altro"
+
+#: win_app/peers_view.py
+#, python-brace-format
+msgid "{address} · port {port}"
+msgstr "{address} · porta {port}"
+
+#: win_app/peers_view.py
+msgid "Needs re-pair"
+msgstr "Da riabbinare"
+
+#: win_app/peers_view.py
+msgid "NOT IN USE"
+msgstr "NON IN USO"
+
+#: win_app/peers_view.py
 msgid "Driving this PC"
 msgstr "Controlla questo PC"
+
+#: win_app/peers_view.py
+msgid "Input here"
+msgstr "Input qui"
+
+#: win_app/peers_view.py
+msgid "Pair again"
+msgstr "Abbina di nuovo"
+
+#: win_app/peers_view.py
+msgid "Version"
+msgstr "Versione"
+
+#: win_app/peers_view.py
+msgid "Unreachable"
+msgstr "Non raggiungibile"
+
+#: win_app/peers_view.py
+msgid "Not listening"
+msgstr "Non in ascolto"
+
+#: win_app/peers_view.py
+#, python-brace-format
+msgid "{status}. Beamer keeps trying to reconnect."
+msgstr "{status}. Beamer continua a provare a riconnettersi."
 
 #: win_app/peers_view.py
 #, python-brace-format
@@ -5409,6 +3755,31 @@ msgstr "La tastiera e il puntatore di {name} sono su questo PC. Riporta il punta
 msgid "This PC's keyboard and pointer are on {name}. Do the same again to bring them home."
 msgstr "La tastiera e il puntatore di questo PC sono su {name}. Ripeti la stessa azione per riportarli a casa."
 
+#: win_app/peers_view.py
+#, python-brace-format
+msgid "{name} was paired on Beamer 1.4. Pair the two again to link them on 1.5.0."
+msgstr "{name} è stato abbinato con Beamer 1.4. Abbina di nuovo i due computer per collegarli con la 1.5.0."
+
+#: win_app/peers_view.py
+#, python-brace-format
+msgid "Connected to {name}."
+msgstr "Connesso a {name}."
+
+#: win_app/peers_view.py win_app/sender.py
+#, python-brace-format
+msgid "Waking {name}…"
+msgstr "Risveglio di {name}…"
+
+#: win_app/peers_view.py
+#, python-brace-format
+msgid "Waiting for {name} to connect."
+msgstr "In attesa che {name} si connetta."
+
+#: win_app/peers_view.py
+#, python-brace-format
+msgid "Looking for {name}. It connects on its own once Beamer is open there."
+msgstr "Ricerca di {name}. Si connette da solo appena Beamer è aperto lì."
+
 #: win_app/portable_entry.py
 msgid "Beamer Portable needs its Beamer.portable marker and a writable folder beside the app. Move the whole folder to writable storage and try again."
 msgstr "Beamer Portable richiede il marcatore Beamer.portable e una cartella scrivibile accanto all'app. Sposta l'intera cartella in un percorso scrivibile e riprova."
@@ -5416,6 +3787,11 @@ msgstr "Beamer Portable richiede il marcatore Beamer.portable e una cartella scr
 #: win_app/portable_entry.py
 msgid "Beamer Portable"
 msgstr "Beamer Portable"
+
+#: win_app/sender.py
+#, python-brace-format
+msgid "{name} did not wake"
+msgstr "{name} non si è riattivato"
 
 #: win_app/sender.py
 msgid "Not connected"
@@ -5433,6 +3809,16 @@ msgstr "{name} ha rimandato indietro l'input"
 
 #: win_app/sender.py
 #, python-brace-format
+msgid "Lost the link to {name}"
+msgstr "Collegamento con {name} perso"
+
+#: win_app/sender.py
+#, python-brace-format
+msgid "{name} did not answer"
+msgstr "{name} non ha risposto"
+
+#: win_app/sender.py
+#, python-brace-format
 msgid "{name} would not take the input"
 msgstr "{name} non ha accettato l'input"
 
@@ -5447,6 +3833,11 @@ msgstr "Impossibile passare: impossibile raggiungere {name}"
 
 #: win_app/sender.py
 #, python-brace-format
+msgid "Skipped {name}: not connected."
+msgstr "{name} saltato: non connesso."
+
+#: win_app/sender.py
+#, python-brace-format
 msgid "Cannot switch — {name} could not be reached while this PC is being driven"
 msgstr "Impossibile passare: impossibile raggiungere {name} mentre questo PC è controllato"
 
@@ -5456,9 +3847,23 @@ msgid "Cannot switch — {reason}"
 msgstr "Impossibile passare: {reason}"
 
 #: win_app/sender.py
+msgid "Could not send the wake-up packet"
+msgstr "Impossibile inviare il pacchetto di risveglio"
+
+#: win_app/sender.py
+#, python-brace-format
+msgid "Cannot switch — {status}"
+msgstr "Impossibile passare: {status}"
+
+#: win_app/sender.py
 #, python-brace-format
 msgid "{other} took over {name}"
 msgstr "{other} ha preso il controllo di {name}"
+
+#: win_app/sender.py
+#, python-brace-format
+msgid "{name} is awake — switch again to send input"
+msgstr "{name} è attivo: passa di nuovo per inviare l'input"
 
 #: win_app/sender.py
 #, python-brace-format
@@ -5471,8 +3876,29 @@ msgid "Cannot switch — the desktop did not let Beamer send input to {name}"
 msgstr "Impossibile passare: il desktop non ha consentito a Beamer di inviare input a {name}"
 
 #: win_app/widgets.py
+msgid "Press a key or button…"
+msgstr "Premi un tasto o un pulsante…"
+
+#: win_app/widgets.py
+msgid "Choose a key combination"
+msgstr "Scegli una combinazione di tasti"
+
+#: win_app/widgets.py
+msgid "Click, then press a key combination"
+msgstr "Fai clic, poi premi una combinazione di tasti"
+
+#: win_app/widgets.py
+msgid "Press a key combination…"
+msgstr "Premi una combinazione di tasti…"
+
+#: win_app/widgets.py
 msgid "Response time: no fresh measurement"
 msgstr "Tempo di risposta: nessuna misura recente"
+
+#: win_app/widgets.py
+#, python-brace-format
+msgid "Jump straight here key, {key}"
+msgstr "Tasto per saltare qui direttamente, {key}"
 
 #: win_app/widgets.py
 msgid "Response time: disconnected"

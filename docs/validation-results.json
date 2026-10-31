@@ -1,0 +1,806 @@
+{
+  "results": [
+    {
+      "module": "core.tests.test_address_choice_commit",
+      "status": "pass",
+      "tests": 2,
+      "skipped": 0,
+      "seconds": 0.24
+    },
+    {
+      "module": "core.tests.test_arrival_grace",
+      "status": "pass",
+      "tests": 19,
+      "skipped": 0,
+      "seconds": 0.13
+    },
+    {
+      "module": "core.tests.test_atlas",
+      "status": "pass",
+      "tests": 62,
+      "skipped": 0,
+      "seconds": 0.15
+    },
+    {
+      "module": "core.tests.test_audio_stream",
+      "status": "pass",
+      "tests": 16,
+      "skipped": 0,
+      "seconds": 1.57
+    },
+    {
+      "module": "core.tests.test_clipboard_reliability",
+      "status": "pass",
+      "tests": 22,
+      "skipped": 0,
+      "seconds": 0.14
+    },
+    {
+      "module": "core.tests.test_clipboard_stress",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 0.67
+    },
+    {
+      "module": "core.tests.test_colour_packs",
+      "status": "pass",
+      "tests": 6,
+      "skipped": 0,
+      "seconds": 0.16
+    },
+    {
+      "module": "core.tests.test_crash_log",
+      "status": "pass",
+      "tests": 2,
+      "skipped": 0,
+      "seconds": 0.3
+    },
+    {
+      "module": "core.tests.test_crossing_input_fence",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 1.22
+    },
+    {
+      "module": "core.tests.test_crossing_state",
+      "status": "pass",
+      "tests": 41,
+      "skipped": 0,
+      "seconds": 0.16
+    },
+    {
+      "module": "core.tests.test_dormant_repair",
+      "status": "pass",
+      "tests": 19,
+      "skipped": 0,
+      "seconds": 0.08
+    },
+    {
+      "module": "core.tests.test_easy_pair",
+      "status": "pass",
+      "tests": 13,
+      "skipped": 0,
+      "seconds": 0.09
+    },
+    {
+      "module": "core.tests.test_easy_pair_service",
+      "status": "pass",
+      "tests": 9,
+      "skipped": 0,
+      "seconds": 6.31
+    },
+    {
+      "module": "core.tests.test_effect_detent_pace",
+      "status": "pass",
+      "tests": 4,
+      "skipped": 0,
+      "seconds": 0.21
+    },
+    {
+      "module": "core.tests.test_effect_sets",
+      "status": "pass",
+      "tests": 14,
+      "skipped": 0,
+      "seconds": 1.33
+    },
+    {
+      "module": "core.tests.test_effect_size",
+      "status": "pass",
+      "tests": 5,
+      "skipped": 0,
+      "seconds": 0.08
+    },
+    {
+      "module": "core.tests.test_effect_size_scaling",
+      "status": "pass",
+      "tests": 4,
+      "skipped": 0,
+      "seconds": 0.21
+    },
+    {
+      "module": "core.tests.test_feature_flags",
+      "status": "pass",
+      "tests": 1,
+      "skipped": 0,
+      "seconds": 0.04
+    },
+    {
+      "module": "core.tests.test_firewall_contract",
+      "status": "pass",
+      "tests": 1,
+      "skipped": 0,
+      "seconds": 0.12
+    },
+    {
+      "module": "core.tests.test_fork_platforms",
+      "status": "pass",
+      "tests": 2,
+      "skipped": 0,
+      "seconds": 0.11
+    },
+    {
+      "module": "core.tests.test_i18n",
+      "status": "pass",
+      "tests": 11,
+      "skipped": 0,
+      "seconds": 0.11
+    },
+    {
+      "module": "core.tests.test_i18n_coverage",
+      "status": "pass",
+      "tests": 7,
+      "skipped": 0,
+      "seconds": 4.06
+    },
+    {
+      "module": "core.tests.test_identify_screens_core",
+      "status": "pass",
+      "tests": 8,
+      "skipped": 0,
+      "seconds": 0.14
+    },
+    {
+      "module": "core.tests.test_idle_pointer",
+      "status": "pass",
+      "tests": 7,
+      "skipped": 0,
+      "seconds": 0.58
+    },
+    {
+      "module": "core.tests.test_ignored",
+      "status": "pass",
+      "tests": 12,
+      "skipped": 0,
+      "seconds": 0.05
+    },
+    {
+      "module": "core.tests.test_input_scale",
+      "status": "pass",
+      "tests": 4,
+      "skipped": 0,
+      "seconds": 0.07
+    },
+    {
+      "module": "core.tests.test_keypad_identity",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 0.12
+    },
+    {
+      "module": "core.tests.test_keytable",
+      "status": "pass",
+      "tests": 18,
+      "skipped": 0,
+      "seconds": 0.08
+    },
+    {
+      "module": "core.tests.test_length_size_sliders",
+      "status": "pass",
+      "tests": 13,
+      "skipped": 0,
+      "seconds": 0.08
+    },
+    {
+      "module": "core.tests.test_link",
+      "status": "pass",
+      "tests": 86,
+      "skipped": 0,
+      "seconds": 34.11
+    },
+    {
+      "module": "core.tests.test_link_endpoint_follow",
+      "status": "pass",
+      "tests": 6,
+      "skipped": 0,
+      "seconds": 0.23
+    },
+    {
+      "module": "core.tests.test_link_latency",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 0.8
+    },
+    {
+      "module": "core.tests.test_linux_accent_holds",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 0.07
+    },
+    {
+      "module": "core.tests.test_linux_accent_keymaps",
+      "status": "pass",
+      "tests": 2,
+      "skipped": 0,
+      "seconds": 0.4
+    },
+    {
+      "module": "core.tests.test_linux_accents",
+      "status": "pass",
+      "tests": 11,
+      "skipped": 0,
+      "seconds": 0.1
+    },
+    {
+      "module": "core.tests.test_locale",
+      "status": "pass",
+      "tests": 6,
+      "skipped": 0,
+      "seconds": 0.08
+    },
+    {
+      "module": "core.tests.test_motion_flow",
+      "status": "pass",
+      "tests": 7,
+      "skipped": 0,
+      "seconds": 0.19
+    },
+    {
+      "module": "core.tests.test_motion_paths",
+      "status": "pass",
+      "tests": 4,
+      "skipped": 0,
+      "seconds": 0.06
+    },
+    {
+      "module": "core.tests.test_no_copies",
+      "status": "pass",
+      "tests": 2,
+      "skipped": 0,
+      "seconds": 0.04
+    },
+    {
+      "module": "core.tests.test_owner",
+      "status": "pass",
+      "tests": 98,
+      "skipped": 0,
+      "seconds": 0.13
+    },
+    {
+      "module": "core.tests.test_pair1_windows",
+      "status": "pass",
+      "tests": 8,
+      "skipped": 0,
+      "seconds": 20.59
+    },
+    {
+      "module": "core.tests.test_pairing_cpace",
+      "status": "pass",
+      "tests": 56,
+      "skipped": 0,
+      "seconds": 0.15
+    },
+    {
+      "module": "core.tests.test_pairing_paths",
+      "status": "pass",
+      "tests": 27,
+      "skipped": 1,
+      "seconds": 19.03
+    },
+    {
+      "module": "core.tests.test_pairing_service",
+      "status": "pass",
+      "tests": 37,
+      "skipped": 0,
+      "seconds": 58.93
+    },
+    {
+      "module": "core.tests.test_pairing_v3",
+      "status": "pass",
+      "tests": 46,
+      "skipped": 0,
+      "seconds": 0.13
+    },
+    {
+      "module": "core.tests.test_peer_address",
+      "status": "pass",
+      "tests": 7,
+      "skipped": 0,
+      "seconds": 0.14
+    },
+    {
+      "module": "core.tests.test_peerlist",
+      "status": "pass",
+      "tests": 46,
+      "skipped": 0,
+      "seconds": 0.1
+    },
+    {
+      "module": "core.tests.test_phone_contract",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 2.16
+    },
+    {
+      "module": "core.tests.test_phone_targets",
+      "status": "pass",
+      "tests": 8,
+      "skipped": 0,
+      "seconds": 0.09
+    },
+    {
+      "module": "core.tests.test_portable_discovery",
+      "status": "pass",
+      "tests": 5,
+      "skipped": 0,
+      "seconds": 0.08
+    },
+    {
+      "module": "core.tests.test_portable_network",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 2.64
+    },
+    {
+      "module": "core.tests.test_portable_runtime",
+      "status": "pass",
+      "tests": 5,
+      "skipped": 0,
+      "seconds": 0.08
+    },
+    {
+      "module": "core.tests.test_portable_store",
+      "status": "pass",
+      "tests": 13,
+      "skipped": 0,
+      "seconds": 1.09
+    },
+    {
+      "module": "core.tests.test_profile_events",
+      "status": "pass",
+      "tests": 19,
+      "skipped": 0,
+      "seconds": 0.1
+    },
+    {
+      "module": "core.tests.test_profiles",
+      "status": "pass",
+      "tests": 49,
+      "skipped": 0,
+      "seconds": 0.56
+    },
+    {
+      "module": "core.tests.test_profiles_migration",
+      "status": "pass",
+      "tests": 8,
+      "skipped": 2,
+      "seconds": 0.14
+    },
+    {
+      "module": "core.tests.test_protocol_v6",
+      "status": "pass",
+      "tests": 94,
+      "skipped": 0,
+      "seconds": 1.31
+    },
+    {
+      "module": "core.tests.test_receiver_backlog",
+      "status": "pass",
+      "tests": 12,
+      "skipped": 0,
+      "seconds": 1.58
+    },
+    {
+      "module": "core.tests.test_rel1510_input",
+      "status": "pass",
+      "tests": 9,
+      "skipped": 0,
+      "seconds": 0.11
+    },
+    {
+      "module": "core.tests.test_rel1510b_geometry",
+      "status": "pass",
+      "tests": 16,
+      "skipped": 0,
+      "seconds": 0.41
+    },
+    {
+      "module": "core.tests.test_release_body",
+      "status": "pass",
+      "tests": 4,
+      "skipped": 0,
+      "seconds": 0.18
+    },
+    {
+      "module": "core.tests.test_responder_accessors",
+      "status": "pass",
+      "tests": 4,
+      "skipped": 0,
+      "seconds": 0.09
+    },
+    {
+      "module": "core.tests.test_responder_handshake",
+      "status": "pass",
+      "tests": 44,
+      "skipped": 0,
+      "seconds": 3.62
+    },
+    {
+      "module": "core.tests.test_responder_input",
+      "status": "pass",
+      "tests": 19,
+      "skipped": 0,
+      "seconds": 6.01
+    },
+    {
+      "module": "core.tests.test_responder_ownership",
+      "status": "pass",
+      "tests": 57,
+      "skipped": 0,
+      "seconds": 8.96
+    },
+    {
+      "module": "core.tests.test_responder_ported",
+      "status": "pass",
+      "tests": 47,
+      "skipped": 0,
+      "seconds": 17.99
+    },
+    {
+      "module": "core.tests.test_responder_races",
+      "status": "pass",
+      "tests": 13,
+      "skipped": 0,
+      "seconds": 11.72
+    },
+    {
+      "module": "core.tests.test_response_time",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 0.07
+    },
+    {
+      "module": "core.tests.test_same_groups_network",
+      "status": "pass",
+      "tests": 2,
+      "skipped": 0,
+      "seconds": 0.17
+    },
+    {
+      "module": "core.tests.test_scoped_corner",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 0.06
+    },
+    {
+      "module": "core.tests.test_settings_mixed_groups",
+      "status": "pass",
+      "tests": 12,
+      "skipped": 0,
+      "seconds": 15.35
+    },
+    {
+      "module": "core.tests.test_settings_per_key",
+      "status": "pass",
+      "tests": 9,
+      "skipped": 0,
+      "seconds": 0.06
+    },
+    {
+      "module": "core.tests.test_settings_per_key_desks",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 1.08
+    },
+    {
+      "module": "core.tests.test_settings_per_key_review",
+      "status": "pass",
+      "tests": 2,
+      "skipped": 0,
+      "seconds": 1.78
+    },
+    {
+      "module": "core.tests.test_settings_sync",
+      "status": "pass",
+      "tests": 88,
+      "skipped": 0,
+      "seconds": 0.08
+    },
+    {
+      "module": "core.tests.test_shake",
+      "status": "pass",
+      "tests": 27,
+      "skipped": 0,
+      "seconds": 0.25
+    },
+    {
+      "module": "core.tests.test_shortcut_cycle",
+      "status": "pass",
+      "tests": 14,
+      "skipped": 0,
+      "seconds": 0.08
+    },
+    {
+      "module": "core.tests.test_special_keys",
+      "status": "pass",
+      "tests": 16,
+      "skipped": 0,
+      "seconds": 0.05
+    },
+    {
+      "module": "core.tests.test_style_previews",
+      "status": "pass",
+      "tests": 7,
+      "skipped": 0,
+      "seconds": 1.93
+    },
+    {
+      "module": "core.tests.test_switch_arrival",
+      "status": "pass",
+      "tests": 19,
+      "skipped": 0,
+      "seconds": 0.07
+    },
+    {
+      "module": "core.tests.test_switch_display_pair",
+      "status": "pass",
+      "tests": 4,
+      "skipped": 0,
+      "seconds": 0.12
+    },
+    {
+      "module": "core.tests.test_three_desks",
+      "status": "pass",
+      "tests": 15,
+      "skipped": 0,
+      "seconds": 3.02
+    },
+    {
+      "module": "core.tests.test_three_machines",
+      "status": "pass",
+      "tests": 12,
+      "skipped": 0,
+      "seconds": 2.81
+    },
+    {
+      "module": "core.tests.test_tile_resize",
+      "status": "pass",
+      "tests": 7,
+      "skipped": 2,
+      "seconds": 0.09
+    },
+    {
+      "module": "core.tests.test_updates",
+      "status": "pass",
+      "tests": 36,
+      "skipped": 0,
+      "seconds": 0.07
+    },
+    {
+      "module": "core.tests.test_v6_vectors",
+      "status": "pass",
+      "tests": 54,
+      "skipped": 0,
+      "seconds": 0.38
+    },
+    {
+      "module": "core.tests.test_way_helpers",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 0.09
+    },
+    {
+      "module": "core.tests.test_wayland_scroll_wire",
+      "status": "pass",
+      "tests": 10,
+      "skipped": 0,
+      "seconds": 0.11
+    },
+    {
+      "module": "core.tests.test_ways",
+      "status": "pass",
+      "tests": 149,
+      "skipped": 0,
+      "seconds": 0.19
+    },
+    {
+      "module": "core.tests.test_windows_accent_releases",
+      "status": "pass",
+      "tests": 12,
+      "skipped": 0,
+      "seconds": 0.12
+    },
+    {
+      "module": "core.tests.test_windows_tools",
+      "status": "pass",
+      "tests": 6,
+      "skipped": 0,
+      "seconds": 0.11
+    },
+    {
+      "module": "core.tests.test_wire_vectors",
+      "status": "pass",
+      "tests": 17,
+      "skipped": 0,
+      "seconds": 1.9
+    },
+    {
+      "module": "win_app.tests.test_settings_behaviour",
+      "status": "pass",
+      "tests": 17,
+      "skipped": 0,
+      "seconds": 3.33
+    },
+    {
+      "module": "win_app.tests.test_app_config",
+      "status": "pass",
+      "tests": 37,
+      "skipped": 0,
+      "seconds": 0.17
+    },
+    {
+      "module": "win_app.tests.test_settings_migration",
+      "status": "pass",
+      "tests": 74,
+      "skipped": 0,
+      "seconds": 0.62
+    },
+    {
+      "module": "win_app.tests.test_linux_start",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 5.33
+    },
+    {
+      "module": "win_app.tests.test_inject_x11",
+      "status": "pass",
+      "tests": 29,
+      "skipped": 0,
+      "seconds": 0.11
+    },
+    {
+      "module": "win_app.tests.test_inject_portal",
+      "status": "pass",
+      "tests": 41,
+      "skipped": 0,
+      "seconds": 2.67
+    },
+    {
+      "module": "win_app.tests.test_capture_x11",
+      "status": "pass",
+      "tests": 54,
+      "skipped": 0,
+      "seconds": 0.77
+    },
+    {
+      "module": "win_app.tests.test_capture_portal",
+      "status": "pass",
+      "tests": 83,
+      "skipped": 0,
+      "seconds": 10.82
+    },
+    {
+      "module": "win_app.tests.test_sender_motion_flow",
+      "status": "pass",
+      "tests": 8,
+      "skipped": 0,
+      "seconds": 0.13
+    },
+    {
+      "module": "win_app.tests.test_same_os_keys",
+      "status": "pass",
+      "tests": 4,
+      "skipped": 0,
+      "seconds": 1.0
+    },
+    {
+      "module": "win_app.tests.test_linux_desktop",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 0.52
+    },
+    {
+      "module": "win_app.tests.test_portal",
+      "status": "pass",
+      "tests": 11,
+      "skipped": 0,
+      "seconds": 0.64
+    },
+    {
+      "module": "win_app.tests.test_pages_win",
+      "status": "pass",
+      "tests": 87,
+      "skipped": 0,
+      "seconds": 19.73
+    },
+    {
+      "module": "win_app.tests.test_i18n_pages",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 2.95
+    },
+    {
+      "module": "win_app.tests.test_parity",
+      "status": "pass",
+      "tests": 27,
+      "skipped": 0,
+      "seconds": 0.46
+    },
+    {
+      "module": "win_app.tests.test_windows_tool_encoding",
+      "status": "pass",
+      "tests": 6,
+      "skipped": 6,
+      "seconds": 0.16
+    },
+    {
+      "module": "win_app.tests.test_horizontal_scroll",
+      "status": "pass",
+      "tests": 5,
+      "skipped": 0,
+      "seconds": 0.15
+    },
+    {
+      "module": "core.tests.test_portable_packaging",
+      "status": "pass",
+      "tests": 4,
+      "skipped": 0,
+      "seconds": 0.11
+    },
+    {
+      "module": "core.tests.test_windows_launch_manifest",
+      "status": "pass",
+      "tests": 1,
+      "skipped": 0,
+      "seconds": 0.1
+    },
+    {
+      "module": "win_app.tests.test_linux_permissions",
+      "status": "pass",
+      "tests": 13,
+      "skipped": 0,
+      "seconds": 0.53
+    },
+    {
+      "module": "win_app.tests.test_audio_ui",
+      "status": "pass",
+      "tests": 3,
+      "skipped": 0,
+      "seconds": 0.35
+    },
+    {
+      "module": "win_app.tests.test_installer_maintenance",
+      "status": "pass",
+      "tests": 12,
+      "skipped": 10,
+      "seconds": 0.05
+    }
+  ],
+  "excluded_long": [
+    "test_crossing_e2e",
+    "test_profiles_e2e"
+  ]
+}

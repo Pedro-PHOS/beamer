@@ -4,3 +4,8 @@ pyinstaller-hooks-contrib>=2024.1
 PyNaCl>=1.6
 pywin32>=306
 segno>=1.6
+
+# System audio capture/playback (WASAPI / PulseAudio-compatible server).
+SoundCard==0.4.5
+# SoundCard 0.4.5 WASAPI still uses binary fromstring, removed in NumPy 2.3.
+numpy>=1.26,<2.3

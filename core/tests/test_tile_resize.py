@@ -184,6 +184,10 @@ print("old reader, receive_picture and drop kept resized tile at 240x150")
 '''
         for revision in self.revisions:
             with self.subTest(revision=revision), tempfile.TemporaryDirectory(dir=ROOT) as temp:
+                available = subprocess.run(["git", "cat-file", "-e", revision + "^{commit}"],
+                                           cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                if available.returncode:
+                    self.skipTest("Historical upstream commit is absent from this source ZIP")
                 archive = subprocess.run(
                     ["git", "archive", revision, "core"], cwd=ROOT, check=True,
                     stdout=subprocess.PIPE, stderr=subprocess.PIPE,

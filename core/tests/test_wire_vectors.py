@@ -218,7 +218,7 @@ class NoCryptographyTests(unittest.TestCase):
         self.assertEqual(offenders, [])
 
     def test_neither_requirements_file_asks_for_it(self):
-        for path in ("mac_app/requirements-mac.txt", "win_app/requirements-win.txt"):
+        for path in ("win_app/requirements-linux.txt", "win_app/requirements-win.txt"):
             with self.subTest(path=path):
                 with open(os.path.join(_REPO_ROOT, path), encoding="utf-8") as handle:
                     names = [line.split("#")[0].strip().lower() for line in handle]
