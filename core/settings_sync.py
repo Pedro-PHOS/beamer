@@ -912,5 +912,5 @@ def switch_note(who, on, peer_too_old):
 
 def switch_detail(platform=""):
     if platform == "mac":
-        return tr("Connected machines with compatible Beamer versions update now; others catch up when they reconnect. Zones, sides, jump keys, full-screen hold, animation enable and appearance stay on each machine. Notch and trackpad controls stay on this Mac.")
+        return tr("Connected machines with compatible Beamer versions update now; others catch up when they reconnect. Zones, sides, jump keys, full-screen hold, animation enable and appearance stay on each machine. Notch and trackpad controls stay on this machine.")
     return tr("Connected machines with compatible Beamer versions update now; others catch up when they reconnect. Zones, sides, jump keys, full-screen hold, animation enable and appearance stay on each machine.")

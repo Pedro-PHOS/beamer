@@ -1,0 +1,24 @@
+test_capture_selects_only_exact_output_monitor (core.tests.test_audio_stream.AudioDeviceTests.test_capture_selects_only_exact_output_monitor) ... ok
+test_no_fallback_to_physical_microphone (core.tests.test_audio_stream.AudioDeviceTests.test_no_fallback_to_physical_microphone) ... ok
+test_pcm_conversion_sanitizes_non_finite_samples (core.tests.test_audio_stream.AudioDeviceTests.test_pcm_conversion_sanitizes_non_finite_samples) ... ok
+test_defaults_off_and_preferences_round_trip (core.tests.test_audio_stream.AudioSettingsTests.test_defaults_off_and_preferences_round_trip) ... ok
+test_invalid_or_duplex_preferences_are_refused (core.tests.test_audio_stream.AudioSettingsTests.test_invalid_or_duplex_preferences_are_refused) ... ok
+test_audio_key_is_domain_separated_from_input (core.tests.test_audio_stream.AudioTransportTests.test_audio_key_is_domain_separated_from_input) ... ok
+test_authenticated_wrong_identity_cannot_open_playback (core.tests.test_audio_stream.AudioTransportTests.test_authenticated_wrong_identity_cannot_open_playback) ... ok
+test_disabled_audio_never_opens_devices_or_threads (core.tests.test_audio_stream.AudioTransportTests.test_disabled_audio_never_opens_devices_or_threads) ... ok
+test_one_way_only_prevents_feedback (core.tests.test_audio_stream.AudioTransportTests.test_one_way_only_prevents_feedback) ... ok
+test_oversized_frame_is_rejected_before_allocation_or_playback (core.tests.test_audio_stream.AudioTransportTests.test_oversized_frame_is_rejected_before_allocation_or_playback) ... ok
+test_pcm_size_and_format_are_fixed (core.tests.test_audio_stream.AudioTransportTests.test_pcm_size_and_format_are_fixed) ... ok
+test_real_encrypted_stream_preserves_pcm_and_stops (core.tests.test_audio_stream.AudioTransportTests.test_real_encrypted_stream_preserves_pcm_and_stops) ... ok
+test_removing_pairing_stops_active_playback (core.tests.test_audio_stream.AudioTransportTests.test_removing_pairing_stops_active_playback) ... ok
+test_replayed_encrypted_frame_is_not_played_twice (core.tests.test_audio_stream.AudioTransportTests.test_replayed_encrypted_frame_is_not_played_twice) ... ok
+test_stop_receiver_closes_idle_stream (core.tests.test_audio_stream.AudioTransportTests.test_stop_receiver_closes_idle_stream) ... ok
+test_unknown_token_cannot_open_playback (core.tests.test_audio_stream.AudioTransportTests.test_unknown_token_cannot_open_playback) ... ok
+test_first_library_import_precedes_worker_com_initialization (core.tests.test_audio_stream.AudioWindowsCOMTests.test_first_library_import_precedes_worker_com_initialization) ... ok
+test_linux_backend_does_not_import_pythoncom (core.tests.test_audio_stream.AudioWindowsCOMTests.test_linux_backend_does_not_import_pythoncom) ... ok
+test_reconnect_initializes_each_worker_and_cleans_up_on_device_error (core.tests.test_audio_stream.AudioWindowsCOMTests.test_reconnect_initializes_each_worker_and_cleans_up_on_device_error) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.345s
+
+OK

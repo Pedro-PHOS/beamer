@@ -24,7 +24,7 @@ PARTS = return_edge.PARTS
 DEFAULT_PARTS = ["middle"]
 DEFAULT_CORNER = "top_left"
 EDGE_NAMES = {"left": N_("left"), "right": N_("right"), "top": N_("top"), "bottom": N_("bottom")}
-HERE_NAMES = {"this PC": N_("this PC"), "this Mac": N_("this Mac"), "this computer": N_("this computer")}
+HERE_NAMES = {"this PC": N_("this PC"), "this computer": N_("this computer")}
 PART_NAMES_LOWER = {"top": N_("top"), "middle": N_("middle"), "bottom": N_("bottom"),
                     "left": N_("left"), "right": N_("right")}
 CORNER_NAMES = {"top_left": N_("Top left"), "top_right": N_("Top right"),
@@ -957,7 +957,7 @@ def corner_holder(settings: dict, corner: str, exclude: Optional[str] = None) ->
     return None
 
 
-def edge_form_detail(side, methods, parts, here="This Mac") -> str:
+def edge_form_detail(side, methods, parts, here="this computer") -> str:
     """The Edge way's detail on the Crossing page: which form crosses, or where to place it first."""
     if side not in EDGES:
         return tr("Place it beside {here} on the map").format(here=here)
